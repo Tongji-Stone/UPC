@@ -1,0 +1,6 @@
+case,exit_geometric_m,ballistic_coefficient_kg_m2,sounding_top_geopotential_m,blend_width_m,peak_speed_mps,peak_time_s,peak_geometric_height_m,delta_speed_vs_standard_mps,delta_time_vs_standard_s
+USSA 1976,38969.4,148.86561,,,354.286,49.022,28542.3,0.0,0.0
+Santa Teresa 14 Oct 12Z,38969.4,148.86561,25971.0,2000.0,354.286,49.022,28542.3,0.0,-0.0
+Albuquerque 14 Oct 12Z,38969.4,148.86561,30617.0,2000.0,354.519,49.037,28536.5,0.233,0.015
+Santa Teresa 15 Oct 00Z,38969.4,148.86561,32759.0,2000.0,354.626,49.224,28468.7,0.341,0.202
+Albuquerque 15 Oct 00Z,38969.4,148.86561,31878.0,2000.0,354.399,49.0,28549.7,0.114,-0.022

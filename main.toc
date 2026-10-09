@@ -1,0 +1,14 @@
+\contentsline {section}{\numberline {1}Problem and scope}{3}{section.1}%
+\contentsline {section}{\numberline {2}Prior approaches and the missing constraints}{3}{section.2}%
+\contentsline {section}{\numberline {3}Assumptions and notation}{3}{section.3}%
+\contentsline {section}{\numberline {4}Model}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Atmosphere and freefall}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Parachute phase}{5}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Calibration and validation against existing flights}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Data provenance and split}{5}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Independent measured-atmosphere check}{6}{subsection.5.2}%
+\contentsline {section}{\numberline {6}A 190 kg scenario and conditional altitude screen}{7}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Descent and canopy loads}{7}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Why a unique maximum is unavailable}{8}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Risks, strengths, and next measurements}{9}{section.7}%
+\contentsline {section}{\numberline {8}Conclusion}{10}{section.8}%

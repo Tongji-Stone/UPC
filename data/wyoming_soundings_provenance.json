@@ -1,0 +1,74 @@
+[
+  {
+    "station": "72364",
+    "name": "Santa Teresa",
+    "nominal_time_utc": "2012-03-15 12:00:00",
+    "source_url": "https://weather.arcc.uwyo.edu/wsgi/sounding?datetime=2012-03-15+12%3A00%3A00&type=TEXT%3ACSV&id=72364&src=UNKNOWN",
+    "source_response_sha256": "215420ba57d81cc487d85ec29b36ede1ec2a06368d7a69eed06f6afd492ef389",
+    "n_valid_levels": 108,
+    "max_geopotential_height_m": 28414.0
+  },
+  {
+    "station": "72364",
+    "name": "Santa Teresa",
+    "nominal_time_utc": "2012-07-25 12:00:00",
+    "source_url": "https://weather.arcc.uwyo.edu/wsgi/sounding?datetime=2012-07-25+12%3A00%3A00&type=TEXT%3ACSV&id=72364&src=UNKNOWN",
+    "source_response_sha256": "aee420492997dee68922f7f36a22c7c5f8426cbee29569f14899666283449941",
+    "n_valid_levels": 132,
+    "max_geopotential_height_m": 31701.0
+  },
+  {
+    "station": "72364",
+    "name": "Santa Teresa",
+    "nominal_time_utc": "2012-10-14 12:00:00",
+    "source_url": "https://weather.arcc.uwyo.edu/wsgi/sounding?datetime=2012-10-14+12%3A00%3A00&type=TEXT%3ACSV&id=72364&src=UNKNOWN",
+    "source_response_sha256": "fdfbd195dc7fcb622cec851300b36dd4ef09a224f0ce1c1dc43076b6e0192ab9",
+    "n_valid_levels": 108,
+    "max_geopotential_height_m": 25971.0
+  },
+  {
+    "station": "72364",
+    "name": "Santa Teresa",
+    "nominal_time_utc": "2012-10-15 00:00:00",
+    "source_url": "https://weather.arcc.uwyo.edu/wsgi/sounding?datetime=2012-10-15+00%3A00%3A00&type=TEXT%3ACSV&id=72364&src=UNKNOWN",
+    "source_response_sha256": "1ccad56f49de5818b06d61d4b474ad872e759b2f9bec122372f38d6dcf4e9019",
+    "n_valid_levels": 114,
+    "max_geopotential_height_m": 32759.0
+  },
+  {
+    "station": "72365",
+    "name": "Albuquerque",
+    "nominal_time_utc": "2012-03-15 12:00:00",
+    "source_url": "https://weather.arcc.uwyo.edu/wsgi/sounding?datetime=2012-03-15+12%3A00%3A00&type=TEXT%3ACSV&id=72365&src=UNKNOWN",
+    "source_response_sha256": "055441bbf2173c2ab60e365df152c1c65e9b035dbcfab59dc24b06a5a584511f",
+    "n_valid_levels": 123,
+    "max_geopotential_height_m": 31122.0
+  },
+  {
+    "station": "72365",
+    "name": "Albuquerque",
+    "nominal_time_utc": "2012-07-25 12:00:00",
+    "source_url": "https://weather.arcc.uwyo.edu/wsgi/sounding?datetime=2012-07-25+12%3A00%3A00&type=TEXT%3ACSV&id=72365&src=UNKNOWN",
+    "source_response_sha256": "809a467aec419b2710fff63e4cf8c5459452898679bf5eb2295c0cb0f9b9bff0",
+    "n_valid_levels": 112,
+    "max_geopotential_height_m": 25847.0
+  },
+  {
+    "station": "72365",
+    "name": "Albuquerque",
+    "nominal_time_utc": "2012-10-14 12:00:00",
+    "source_url": "https://weather.arcc.uwyo.edu/wsgi/sounding?datetime=2012-10-14+12%3A00%3A00&type=TEXT%3ACSV&id=72365&src=UNKNOWN",
+    "source_response_sha256": "56107bc2eac6d1819ded3256f0ccb47b001c0b1745e946deea6b68e0a579c112",
+    "n_valid_levels": 129,
+    "max_geopotential_height_m": 30617.0
+  },
+  {
+    "station": "72365",
+    "name": "Albuquerque",
+    "nominal_time_utc": "2012-10-15 00:00:00",
+    "source_url": "https://weather.arcc.uwyo.edu/wsgi/sounding?datetime=2012-10-15+00%3A00%3A00&type=TEXT%3ACSV&id=72365&src=UNKNOWN",
+    "source_response_sha256": "b8d0fb156c48f7a5a48006d273c84ca1b3c4f751b09366d3cfc5f5639ae2592b",
+    "n_valid_levels": 122,
+    "max_geopotential_height_m": 31878.0
+  }
+]
