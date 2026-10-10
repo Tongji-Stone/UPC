@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-10T00:14:35.920137+00:00",
+  "passed": true,
+  "main_tex": "main.tex",
+  "project_root": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project",
+  "source_sha256": "64bc71cb5ce57d3e5fcd9d97473951b6cacb3ed3e3e01c3f356bded1e96b3732",
+  "compiled_source_sha256": "64bc71cb5ce57d3e5fcd9d97473951b6cacb3ed3e3e01c3f356bded1e96b3732",
+  "post_build_source_sha256": "64bc71cb5ce57d3e5fcd9d97473951b6cacb3ed3e3e01c3f356bded1e96b3732",
+  "pdf_sha256": "0a41c7f6331213e462c9690fb2d5229cfa832a1f4e910696cd070cd4abf1c3fe",
+  "project_manifest_sha256": null,
+  "engine": "xelatex",
+  "tools": {
+    "latexmk": {
+      "path": "C:\\texlive\\2025\\bin\\windows\\latexmk.EXE",
+      "version": "perl: warning: Setting locale failed."
+    },
+    "xelatex": {
+      "path": "C:\\texlive\\2025\\bin\\windows\\xelatex.EXE",
+      "version": "XeTeX 3.141592653-2.6-0.999997 (TeX Live 2025)"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "C:\\texlive\\2025\\bin\\windows\\latexmk.EXE",
+        "-norc",
+        "-gg",
+        "-xelatex",
+        "-e",
+        "$xelatex = 'xelatex -no-shell-escape %O %S'",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "-outdir=build",
+        "main.tex"
+      ],
+      "cwd": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project",
+      "returncode": 0,
+      "duration_seconds": 4.579
+    }
+  ],
+  "warnings": [],
+  "allowed_warnings": [],
+  "warning_override": {
+    "patterns": [],
+    "reason": null
+  },
+  "issues": [],
+  "reproduce": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\.venv\\Scripts\\python.exe C:\\Users\\HUAWEI\\.codex\\skills\\math-modeling\\tools\\latex\\scripts\\latex_paper.py build D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\main.tex --engine xelatex --timeout 180 --publish D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\main.pdf --overwrite"
+}

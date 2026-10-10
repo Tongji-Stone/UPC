@@ -1,0 +1,33 @@
+# Data profile: UPCchinese/data/stratos_october_digitized.csv
+
+**Shape:** 411 rows × 6 cols
+
+## Columns
+
+| Column | Type | n | missing | summary |
+|---|---|---|---|---|
+| `pixel_x` | continuous | 411 | 0 | mean=921, sd=476, range=[100, 1.74e+03], skew=0.00 (approximately symmetric) |
+| `pixel_y` | continuous | 411 | 0 | mean=415, sd=193, range=[161, 834], skew=0.28 (approximately symmetric) |
+| `height_m` | continuous | 411 | 0 | mean=2.59e+04, sd=7.47e+03, range=[1.3e+04, 3.87e+04], skew=-0.00 (approximately symmetric) |
+| `speed_mps` | continuous | 411 | 0 | mean=260, sd=89.5, range=[66.5, 378], skew=-0.28 (approximately symmetric) |
+| `height_reading_halfwidth_m` | continuous | 411 | 0 | mean=47, sd=0, range=[47, 47], skew=0.00 (approximately symmetric) |
+| `speed_reading_halfwidth_mps` | continuous | 411 | 0 | mean=1.39, sd=6.67e-16, range=[1.39, 1.39], skew=-1.00 (moderately skewed) |
+
+## Correlations (Pearson, sorted by |r|)
+- `pixel_x` ↔ `height_m` : r = -1.000 (very strong)
+- `pixel_y` ↔ `speed_mps` : r = -1.000 (very strong)
+- `height_m` ↔ `speed_mps` : r = 0.395 (moderate)
+- `pixel_y` ↔ `height_m` : r = -0.395 (moderate)
+- `pixel_x` ↔ `speed_mps` : r = -0.395 (moderate)
+- `pixel_x` ↔ `pixel_y` : r = 0.395 (moderate)
+- `pixel_x` ↔ `height_reading_halfwidth_m` : r = nan (very strong)
+- `pixel_x` ↔ `speed_reading_halfwidth_mps` : r = nan (very strong)
+- `pixel_y` ↔ `height_reading_halfwidth_m` : r = nan (very strong)
+- `pixel_y` ↔ `speed_reading_halfwidth_mps` : r = nan (very strong)
+- ... +5 more pairs
+
+## Chart suggestions (preliminary)
+- ≥3 个连续变量 → 相关性热力图（['pixel_x', 'pixel_y', 'height_m', 'speed_mps', 'height_reading_halfwidth_m']）或 pairplot 散点矩阵
+- 单个连续变量 pixel_x → 直方图 / KDE / 箱线图看分布
+
+> 这是基于数据形态的**初步建议**。最终图型选择必须结合**论证目标**（你想说什么）—— 详见 `references/chart_selection.md`。

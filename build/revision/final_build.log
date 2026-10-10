@@ -1,0 +1,128 @@
+{
+  "main_tex": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\main.tex",
+  "project_root": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project",
+  "pdf_path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\build\\main.pdf",
+  "build_manifest": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\build\\main.build.json",
+  "published_pdf": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\main.pdf",
+  "published_manifest": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\main.build.json",
+  "log_path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\build\\main.log",
+  "engine": "xelatex",
+  "warnings": [],
+  "allowed_warnings": [],
+  "issues": [],
+  "passed": true
+}
+{
+  "main_tex": "D:\\LYT\\�����\\���ʴ�ѧ����������\\UPCchinese\\latex_project\\main.tex",
+  "project_root": "D:\\LYT\\�����\\���ʴ�ѧ����������\\UPCchinese\\latex_project",
+  "pdf_path": "D:\\LYT\\�����\\���ʴ�ѧ����������\\UPCchinese\\main.pdf",
+  "source_sha256": "64bc71cb5ce57d3e5fcd9d97473951b6cacb3ed3e3e01c3f356bded1e96b3732",
+  "rendered_pages": 19,
+  "body_pages": null,
+  "page_limit_scope": "total",
+  "pdf_audit": {
+    "pages": 19,
+    "blank_pages": [],
+    "page_sizes_pt": [
+      [
+        595.3,
+        841.9
+      ]
+    ],
+    "unembedded_fonts": [],
+    "raster_images": 0,
+    "min_image_dpi": null,
+    "issues": []
+  },
+  "build_manifest": {
+    "schema_version": 1,
+    "created_at": "2026-10-10T00:14:35.920137+00:00",
+    "passed": true,
+    "main_tex": "main.tex",
+    "project_root": "D:\\LYT\\�����\\���ʴ�ѧ����������\\UPCchinese\\latex_project",
+    "source_sha256": "64bc71cb5ce57d3e5fcd9d97473951b6cacb3ed3e3e01c3f356bded1e96b3732",
+    "compiled_source_sha256": "64bc71cb5ce57d3e5fcd9d97473951b6cacb3ed3e3e01c3f356bded1e96b3732",
+    "post_build_source_sha256": "64bc71cb5ce57d3e5fcd9d97473951b6cacb3ed3e3e01c3f356bded1e96b3732",
+    "pdf_sha256": "0a41c7f6331213e462c9690fb2d5229cfa832a1f4e910696cd070cd4abf1c3fe",
+    "project_manifest_sha256": null,
+    "engine": "xelatex",
+    "tools": {
+      "latexmk": {
+        "path": "C:\\texlive\\2025\\bin\\windows\\latexmk.EXE",
+        "version": "perl: warning: Setting locale failed."
+      },
+      "xelatex": {
+        "path": "C:\\texlive\\2025\\bin\\windows\\xelatex.EXE",
+        "version": "XeTeX 3.141592653-2.6-0.999997 (TeX Live 2025)"
+      }
+    },
+    "commands": [
+      {
+        "command": [
+          "C:\\texlive\\2025\\bin\\windows\\latexmk.EXE",
+          "-norc",
+          "-gg",
+          "-xelatex",
+          "-e",
+          "$xelatex = 'xelatex -no-shell-escape %O %S'",
+          "-interaction=nonstopmode",
+          "-halt-on-error",
+          "-file-line-error",
+          "-outdir=build",
+          "main.tex"
+        ],
+        "cwd": "D:\\LYT\\�����\\���ʴ�ѧ����������\\UPCchinese\\latex_project",
+        "returncode": 0,
+        "duration_seconds": 4.579
+      }
+    ],
+    "warnings": [],
+    "allowed_warnings": [],
+    "warning_override": {
+      "patterns": [],
+      "reason": null
+    },
+    "issues": [],
+    "reproduce": "D:\\LYT\\�����\\���ʴ�ѧ����������\\UPCchinese\\.venv\\Scripts\\python.exe C:\\Users\\HUAWEI\\.codex\\skills\\math-modeling\\tools\\latex\\scripts\\latex_paper.py build D:\\LYT\\�����\\���ʴ�ѧ����������\\UPCchinese\\latex_project\\main.tex --engine xelatex --timeout 180 --publish D:\\LYT\\�����\\���ʴ�ѧ����������\\UPCchinese\\main.pdf --overwrite"
+  },
+  "thresholds": {
+    "min_content_units": 0,
+    "min_pages": 0,
+    "min_equations": 0,
+    "min_figures": 8,
+    "min_tables": 0
+  },
+  "threshold_overrides": [],
+  "metrics": {
+    "content_units": 11033,
+    "equations": 28,
+    "figures": 11,
+    "tables": 9,
+    "citations": 8,
+    "source_files": 9,
+    "question_figure_coverage": {
+      "q1": true
+    }
+  },
+  "issues": [],
+  "passed": true
+}
+
+{
+  "status": "PASS",
+  "pages": 19,
+  "sections": [
+    "����",
+    "ģ�ͼ���",
+    "����˵��",
+    "ģ�ͽ���",
+    "ģ����������",
+    "Σ���Է���",
+    "����",
+    "ģ������"
+  ],
+  "figures": 11,
+  "tables": 9,
+  "equation_environments": 28,
+  "pdf_sha256": "0a41c7f6331213e462c9690fb2d5229cfa832a1f4e910696cd070cd4abf1c3fe"
+}

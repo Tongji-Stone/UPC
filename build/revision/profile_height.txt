@@ -1,0 +1,41 @@
+# Data profile: UPCchinese/results/height_sweep.csv
+
+**Shape:** 87 rows × 10 cols
+
+## Columns
+
+| Column | Type | n | missing | summary |
+|---|---|---|---|---|
+| `height_m` | continuous | 87 | 0 | mean=4.3e+04, sd=2.53e+04, range=[100, 8.6e+04], skew=0.00 (approximately symmetric); -> log axis |
+| `free_g` | continuous | 87 | 0 | mean=2.04, sd=0.994, range=[0, 3.94], skew=0.21 (approximately symmetric) |
+| `recovery_k` | continuous | 87 | 0 | mean=362, sd=106, range=[273, 599], skew=0.83 (moderately skewed) |
+| `stagnation_k` | continuous | 87 | 0 | mean=376, sd=119, range=[273, 640], skew=0.80 (moderately skewed) |
+| `spin_g` | continuous | 87 | 0 | mean=0.0487, sd=0.0432, range=[0, 0.135], skew=0.49 (approximately symmetric) |
+| `opening_g` | continuous | 87 | 0 | mean=4.31, sd=0.565, range=[1.34, 4.42], skew=-4.97 (highly skewed); outliers=14 (IQR) |
+| `landing_mps` | continuous | 87 | 0 | mean=5.5, sd=2.19e-07, range=[5.5, 5.5], skew=-4.28 (highly skewed); outliers=13 (IQR) |
+| `speed_mps` | continuous | 87 | 0 | mean=436, sd=270, range=[0, 887], skew=0.07 (approximately symmetric) |
+| `mach` | continuous | 87 | 0 | mean=1.43, sd=0.868, range=[0, 2.84], skew=0.02 (approximately symmetric) |
+| `total_time_s` | continuous | 87 | 0 | mean=609, sd=107, range=[14.2, 690], skew=-3.08 (highly skewed); outliers=6 (IQR) |
+
+## Correlations (Pearson, sorted by |r|)
+- `recovery_k` ↔ `stagnation_k` : r = 1.000 (very strong)
+- `speed_mps` ↔ `mach` : r = 1.000 (very strong)
+- `height_m` ↔ `mach` : r = 0.999 (very strong)
+- `height_m` ↔ `speed_mps` : r = 0.998 (very strong)
+- `free_g` ↔ `speed_mps` : r = 0.986 (very strong)
+- `stagnation_k` ↔ `spin_g` : r = 0.983 (very strong)
+- `free_g` ↔ `mach` : r = 0.983 (very strong)
+- `spin_g` ↔ `speed_mps` : r = 0.982 (very strong)
+- `free_g` ↔ `spin_g` : r = 0.982 (very strong)
+- `height_m` ↔ `free_g` : r = 0.982 (very strong)
+- ... +35 more pairs
+
+## Chart suggestions (preliminary)
+- ≥3 个连续变量 → 相关性热力图（['height_m', 'free_g', 'recovery_k', 'stagnation_k', 'spin_g']）或 pairplot 散点矩阵
+- 单个连续变量 height_m → 直方图 / KDE / 箱线图看分布
+- height_m 跨数个量级（100 ~ 8.6e+04）→ 用对数 y 轴
+- opening_g 高度偏态（skew=-4.97）→ 考虑对数变换或小提琴图代替均值柱图
+- landing_mps 高度偏态（skew=-4.28）→ 考虑对数变换或小提琴图代替均值柱图
+- total_time_s 高度偏态（skew=-3.08）→ 考虑对数变换或小提琴图代替均值柱图
+
+> 这是基于数据形态的**初步建议**。最终图型选择必须结合**论证目标**（你想说什么）—— 详见 `references/chart_selection.md`。

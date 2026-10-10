@@ -1,0 +1,12 @@
+{
+  "mass_kg":190.0,
+  "reference_mass_kg":121.2,
+  "opening_height_m":2566.8,
+  "inflation_s":8.0,
+  "landing_design_speed_mps":5.5,
+  "canopy_cd":1.5,
+  "limits":{"free_g":5.0,"opening_g":5.0,"recovery_k":400.0,"spin_g":2.0,"landing_mps":6.0},
+  "attitude":{"length_m":1.9,"width_m":0.6,"head_radius_m":0.5,"pitch_stiffness":0.05,"damping":0.5,"yaw_bias":0.002,"theta0_deg":0.0,"pitch_rate0":0.0,"yaw_rate0":0.05},
+  "parameter_status":"Geometry, moment coefficients and screening limits are declared design assumptions, not measurements. See paper and source registry.",
+  "seed":2023
+}

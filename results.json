@@ -1,204 +1,861 @@
 {
-  "fitted_felix_beta_kg_m2": 148.86560611480488,
-  "fitted_felix_cda_m2": 0.8141571660718648,
-  "target_beta_kg_m2": 233.37017460241685,
-  "per_flight_effective_cda_m2": {
-    "2012-03-15": 0.801272669593638,
-    "2012-07-25": 0.8335874291852373,
-    "2012-10-14": 0.6120136869469762
-  },
-  "drag_area_sensitivity": [
-    {
-      "case": "October-only",
-      "cda_m2": 0.6120136869469762,
-      "q_6kpa_crossing_km": 42.73990269761065,
-      "taw_400k_crossing_km": 56.521314977795505,
-      "t0_400k_crossing_km": 53.63626136730765,
-      "joint_screen_km": 42.73990269761065,
-      "q60_kpa": 8.482761797331825,
-      "taw60_k": 423.7876014025163,
-      "t060_k": 447.2514176048693
+  "calibration": {
+    "area_m2": 1.3569699349930187,
+    "single_areas_m2": {
+      "2012-03-15": 1.3354546055365653,
+      "2012-07-25": 1.3893126455614868
     },
-    {
-      "case": "March+July fit",
-      "cda_m2": 0.8141571660718648,
-      "q_6kpa_crossing_km": 58.81597895407681,
-      "taw_400k_crossing_km": 57.670831474056,
-      "t0_400k_crossing_km": 54.960125046216135,
-      "joint_screen_km": 57.670831474056,
-      "q60_kpa": 6.130254622085056,
-      "taw60_k": 415.6517765455211,
-      "t060_k": 437.6239594190332
-    },
-    {
-      "case": "July-only",
-      "cda_m2": 0.8335874291852373,
-      "q_6kpa_crossing_km": 60.293390216596286,
-      "taw_400k_crossing_km": 57.766886183866774,
-      "t0_400k_crossing_km": 55.059887548980676,
-      "joint_screen_km": 57.766886183866774,
-      "q60_kpa": 5.967741901825213,
-      "taw60_k": 414.98352792526134,
-      "t060_k": 436.8327996289247
-    }
-  ],
-  "eustace_drogue_beta_kg_m2": 119.24457440616692,
-  "eustace_check": {
-    "v_peak": 366.6666666666665,
-    "t_peak": 50.158518741802155,
-    "h_at_peak": 30443.56315896547,
-    "sonic_start_s": 34.844013019515224,
-    "sonic_end_s": 67.51027522531075
+    "relative_sse": 8.267342955958697e-05,
+    "training_flights": [
+      "2012-03-15",
+      "2012-07-25"
+    ],
+    "calibration_cd": 0.6,
+    "reference_mass_kg": 121.2
   },
   "validation": [
     {
       "flight": "2012-03-15",
-      "exit_m": 21828.3,
+      "law": "constant",
+      "height_m": 21828.3,
+      "observed_speed_mps": 163.0333,
+      "predicted_speed_mps": 162.08995322424894,
+      "error_pct": -0.5786221439123551,
       "observed_low_g_s": 6.1,
-      "predicted_low_g_s": 6.960993259121988,
-      "observed_open_g": 3.21,
-      "observed_vpeak_mps": 163.0333,
-      "predicted_vpeak_mps": 162.09171885258914,
-      "predicted_tpeak_s": 29.662142917601905,
-      "predicted_hpeak_m": 18611.700590968914,
-      "predicted_sonic_start_s": null,
-      "predicted_sonic_end_s": null
+      "predicted_low_g_s": 6.924547080566547,
+      "predicted_peak_time_s": 29.646852720383805,
+      "predicted_peak_height_m": 18614.199066183097
     },
     {
       "flight": "2012-07-25",
-      "exit_m": 29610.0,
+      "law": "constant",
+      "height_m": 29610.0,
+      "observed_speed_mps": 241.4722,
+      "predicted_speed_mps": 243.1658322177789,
+      "error_pct": 0.7013777228926932,
       "observed_low_g_s": 9.3,
-      "predicted_low_g_s": 12.312682303207513,
-      "observed_open_g": 3.49,
-      "observed_vpeak_mps": 241.4722,
-      "predicted_vpeak_mps": 243.16798797790423,
-      "predicted_tpeak_s": 38.21577809203087,
-      "predicted_hpeak_m": 23730.395404788196,
-      "predicted_sonic_start_s": null,
-      "predicted_sonic_end_s": null
+      "predicted_low_g_s": 12.301545053811683,
+      "predicted_peak_time_s": 38.22958552203153,
+      "predicted_peak_height_m": 23727.064137219706
     },
     {
       "flight": "2012-10-14",
-      "exit_m": 38969.4,
+      "law": "mach",
+      "height_m": 38969.4,
+      "observed_speed_mps": 377.1,
+      "predicted_speed_mps": 340.6533423167697,
+      "error_pct": -9.664984800644483,
       "observed_low_g_s": 25.2,
-      "predicted_low_g_s": 22.32686403087612,
-      "observed_open_g": 3.27,
-      "observed_vpeak_mps": 377.1,
-      "predicted_vpeak_mps": 354.28554317502767,
-      "predicted_tpeak_s": 49.03154453839462,
-      "predicted_hpeak_m": 28538.993354191916,
-      "predicted_sonic_start_s": 34.772370871616594,
-      "predicted_sonic_end_s": 64.85422408968778
+      "predicted_low_g_s": 22.279506482147976,
+      "predicted_peak_time_s": 47.10906024348162,
+      "predicted_peak_height_m": 29306.443344769454
     }
   ],
-  "sweep": [
-    {
-      "exit_km": 40.0,
-      "v_peak_mps": 402.9897475650526,
-      "q_peak_kpa": 4.069267804520696,
-      "taw_peak_k": 296.15284354488927,
-      "t0_peak_k": 305.0035515121825,
-      "mach_peak": 1.3439940329413662,
-      "low_g_s": 27.480012272647794
+  "october": {
+    "speed_mps_peak": 340.6533423167697,
+    "speed_mps_peak_time_s": 47.10906024348162,
+    "speed_mps_peak_height_m": 29306.443344769454,
+    "mach_peak": 1.1310092559180855,
+    "mach_peak_time_s": 47.6110836984676,
+    "mach_peak_height_m": 29135.438062276276,
+    "drag_g_peak": 1.4894420206082548,
+    "drag_g_peak_time_s": 65.78436460529544,
+    "drag_g_peak_height_m": 23402.289377234258,
+    "recovery_k_peak": 277.7187352238343,
+    "recovery_k_peak_time_s": 44.86716613067651,
+    "recovery_k_peak_height_m": 30069.20881178652,
+    "stagnation_k_peak": 283.9085132172276,
+    "stagnation_k_peak_time_s": 45.11351748489686,
+    "stagnation_k_peak_height_m": 29985.56579512782,
+    "spin_g_peak": 0.0,
+    "spin_g_peak_time_s": 0.2501971137127042,
+    "spin_g_peak_height_m": 38969.09678822299,
+    "sonic_times_s": [
+      35.01637120233216,
+      61.33810995798723
+    ],
+    "low_g_s": 22.279506482147976,
+    "duration_s": 266.4666545502265
+  },
+  "october_curve_errors": {
+    "n": 411,
+    "rmse_mps": 22.677082982423997,
+    "mae_mps": 16.28930848221281,
+    "max_abs_error_mps": 53.329070796958376,
+    "bias_mps": -15.674488631099416
+  },
+  "limits": {
+    "free_g": 5.0,
+    "opening_g": 5.0,
+    "recovery_k": 400.0,
+    "spin_g": 2.0,
+    "landing_mps": 6.0
+  },
+  "individual_boundaries": {
+    "free_g": {
+      "metric": "free_g",
+      "limit": 5.0,
+      "crossings_m": [],
+      "feasible_intervals_m": [
+        [
+          100.0,
+          86000.0
+        ]
+      ],
+      "upper_censored": true
     },
-    {
-      "exit_km": 45.0,
-      "v_peak_mps": 464.41464463303765,
-      "q_peak_kpa": 4.541994049491692,
-      "taw_peak_k": 321.5791094741008,
-      "t0_peak_k": 333.34624949572435,
-      "mach_peak": 1.5427274747978927,
-      "low_g_s": 34.3043782953453
+    "opening_g": {
+      "metric": "opening_g",
+      "limit": 5.0,
+      "crossings_m": [],
+      "feasible_intervals_m": [
+        [
+          100.0,
+          86000.0
+        ]
+      ],
+      "upper_censored": true
     },
-    {
-      "exit_km": 50.0,
-      "v_peak_mps": 524.5701250671739,
-      "q_peak_kpa": 5.048543234887549,
-      "taw_peak_k": 349.69232651175935,
-      "t0_peak_k": 364.5350216101928,
-      "mach_peak": 1.7366758116341798,
-      "low_g_s": 41.16070183676642
+    "recovery_k": {
+      "metric": "recovery_k",
+      "limit": 400.0,
+      "crossings_m": [
+        58221.43649254904
+      ],
+      "feasible_intervals_m": [
+        [
+          100.0,
+          58221.43649254904
+        ]
+      ],
+      "upper_censored": false
     },
-    {
-      "exit_km": 55.0,
-      "v_peak_mps": 582.843687969965,
-      "q_peak_kpa": 5.580202650738989,
-      "taw_peak_k": 382.0522830542171,
-      "t0_peak_k": 400.28510659732626,
-      "mach_peak": 1.924002155782954,
-      "low_g_s": 47.859032094906034
+    "spin_g": {
+      "metric": "spin_g",
+      "limit": 2.0,
+      "crossings_m": [],
+      "feasible_intervals_m": [
+        [
+          100.0,
+          86000.0
+        ]
+      ],
+      "upper_censored": true
     },
-    {
-      "exit_km": 60.0,
-      "v_peak_mps": 638.8833911876001,
-      "q_peak_kpa": 6.130254622085056,
-      "taw_peak_k": 415.6517765455211,
-      "t0_peak_k": 437.6239594190332,
-      "mach_peak": 2.1025153769163727,
-      "low_g_s": 54.31486351607142
-    },
-    {
-      "exit_km": 65.0,
-      "v_peak_mps": 692.6112121493893,
-      "q_peak_kpa": 6.694011307377611,
-      "taw_peak_k": 450.25471812178944,
-      "t0_peak_k": 476.13582071385844,
-      "mach_peak": 2.267705375879697,
-      "low_g_s": 60.50090851218593
-    },
-    {
-      "exit_km": 70.0,
-      "v_peak_mps": 744.1559572998541,
-      "q_peak_kpa": 7.268153826324592,
-      "taw_peak_k": 485.6794645079866,
-      "t0_peak_k": 515.6087248593996,
-      "mach_peak": 2.424876970470552,
-      "low_g_s": 66.27683320657326
-    },
-    {
-      "exit_km": 75.0,
-      "v_peak_mps": 793.6658494015073,
-      "q_peak_kpa": 7.850274526505043,
-      "taw_peak_k": 521.7800795062417,
-      "t0_peak_k": 555.8721145562422,
-      "mach_peak": 2.5753392015107064,
-      "low_g_s": 71.91237375831763
-    },
-    {
-      "exit_km": 80.0,
-      "v_peak_mps": 841.2892814280111,
-      "q_peak_kpa": 8.438472274294124,
-      "taw_peak_k": 558.4382146753665,
-      "t0_peak_k": 596.7879978566356,
-      "mach_peak": 2.719652087148265,
-      "low_g_s": 77.27594874153084
-    }
-  ],
-  "chute_60km": {
-    "4.0": {
-      "v_open": 70.27831509810979,
-      "v_landing": 5.5158992504826285,
-      "peak_proper_g": 6.47720930693869,
-      "peak_net_deceleration_g": 5.47720930693869,
-      "t_after_opening": 425.85666840596275
-    },
-    "8.0": {
-      "v_open": 70.27831509810979,
-      "v_landing": 5.515899244838732,
-      "peak_proper_g": 4.408118045016722,
-      "peak_net_deceleration_g": 3.408118045016722,
-      "t_after_opening": 418.4320490435259
+    "landing_mps": {
+      "metric": "landing_mps",
+      "limit": 6.0,
+      "crossings_m": [],
+      "feasible_intervals_m": [
+        [
+          100.0,
+          86000.0
+        ]
+      ],
+      "upper_censored": true
     }
   },
-  "scenario_60km": {
-    "v_peak": 638.8833911876001,
-    "t_peak": 75.69111821242767,
-    "h_at_peak": 33261.27495037988,
-    "low_g_time": 54.31486351607142,
-    "q_peak": 6130.254622085056,
-    "taw_peak": 415.6517765455211,
-    "t0_peak": 437.6239594190332,
-    "mach_peak": 2.1025153769163727,
-    "sonic_start_s": 33.84103645861148
-  }
+  "joint_boundary": {
+    "metric": "joint",
+    "limit": 0.0,
+    "crossings_m": [
+      58221.436492549044
+    ],
+    "feasible_intervals_m": [
+      [
+        100.0,
+        58221.436492549044
+      ]
+    ],
+    "upper_censored": false
+  },
+  "maximum_height_m": 58221.436492549044,
+  "cases": {
+    "40km": {
+      "height_m": 40000,
+      "free_g": 1.789645299454105,
+      "recovery_k": 292.70667325043416,
+      "stagnation_k": 300.88565221545616,
+      "spin_g": 0.032212398157942405,
+      "opening_g": 4.418108236225974,
+      "landing_mps": 5.500406217732787,
+      "speed_mps": 391.2581124263341,
+      "mach": 1.3032949166552807,
+      "total_time_s": 640.5318731282687
+    },
+    "50km": {
+      "height_m": 50000,
+      "free_g": 2.205558346687267,
+      "recovery_k": 346.58814874760367,
+      "stagnation_k": 360.3896866521146,
+      "spin_g": 0.05253084327548843,
+      "opening_g": 4.418108236235222,
+      "landing_mps": 5.500406217732789,
+      "speed_mps": 513.4197735620373,
+      "mach": 1.6973149143075026,
+      "total_time_s": 655.0232634299963
+    },
+    "60km": {
+      "height_m": 60000,
+      "free_g": 2.6258018575990563,
+      "recovery_k": 411.9932231893852,
+      "stagnation_k": 432.813298607461,
+      "spin_g": 0.07465542644716401,
+      "opening_g": 4.418108236241356,
+      "landing_mps": 5.500406217732785,
+      "speed_mps": 628.2284966057186,
+      "mach": 2.059248124662524,
+      "total_time_s": 666.5451136072281
+    },
+    "70km": {
+      "height_m": 70000,
+      "free_g": 3.1185453167585586,
+      "recovery_k": 481.6519291433288,
+      "stagnation_k": 510.19328002647006,
+      "spin_g": 0.09753591697500123,
+      "opening_g": 4.41810823623999,
+      "landing_mps": 5.500406217732781,
+      "speed_mps": 734.0007021970918,
+      "mach": 2.3808922994731154,
+      "total_time_s": 676.4456917617964
+    },
+    "80km": {
+      "height_m": 80000,
+      "free_g": 3.6261680379544443,
+      "recovery_k": 554.1756877934181,
+      "stagnation_k": 590.9129183062205,
+      "spin_g": 0.12072608510639073,
+      "opening_g": 4.418108236221403,
+      "landing_mps": 5.500406217732795,
+      "speed_mps": 831.6334543368752,
+      "mach": 2.6757082548668034,
+      "total_time_s": 685.3275652729255
+    },
+    "limit": {
+      "height_m": 58221.436492549044,
+      "free_g": 2.5404415995392693,
+      "recovery_k": 400.0000001193306,
+      "stagnation_k": 419.51217093461196,
+      "spin_g": 0.07064564082168577,
+      "opening_g": 4.418108236233272,
+      "landing_mps": 5.500406217732785,
+      "speed_mps": 608.4831521836361,
+      "mach": 1.9988941958203983,
+      "total_time_s": 664.6385201912454
+    }
+  },
+  "case_summaries": {
+    "40km": {
+      "free": {
+        "speed_mps_peak": 391.2581124263341,
+        "speed_mps_peak_time_s": 52.42151986631844,
+        "speed_mps_peak_height_m": 27842.19889545155,
+        "mach_peak": 1.3032949166552807,
+        "mach_peak_time_s": 52.993383057938686,
+        "mach_peak_height_m": 27618.471195610506,
+        "drag_g_peak": 1.789645299454105,
+        "drag_g_peak_time_s": 67.69948150845396,
+        "drag_g_peak_height_m": 22205.2557075673,
+        "recovery_k_peak": 292.70667325043416,
+        "recovery_k_peak_time_s": 50.49661198924999,
+        "recovery_k_peak_height_m": 28594.63902688188,
+        "stagnation_k_peak": 300.88565221545616,
+        "stagnation_k_peak_time_s": 50.70811873977072,
+        "stagnation_k_peak_height_m": 28512.08987479706,
+        "spin_g_peak": 0.032212398157942405,
+        "spin_g_peak_time_s": 59.24470398306358,
+        "spin_g_peak_height_m": 25203.90919497968,
+        "sonic_times_s": [
+          33.46286837573666,
+          71.90889938372212
+        ],
+        "low_g_s": 27.075496880820587,
+        "duration_s": 220.89438700279266
+      },
+      "canopy": {
+        "opening_speed_mps": 70.27721564209985,
+        "opening_g_peak": 4.418108236225974,
+        "peak_time_after_open_s": 1.2272506429501928,
+        "landing_mps": 5.500406217732787,
+        "duration_s": 419.637486125476,
+        "canopy_drag_area_m2": 99.74987794427732,
+        "canopy_reference_area_m2": 66.4999186295182,
+        "opening_over_5g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "inflation_s": 8.0
+      },
+      "exposures": {
+        "drag_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "recovery_k": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "spin_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        }
+      }
+    },
+    "50km": {
+      "free": {
+        "speed_mps_peak": 513.4197735620373,
+        "speed_mps_peak_time_s": 63.74920089850087,
+        "speed_mps_peak_height_m": 31376.68875563284,
+        "mach_peak": 1.6973149143075026,
+        "mach_peak_time_s": 64.49175098001948,
+        "mach_peak_height_m": 30995.501145543058,
+        "drag_g_peak": 2.205558346687267,
+        "drag_g_peak_time_s": 86.59712693880792,
+        "drag_g_peak_height_m": 21143.257155377043,
+        "recovery_k_peak": 346.58814874760367,
+        "recovery_k_peak_time_s": 59.24557880296323,
+        "recovery_k_peak_height_m": 33677.84840011657,
+        "stagnation_k_peak": 360.3896866521146,
+        "stagnation_k_peak_time_s": 59.792041992976905,
+        "stagnation_k_peak_height_m": 33400.811765339386,
+        "spin_g_peak": 0.05253084327548843,
+        "spin_g_peak_time_s": 72.49923279276186,
+        "spin_g_peak_height_m": 26974.68431399492,
+        "sonic_times_s": [
+          34.08365347895682,
+          90.29577282716453
+        ],
+        "low_g_s": 39.33396686807384,
+        "duration_s": 235.3857773045465
+      },
+      "canopy": {
+        "opening_speed_mps": 70.2772156422537,
+        "opening_g_peak": 4.418108236235222,
+        "peak_time_after_open_s": 1.2272506429287942,
+        "landing_mps": 5.500406217732789,
+        "duration_s": 419.63748612544975,
+        "canopy_drag_area_m2": 99.74987794427732,
+        "canopy_reference_area_m2": 66.4999186295182,
+        "opening_over_5g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "inflation_s": 8.0
+      },
+      "exposures": {
+        "drag_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "recovery_k": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "spin_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        }
+      }
+    },
+    "60km": {
+      "free": {
+        "speed_mps_peak": 628.2284966057186,
+        "speed_mps_peak_time_s": 74.76169689830269,
+        "speed_mps_peak_height_m": 33960.51387808156,
+        "mach_peak": 2.059248124662524,
+        "mach_peak_time_s": 77.04898250177988,
+        "mach_peak_height_m": 32525.555958639965,
+        "drag_g_peak": 2.6258018575990563,
+        "drag_g_peak_time_s": 93.41867417979792,
+        "drag_g_peak_height_m": 23399.221250846822,
+        "recovery_k_peak": 411.9932231893852,
+        "recovery_k_peak_time_s": 70.94589279244094,
+        "recovery_k_peak_height_m": 36349.5251381829,
+        "stagnation_k_peak": 432.813298607461,
+        "stagnation_k_peak_time_s": 71.42464151811102,
+        "stagnation_k_peak_height_m": 36051.41963954882,
+        "spin_g_peak": 0.07465542644716401,
+        "spin_g_peak_time_s": 84.64807204389732,
+        "spin_g_peak_height_m": 27922.68092692047,
+        "sonic_times_s": [
+          33.83840590622328,
+          104.04901376969947
+        ],
+        "low_g_s": 52.967121921712234,
+        "duration_s": 246.9076274817951
+      },
+      "canopy": {
+        "opening_speed_mps": 70.27721564235574,
+        "opening_g_peak": 4.418108236241356,
+        "peak_time_after_open_s": 1.2272506429481784,
+        "landing_mps": 5.500406217732785,
+        "duration_s": 419.63748612543304,
+        "canopy_drag_area_m2": 99.74987794427732,
+        "canopy_reference_area_m2": 66.4999186295182,
+        "opening_over_5g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "inflation_s": 8.0
+      },
+      "exposures": {
+        "drag_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "recovery_k": {
+          "total_s": 16.73981266939981,
+          "longest_s": 16.73981266939981
+        },
+        "spin_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        }
+      }
+    },
+    "70km": {
+      "free": {
+        "speed_mps_peak": 734.0007021970918,
+        "speed_mps_peak_time_s": 85.10199081247868,
+        "speed_mps_peak_height_m": 35977.05578543367,
+        "mach_peak": 2.3808922994731154,
+        "mach_peak_time_s": 87.68895717983676,
+        "mach_peak_height_m": 34081.54565445427,
+        "drag_g_peak": 3.1185453167585586,
+        "drag_g_peak_time_s": 103.28365208659083,
+        "drag_g_peak_height_m": 23996.669529646046,
+        "recovery_k_peak": 481.6519291433288,
+        "recovery_k_peak_time_s": 81.71419799408834,
+        "recovery_k_peak_height_m": 38457.214706601226,
+        "stagnation_k_peak": 510.19328002647006,
+        "stagnation_k_peak_time_s": 82.14316083526235,
+        "stagnation_k_peak_height_m": 38144.47479730688,
+        "spin_g_peak": 0.09753591697500123,
+        "spin_g_peak_time_s": 95.68660741308304,
+        "spin_g_peak_height_m": 28470.074024746045,
+        "sonic_times_s": [
+          31.90573230906963,
+          115.5793759957696
+        ],
+        "low_g_s": 64.97313029321715,
+        "duration_s": 256.8082056363601
+      },
+      "canopy": {
+        "opening_speed_mps": 70.27721564233302,
+        "opening_g_peak": 4.41810823623999,
+        "peak_time_after_open_s": 1.2272506429685048,
+        "landing_mps": 5.500406217732781,
+        "duration_s": 419.6374861254363,
+        "canopy_drag_area_m2": 99.74987794427732,
+        "canopy_reference_area_m2": 66.4999186295182,
+        "opening_over_5g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "inflation_s": 8.0
+      },
+      "exposures": {
+        "drag_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "recovery_k": {
+          "total_s": 39.251868551683216,
+          "longest_s": 39.251868551683216
+        },
+        "spin_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        }
+      }
+    },
+    "80km": {
+      "free": {
+        "speed_mps_peak": 831.6334543368752,
+        "speed_mps_peak_time_s": 94.7685825113365,
+        "speed_mps_peak_height_m": 37631.268658197856,
+        "mach_peak": 2.6757082548668034,
+        "mach_peak_time_s": 97.60668035533676,
+        "mach_peak_height_m": 35275.97615699389,
+        "drag_g_peak": 3.6261680379544443,
+        "drag_g_peak_time_s": 112.51494629208099,
+        "drag_g_peak_height_m": 24410.016616670444,
+        "recovery_k_peak": 554.1756877934181,
+        "recovery_k_peak_time_s": 91.69593510781502,
+        "recovery_k_peak_height_m": 40181.23637274568,
+        "stagnation_k_peak": 590.9129183062205,
+        "stagnation_k_peak_time_s": 92.08723310535346,
+        "stagnation_k_peak_height_m": 39857.575247739886,
+        "spin_g_peak": 0.12072608510639073,
+        "spin_g_peak_time_s": 105.79630443020255,
+        "spin_g_peak_height_m": 28811.0203379188,
+        "sonic_times_s": [
+          30.15729394338865,
+          125.75501451841663
+        ],
+        "low_g_s": 75.98295903390465,
+        "duration_s": 265.69007914743736
+      },
+      "canopy": {
+        "opening_speed_mps": 70.27721564202388,
+        "opening_g_peak": 4.418108236221403,
+        "peak_time_after_open_s": 1.2272506429642123,
+        "landing_mps": 5.500406217732795,
+        "duration_s": 419.63748612548824,
+        "canopy_drag_area_m2": 99.74987794427732,
+        "canopy_reference_area_m2": 66.4999186295182,
+        "opening_over_5g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "inflation_s": 8.0
+      },
+      "exposures": {
+        "drag_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "recovery_k": {
+          "total_s": 47.87370476723065,
+          "longest_s": 47.87370476723065
+        },
+        "spin_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        }
+      }
+    },
+    "limit": {
+      "free": {
+        "speed_mps_peak": 608.4831521836361,
+        "speed_mps_peak_time_s": 72.84486150576285,
+        "speed_mps_peak_height_m": 33552.688114989825,
+        "mach_peak": 1.9988941958203983,
+        "mach_peak_time_s": 75.07296919574968,
+        "mach_peak_height_m": 32198.698241875987,
+        "drag_g_peak": 2.5404415995392693,
+        "drag_g_peak_time_s": 91.59062029836751,
+        "drag_g_peak_height_m": 23264.97472775945,
+        "recovery_k_peak": 400.0000001193306,
+        "recovery_k_peak_time_s": 68.93645469621437,
+        "recovery_k_peak_height_m": 35922.31025461481,
+        "stagnation_k_peak": 419.51217093461196,
+        "stagnation_k_peak_time_s": 69.42573782078568,
+        "stagnation_k_peak_height_m": 35627.37069601905,
+        "spin_g_peak": 0.07064564082168577,
+        "spin_g_peak_time_s": 82.57214591594416,
+        "spin_g_peak_height_m": 27791.452606814695,
+        "sonic_times_s": [
+          34.19036280901959,
+          101.80171408257678
+        ],
+        "low_g_s": 50.68655657275324,
+        "duration_s": 245.0010340657901
+      },
+      "canopy": {
+        "opening_speed_mps": 70.27721564222131,
+        "opening_g_peak": 4.418108236233272,
+        "peak_time_after_open_s": 1.2272506429357597,
+        "landing_mps": 5.500406217732785,
+        "duration_s": 419.6374861254554,
+        "canopy_drag_area_m2": 99.74987794427732,
+        "canopy_reference_area_m2": 66.4999186295182,
+        "opening_over_5g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "inflation_s": 8.0
+      },
+      "exposures": {
+        "drag_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "recovery_k": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        },
+        "spin_g": {
+          "total_s": 0.0,
+          "longest_s": 0.0
+        }
+      }
+    }
+  },
+  "canopy_4s": {
+    "opening_speed_mps": 70.27721564222131,
+    "opening_g_peak": 6.488973961047725,
+    "peak_time_after_open_s": 0.776491012018221,
+    "landing_mps": 5.500404520956769,
+    "duration_s": 427.0729144122646,
+    "canopy_drag_area_m2": 99.74987794427732,
+    "canopy_reference_area_m2": 66.4999186295182,
+    "opening_over_5g": {
+      "total_s": 0.6656945633050618,
+      "longest_s": 0.6656945633050618
+    },
+    "inflation_s": 4.0
+  },
+  "minimum_inflation_s": 6.373022616938893,
+  "threshold_sensitivity": [
+    {
+      "parameter": "free_g",
+      "value": 4,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "free_g",
+      "value": 5,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "free_g",
+      "value": 6,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "opening_g",
+      "value": 4,
+      "max_height_m": 2993.36233049436,
+      "upper_censored": false
+    },
+    {
+      "parameter": "opening_g",
+      "value": 5,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "opening_g",
+      "value": 6,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "recovery_k",
+      "value": 380,
+      "max_height_m": 55206.61309953406,
+      "upper_censored": false
+    },
+    {
+      "parameter": "recovery_k",
+      "value": 400,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "recovery_k",
+      "value": 420,
+      "max_height_m": 61176.37838823343,
+      "upper_censored": false
+    },
+    {
+      "parameter": "spin_g",
+      "value": 1,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "spin_g",
+      "value": 2,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "spin_g",
+      "value": 3,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "landing_mps",
+      "value": 5.5,
+      "max_height_m": null,
+      "upper_censored": false
+    },
+    {
+      "parameter": "landing_mps",
+      "value": 6,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    },
+    {
+      "parameter": "landing_mps",
+      "value": 6.5,
+      "max_height_m": 58221.436492549044,
+      "upper_censored": false
+    }
+  ],
+  "area_sensitivity": [
+    {
+      "case": "March",
+      "area_m2": 1.3354546055365653,
+      "thermal_height_m": 58155.90522279599,
+      "free_g": 2.5430882210973285,
+      "opening_g": 4.45947567822735,
+      "recovery_k": 400.00000836852814,
+      "spin_g": 0.07073580503749911,
+      "landing_mps": 5.50040379988819
+    },
+    {
+      "case": "joint",
+      "area_m2": 1.3569699349930187,
+      "thermal_height_m": 58221.43285435864,
+      "free_g": 2.5404414258715224,
+      "opening_g": 4.418108236234254,
+      "recovery_k": 399.99997572872417,
+      "spin_g": 0.0706456326464634,
+      "landing_mps": 5.50040621773278
+    },
+    {
+      "case": "July",
+      "area_m2": 1.3893126455614868,
+      "thermal_height_m": 58318.09781392567,
+      "free_g": 2.536547885364625,
+      "opening_g": 4.3580102059879975,
+      "recovery_k": 399.99997136318325,
+      "spin_g": 0.07051281356367829,
+      "landing_mps": 5.500405767383782
+    }
+  ],
+  "attitude_sensitivity": [
+    {
+      "yaw_bias": 0.0,
+      "damping": 0.25,
+      "spin_g": 0.00012746452662224105,
+      "max_rpm": 0.477464829275686
+    },
+    {
+      "yaw_bias": 0.0,
+      "damping": 0.5,
+      "spin_g": 0.00012746452662224105,
+      "max_rpm": 0.477464829275686
+    },
+    {
+      "yaw_bias": 0.0,
+      "damping": 1.0,
+      "spin_g": 0.00012746452662224105,
+      "max_rpm": 0.477464829275686
+    },
+    {
+      "yaw_bias": 0.002,
+      "damping": 0.25,
+      "spin_g": 0.22621879765757663,
+      "max_rpm": 20.11458434333969
+    },
+    {
+      "yaw_bias": 0.002,
+      "damping": 0.5,
+      "spin_g": 0.07064564082168577,
+      "max_rpm": 11.240597632306356
+    },
+    {
+      "yaw_bias": 0.002,
+      "damping": 1.0,
+      "spin_g": 0.019836789694680158,
+      "max_rpm": 5.956380212083654
+    },
+    {
+      "yaw_bias": 0.01,
+      "damping": 0.25,
+      "spin_g": 5.636665726052329,
+      "max_rpm": 100.405581994468
+    },
+    {
+      "yaw_bias": 0.01,
+      "damping": 0.5,
+      "spin_g": 1.7617299929425387,
+      "max_rpm": 56.13275936425857
+    },
+    {
+      "yaw_bias": 0.01,
+      "damping": 1.0,
+      "spin_g": 0.4952732216686267,
+      "max_rpm": 29.76248169334555
+    },
+    {
+      "yaw_bias": 0.03,
+      "damping": 0.25,
+      "spin_g": 50.70199483137852,
+      "max_rpm": 301.1336172525049
+    },
+    {
+      "yaw_bias": 0.03,
+      "damping": 0.5,
+      "spin_g": 15.849030598540123,
+      "max_rpm": 168.36354812655443
+    },
+    {
+      "yaw_bias": 0.03,
+      "damping": 1.0,
+      "spin_g": 4.45650657483295,
+      "max_rpm": 89.2779055971082
+    }
+  ],
+  "pitch_sensitivity": [
+    {
+      "theta0_deg": 5,
+      "speed_mps": 608.486432859695,
+      "recovery_k": 400.0017219652916,
+      "drag_g": 2.5404588411986024
+    },
+    {
+      "theta0_deg": 15,
+      "speed_mps": 608.5121858798428,
+      "recovery_k": 400.0152212703882,
+      "drag_g": 2.5405935189139592
+    },
+    {
+      "theta0_deg": 30,
+      "speed_mps": 608.5995010133744,
+      "recovery_k": 400.0611155925545,
+      "drag_g": 2.5410483433966737
+    }
+  ],
+  "weather_sensitivity": [
+    {
+      "station": "72364",
+      "date": "2012-10-14T12:00:00Z",
+      "top_z_m": 25971.0,
+      "speed_mps": 340.65334231676934,
+      "time_s": 47.109059771244596,
+      "delta_speed_mps": -3.410605131648481e-13
+    },
+    {
+      "station": "72364",
+      "date": "2012-10-15T00:00:00Z",
+      "top_z_m": 32759.0,
+      "speed_mps": 341.01417534056503,
+      "time_s": 47.152705606776145,
+      "delta_speed_mps": 0.360833023795351
+    },
+    {
+      "station": "72365",
+      "date": "2012-10-14T12:00:00Z",
+      "top_z_m": 30617.0,
+      "speed_mps": 340.7534272042775,
+      "time_s": 47.24834001772987,
+      "delta_speed_mps": 0.10008488750781908
+    },
+    {
+      "station": "72365",
+      "date": "2012-10-15T00:00:00Z",
+      "top_z_m": 31878.0,
+      "speed_mps": 340.6955652411266,
+      "time_s": 47.14914593226392,
+      "delta_speed_mps": 0.04222292435690633
+    }
+  ],
+  "convergence": {
+    "free_g": 1.5726391389137007e-07,
+    "opening_g": 4.883579318715192e-09,
+    "recovery_k": 9.191295879951156e-08,
+    "spin_g": 2.1174934139445156e-07,
+    "landing_mps": 4.4886043992775626e-08,
+    "height_difference_m": 0.005628031525702681
+  },
+  "runtime_s": 32.870810985565186
 }

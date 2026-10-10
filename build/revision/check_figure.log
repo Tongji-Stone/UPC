@@ -1,0 +1,169 @@
+
+--- UPCchinese/figures\process_q1_attitude.png ---
+  category: raster  ext: png  size: 160264 B
+  pixels: 2032x1014  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_drag.png ---
+  category: raster  ext: png  size: 66208 B
+  pixels: 2034x851  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_heating.png ---
+  category: raster  ext: png  size: 154289 B
+  pixels: 2035x982  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_opening.png ---
+  category: raster  ext: png  size: 130016 B
+  pixels: 2037x982  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_trajectory.png ---
+  category: raster  ext: png  size: 210808 B
+  pixels: 2035x1141  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\raw_q1_atmosphere.png ---
+  category: raster  ext: png  size: 157750 B
+  pixels: 2038x1174  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\raw_q1_flights.png ---
+  category: raster  ext: png  size: 78865 B
+  pixels: 2036x949  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\raw_q1_october.png ---
+  category: raster  ext: png  size: 100351 B
+  pixels: 2036x1012  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\result_q1_limits.png ---
+  category: raster  ext: png  size: 124296 B
+  pixels: 2034x1111  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\result_q1_spin_sensitivity.png ---
+  category: raster  ext: png  size: 90712 B
+  pixels: 1951x980  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\result_q1_validation.png ---
+  category: raster  ext: png  size: 156970 B
+  pixels: 2037x1047  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\result_q1_weather.png ---
+  category: raster  ext: png  size: 89157 B
+  pixels: 2037x983  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_attitude.svg ---
+  category: vector  ext: svg  size: 41896 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_drag.svg ---
+  category: vector  ext: svg  size: 14987 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_heating.svg ---
+  category: vector  ext: svg  size: 31964 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_opening.svg ---
+  category: vector  ext: svg  size: 26045 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_trajectory.svg ---
+  category: vector  ext: svg  size: 39142 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\raw_q1_atmosphere.svg ---
+  category: vector  ext: svg  size: 47642 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\raw_q1_flights.svg ---
+  category: vector  ext: svg  size: 17414 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\raw_q1_october.svg ---
+  category: vector  ext: svg  size: 32474 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\result_q1_limits.svg ---
+  category: vector  ext: svg  size: 29112 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\result_q1_spin_sensitivity.svg ---
+  category: vector  ext: svg  size: 64743 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\result_q1_validation.svg ---
+  category: vector  ext: svg  size: 32287 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\result_q1_weather.svg ---
+  category: vector  ext: svg  size: 17791 B
+  [PASS] 无问题。
+
+--- UPCchinese/figures\process_q1_attitude.pdf ---
+  category: vector  ext: pdf  size: 25622 B
+  [WARN] PDF 中以下字体可能未嵌入: /XEIJJV+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\process_q1_drag.pdf ---
+  category: vector  ext: pdf  size: 16451 B
+  [WARN] PDF 中以下字体可能未嵌入: /HBTJPH+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\process_q1_heating.pdf ---
+  category: vector  ext: pdf  size: 23056 B
+  [WARN] PDF 中以下字体可能未嵌入: /EAXGOC+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\process_q1_opening.pdf ---
+  category: vector  ext: pdf  size: 19532 B
+  [WARN] PDF 中以下字体可能未嵌入: /GSCPEE+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\process_q1_trajectory.pdf ---
+  category: vector  ext: pdf  size: 22238 B
+  [WARN] PDF 中以下字体可能未嵌入: /ETHRUW+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\raw_q1_atmosphere.pdf ---
+  category: vector  ext: pdf  size: 20489 B
+  [WARN] PDF 中以下字体可能未嵌入: /HEIHTJ+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\raw_q1_flights.pdf ---
+  category: vector  ext: pdf  size: 18211 B
+  [WARN] PDF 中以下字体可能未嵌入: /YHIDHH+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\raw_q1_october.pdf ---
+  category: vector  ext: pdf  size: 23149 B
+  [WARN] PDF 中以下字体可能未嵌入: /ZBVNBM+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\result_q1_limits.pdf ---
+  category: vector  ext: pdf  size: 26286 B
+  [WARN] PDF 中以下字体可能未嵌入: /CFEHUP+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\result_q1_spin_sensitivity.pdf ---
+  category: vector  ext: pdf  size: 28370 B
+  [WARN] PDF 中以下字体可能未嵌入: /GMWKTP+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\result_q1_validation.pdf ---
+  category: vector  ext: pdf  size: 25521 B
+  [WARN] PDF 中以下字体可能未嵌入: /CRAYSM+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- UPCchinese/figures\result_q1_weather.pdf ---
+  category: vector  ext: pdf  size: 20624 B
+  [WARN] PDF 中以下字体可能未嵌入: /PXMHMI+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+

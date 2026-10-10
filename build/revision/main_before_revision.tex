@@ -1,0 +1,296 @@
+% UPC/main.tex 的完整中文译本；使用 XeLaTeX 编译。
+\documentclass[11pt,a4paper]{article}
+\usepackage[UTF8,scheme=plain,fontset=windows]{ctex}
+\usepackage[margin=25mm,headheight=16pt]{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,booktabs,graphicx,float,tabularx,array}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{fancyhdr,lastpage}
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue,citecolor=black,
+  pdftitle={太空跳伞者能够从多高的高度安全下降？},pdfsubject={UPC 2023 问题 A 中文译本}}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.25em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{队号 \underline{\hspace{12mm}} \quad 问题 A}
+\fancyhead[R]{第 \thepage\ 页，共 \pageref{LastPage} 页}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\contentsname}{目录}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+{\Large\bfseries 太空跳伞者能够从多高的高度安全下降？}\\[8pt]
+{\normalsize 队号：\underline{\hspace{30mm}}\qquad 问题 A}\\[15pt]
+{\large\bfseries 摘要}
+\end{center}
+
+对于总质量为 190\,kg 的跳伞者、压力服及降落伞系统，仅凭质量无法确定可存活的出舱高度。还必须明确阻力面积、稳定控制能力、压力服耐热性能、降落伞展开过程及人体载荷。本文采用《1976 年美国标准大气》、随高度变化的重力和分阶段展开的伞衣，建立可复现的一维竖直运动模型。自由落体阶段的阻力面积由 2012 年 3 月和 7 月 Stratos 跳跃的峰值速度拟合，10 月的速度数据不参与拟合。模型对 10 月峰值速度的预测为 354.3\,m\,s$^{-1}$，实测值为 377.1\,m\,s$^{-1}$，低估 6.1\%；峰值出现时间预测为 49.0\,s，报告值约为 50\,s。另对 Alan Eustace 使用稳定伞的跳跃进行单独拟合，预测峰值出现时间为 50.2\,s，报告值为 51\,s。这些稀疏的飞行检验能够约束竖直动力学，但不能验证高空生存极限。
+
+将拟合所得的阻力面积用于 190\,kg 系统时，从 60\,km 高度出舱会产生约 639\,m\,s$^{-1}$ 的峰值速度、6.13\,kPa 的峰值动压，以及 416\,K 的恢复温度近似指标；滞止温度近似指标达到 438\,K。若采用有效阻力面积为 100\,m$^2$、在 8\,s 内充气展开的示例降落伞，模型给出的气动力固有加速度峰值为 4.41\,$g$，海平面着陆速度为 5.52\,m\,s$^{-1}$。两者均不代表经认证的开伞或着陆性能。若假设装备筛选阈值为 6\,kPa 和 400\,K，则中心拟合情景的阈值交点为 57.7\,km。分别由三次 Stratos 飞行推断的有效阻力面积，会使这一条件性筛选高度在 42.7--57.8\,km 之间变化；热指标的选择还会进一步改变结果。由于这些阈值和旋转控制能力缺乏适用的鉴定数据，无法仅由 190\,kg 的质量推断出普遍适用的最大高度。
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{问题与研究范围}
+2023 年国际大学生物理竞赛（University Physics Competition，UPC）问题 A 要求分析：总质量为 190\,kg 的系统从火箭出舱后竖直下降时，面临哪些挑战与危险，以及允许的最大高度是多少\cite{problem}。本文参考随附的同济大学 355 队论文，采用 A4 纸、单栏排版，结构依次为首页居中的标题与摘要、目录、假设、符号、模型、计算、讨论和参考文献\cite{tongji}。本文的文字、计算与图件均为重新编制。原稿指出，竞赛现行规则要求首页仅包含队号、题号、标题和摘要；此处特意将提交队号留空\cite{rules}。
+
+\emph{成功}下降并不只是到达地面。一个可行的过程还需要保持可控姿态，保证压力服和生命保障系统完整，使热暴露与压力暴露处于可接受范围，在合适的高度和空速下打开降落伞，使开伞加速度可承受，并实现可存活的着陆。因此，本文将动力学可行性筛选与经过验证的人体及装备安全界限加以区分。
+
+\section{已有方法与缺失约束}
+表~\ref{tab:prior} 比较了已公布的 2023 年问题 A 解答。其答案存在显著差异，主要原因在于各队选取了不同的限制机制或装备阈值。355 队的旋转耐受判据对阻力加速度进行时间积分，再与按比例放大的历史数值比较；该积分的量纲为速度，因此若没有力矩、力臂、转动惯量和控制模型，就不能单独表征角向旋转。本文保留其对旋转危险的关注，但不将这一判据用作经验安全阈值。
+
+\begin{table}[H]\centering\small
+\caption{部分已公布的问题 A 结果及其主要假定限制。这些论文是建模参考，而非独立验证数据。}
+\label{tab:prior}
+\begin{tabularx}{\linewidth}{p{14mm}p{26mm}Y}\toprule
+队号 & 报告高度 & 主要建模选择 \\\midrule
+355 & 57\,km & 基于阻力的旋转耐受近似指标\cite{tongji}\\
+244 & 61.27\,km & 压力服受热阈值\cite{team244}\\
+447 & 63.78\,km & 热限制；仅考虑开伞时得到的上限远高于此\cite{team447}\\
+464 & 60.675\,km & 在其压力服假设下的热限制\cite{team464}\\
+131 & 约 80--94\,km & 旋转及其他约束会改变答案\cite{team131}\\
+227 & 153\,km & 假定的降落伞耐热性能\cite{team227}\\\bottomrule
+\end{tabularx}
+\end{table}
+
+这些数值的跨度说明，这是一个约束不足的设计问题。只有给定人体及装备的几何形状后，总质量 190\,kg 才能确定转动惯量；只有给定面积和阻力系数后，才能确定阻力。压力服与降落伞的额定性能属于设计输入，不能由质量直接推导。
+
+\section{假设与符号}
+\begin{enumerate}
+\item 跳伞者出舱时火箭位于轨迹顶点，相对于无风的局部大气，速度近似为零。跳伞者沿一维竖直路径运动。模型不考虑风、翻滚、升力和伞绳扭转。
+\item 《1976 年美国标准大气》给出至 86\,km 高度的温度与密度\cite{ussa}。它是参考剖面，并非某次跳跃当天的天气。所有高度扫描均止于 80\,km。
+\item 自由落体采用恒定的有效阻力面积 $C_DA$，并以弹道系数 $\beta=m/(C_DA)$ 表示。这相当于对姿态变化及随马赫数变化的阻力进行平均；将其外推是主要不确定性之一。
+\item 示例主伞在 Stratos 最后一次跳跃的主伞拉伞高度开始展开，即平均海平面以上 2566.8\,m。模型着陆面为海平面，因此并非重建 Stratos 的实际着陆地形。伞衣的阻力面积在 4\,s 或 8\,s 内平滑增长至 100\,m$^2$。真实展开过程需要分阶段收口与充气设计。
+\item 人体、压力服、供氧装置和降落伞组成的整个系统总质量为 190\,kg。100\,m$^2$ 的降落伞有效阻力面积仅为数学情景；尚未证明其伞布、伞绳、备份系统和生命保障装置能够满足这一质量预算。
+\item 热暴露仅采用完全气体的绝热壁温度近似指标概括。该指标并非对压力服表面、降落伞织物或人体温度的预测。
+\end{enumerate}
+
+\begin{table}[H]\centering\small
+\caption{降阶模型中使用的符号。}
+\begin{tabularx}{\linewidth}{lYl}\toprule
+符号 & 含义 & 单位\\\midrule
+$h,v$ & 几何高度；向下速度 & m；m\,s$^{-1}$\\
+$m,\beta$ & 总质量；弹道系数 & kg；kg\,m$^{-2}$\\
+$\rho,T,a$ & 空气密度、温度、声速 & kg\,m$^{-3}$；K；m\,s$^{-1}$\\
+$q$ & 动压，$\rho v^2/2$ & Pa\\
+$a_{\rm p}$ & 气动力引起的固有加速度 & m\,s$^{-2}$\\
+$T_{\rm aw}$ & 绝热壁温度近似指标 & K\\
+$\tau,C_DA_c$ & 伞衣充气时间；完全展开后的阻力面积 & s；m$^2$\\\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{模型}
+\subsection{大气与自由落体}
+程序计算 1976 年标准大气的各位势高度分层，将几何高度 $h$ 转换为位势高度 $z=R_Eh/(R_E+h)$，并由 $\rho=p/(R_{\rm air}T)$ 得到密度。声速为 $a=\sqrt{\gamma R_{\rm air}T}$。取向下速度为正，有
+\begin{align}
+\dot h&=-v,\\
+\dot v&=g_0\left(\frac{R_E}{R_E+h}\right)^2-\frac{\rho(h)v|v|}{2\beta},
+\qquad
+\beta=\frac{m}{C_DA}.
+\label{eq:motion}
+\end{align}
+模型计算 $M=v/a$ 和 $q=\rho v^2/2$。自由落体阶段的固有加速度为 $a_{\rm p}=qC_DA/m=q/\beta$。刚出舱时，即使重力加速度仍接近 $g$，固有加速度也应较小。
+
+为进行受热\emph{筛选}，本文同时计算湍流恢复温度和理想滞止温度：
+\begin{equation}
+T_{\rm aw}=T\left(1+r\frac{\gamma-1}{2}M^2\right),\qquad
+r=\mathrm{Pr}^{1/3}\simeq 0.89,\quad \mathrm{Pr}=0.71,
+\qquad T_0=T+\frac{v^2}{2c_p}.
+\label{eq:heat}
+\end{equation}
+两个近似指标对应不同的暴露位置：理想滞止点的温度可接近 $T_0$，而湍流表面的恢复温度采用 $T_{\rm aw}$。两者都不能确定热流密度、暴露时长、各层材料中的热传导或实际压力服温度。在低密度和超声速条件下，两者的适用性尤其存疑。由任一指标得到的热阈值交点都明确依赖所设条件。
+
+\subsection{降落伞阶段}
+到达选定的开伞高度后，模型继续使用式~\eqref{eq:motion}，但将 $C_DA$ 替换为
+\begin{equation}
+\begin{aligned}
+C_DA(t)&=C_DA_{\rm free}
+ +\bigl(C_DA_c-C_DA_{\rm free}\bigr)S(x),\\
+S(x)&=3x^2-2x^3,\qquad
+x=\max\left(0,\min\left[1,\frac{t-t_{\rm open}}{\tau}\right]\right).
+\end{aligned}
+\label{eq:canopy}
+\end{equation}
+若名义海平面终端速度目标为 5.5\,m\,s$^{-1}$，稳态受力平衡给出
+\begin{equation}
+(C_DA)_c \simeq \frac{2mg_0}{\rho_0v_{\rm target}^2}
+=\frac{2(190)(9.80665)}{(1.225)(5.5)^2}
+\simeq 100\ {\rm m^2}.
+\label{eq:canopysize}
+\end{equation}
+该目标是示例设计输入，并非经认证的损伤阈值。有效阻力面积不同于伞布面积，且此计算不用于推断伞衣或伞绳的质量。
+
+所得 $a_{\rm p}=q C_DA(t)/m$ 为模型中的\emph{总气动力固有加速度}；向下的净加速度为 $g-a_{\rm p}$。它不等于背带伞绳载荷，后者取决于伞衣受力及充气瞬态。模型未包含拉紧冲击力、附加空气质量和充气超调。开伞时的空速与局部气压也必须对照真实降落伞经认证的展开包线进行检查。NASA 的降落伞工程研究将开伞峰值载荷视为单独的设计量，但所引用研究针对的是火星降落伞，而非人员用装备\cite{nasaopen}。平滑充气规律是一个假设明确的情景，并非降落伞鉴定模型。
+
+\section{利用已有飞行进行标定与验证}
+\subsection{数据来源与划分}
+Stratos 科学峰会报告给出了 2012 年三次跳跃的实测汇总值\cite{stratos}，而非原始 GPS 或加速度计采样数据。经同行评议的 Stratos 分析报告了 121.2\,kg 的穿戴装备后质量，以及随姿态和马赫数变化的投影面积与阻力\cite{guerster}。其数据来自同一次任务，因此属于辅助解释资料，而非独立飞行数据。本文用 3 月与 7 月的峰值速度拟合一个自由落体弹道系数 $\beta$；10 月的\emph{速度记录}不参与拟合，而是留作检验。不过，121.2\,kg 的质量来自 10 月飞行分析，是物理输入估计，并非盲测参数。随后将拟合的\emph{阻力面积}而非拟合的 $\beta$ 用于 190\,kg 系统：
+\begin{equation}
+(C_DA)_{\rm fit}=\frac{121.2}{148.87}=0.8142~{\rm m^2},
+\qquad
+\beta_{190}=\frac{190}{0.8142}=233.37~{\rm kg\,m^{-2}}.
+\label{eq:transfer}
+\end{equation}
+这一迁移建立在明确声明的形状假设上。更重的压力服、不同姿态或稳定装置均可能改变阻力面积。
+
+\begin{table}[H]\centering\small
+\caption{任务实测汇总值与自由落体模型预测。3 月和 7 月的峰值速度用于标定；10 月留作检验。低 $g$ 时长指报告中固有加速度低于 0.1\,$g$ 的持续时间。}
+\label{tab:validation}
+\begin{tabular}{lrrrrr}\toprule
+2012 年飞行 & 出舱高度 & 实测峰速 & 预测峰速 & 实测低 $g$ & 预测低 $g$\\
+ & (km) & \multicolumn{2}{c}{(m\,s$^{-1}$)} & \multicolumn{2}{c}{(s)}\\\midrule
+3 月 15 日 & 21.828 & 163.0 & 162.1 & 6.1 & 7.0\\
+7 月 25 日 & 29.610 & 241.5 & 243.2 & 9.3 & 12.3\\
+10 月 14 日 & 38.969 & 377.1 & 354.3 & 25.2 & 22.3\\\bottomrule
+\end{tabular}
+\end{table}
+
+10 月峰值速度的相对误差为 $-6.1\%$；模型预测峰值出现在 49.0\,s，报告值约为 50\,s。首次达到声速的预测时间为 34.8\,s，报告值为 34\,s；再次降至声速以下的预测时间为 64.9\,s，报告值为 64\,s\cite{stratos}。时间上的接近不能消除峰值速度误差：固定有效阻力面积未能体现高度、马赫数及人体姿态的影响。7 月低 $g$ 时长较大的偏差也显示出模型局限。本文没有用这些数据拟合任何安全阈值。
+
+\begin{figure}[H]\centering
+\includegraphics[width=.84\linewidth]{figures/flight_validation.png}
+\caption{模型与公开 Stratos 峰值速度及初始低加速度时段的比较。只有 3 月和 7 月峰值速度用于标定中心 $\beta$；10 月速度及全部低 $g$ 时长均用于检验。观测值为公开汇总数据，并非重建的遥测记录。}
+\end{figure}
+
+Alan Eustace 的 2014 年飞行提供了另一次任务的数据：人体与装备总质量约为 200\,kg，出舱高度为 41.422\,km，在 51\,s 后达到 1320\,km\,h$^{-1}$ 的峰值速度，并在 35\,s 后达到马赫数 1\cite{fai}。其使用稳定伞的几何构型与 Stratos 自由落体构型不同。用公开峰值速度单独拟合有效弹道系数 $\beta=119.24$\,kg\,m$^{-2}$，得到峰值出现时间 50.2\,s、首次达到马赫数 1 的时间 34.8\,s。这是在另一种下降工况下对时间的检验；由于速度参与了拟合，且有效阻力已改变，它并非对 190\,kg 高空下降的独立验证。
+
+完成留出检验后，本文分别根据\emph{每次} Stratos 峰值速度反求有效阻力面积，以诊断不同飞行之间的变化（表~\ref{tab:cda}）。10 月的估计值明显较小；姿态和跨声速阻力变化可能解释这一差异，但仅凭一个峰值速度无法区分各因素。这些单次估计值\emph{没有}重新加入原先的 3 月与 7 月标定。下文仅将其离散程度用于经验敏感性情景，而非置信区间。
+
+\begin{table}[H]\centering\small
+\caption{根据公开峰值速度及 121.2\,kg 质量得到的单次飞行有效阻力面积估计。各值均为在一维模型中重现对应飞行峰值速度所需的 $C_DA$。}
+\label{tab:cda}
+\begin{tabular}{lrrr}\toprule
+Stratos 飞行 & 3 月 15 日 & 7 月 25 日 & 10 月 14 日\\\midrule
+推断的 $C_DA$ (m$^2$) & 0.801 & 0.834 & 0.612\\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{独立的实测大气检验}
+标准大气是气候参考，而非任何一次跳跃当天的大气。为检验它在有观测地区的局部适用性，本文从怀俄明大学高空观测档案获取了八个带日期的无线电探空剖面：圣特雷莎（Santa Teresa）站 72364 与阿尔伯克基（Albuquerque）站 72365 在 Stratos 3 月、7 月和 10 月跳跃日期的资料，以及 10 月 14 日之后的一个 00Z 时次剖面\cite{wyoming}。清洗后的分层数据、来源网址与响应哈希随计算文件提供。剖面记录气压和温度随\emph{位势}高度的变化；在 10、20 和 25\,km 处，本文对温度作线性插值、对气压作对数插值，再用 $p/(R_{\rm air}T)$ 计算密度。这是与独立观测系统进行比较，而非再次拟合 $\beta$。
+
+\begin{table}[H]\centering\small
+\caption{附近站点 2012 年 10 月 14 日 12Z 探空与 1976 年参考大气的比较。密度偏差为固定位势高度处的 $(\rho_{\rm obs}/\rho_{\rm std}-1)\times100\%$。}
+\label{tab:sounding}
+\begin{tabular}{lrrr}\toprule
+站点 & 高度 (km) & $T_{\rm obs}-T_{\rm std}$ (K) & 密度偏差 (\%)\\\midrule
+圣特雷莎 & 10 & +8.18 & +2.74\\
+圣特雷莎 & 20 & $-8.94$ & +6.48\\
+圣特雷莎 & 25 & $-5.01$ & +2.58\\
+阿尔伯克基 & 10 & +6.57 & +2.66\\
+阿尔伯克基 & 20 & $-7.28$ & +5.76\\
+阿尔伯克基 & 25 & $-4.20$ & +2.20\\\bottomrule
+\end{tabular}
+\end{table}
+
+两站距罗斯韦尔（Roswell）机场参考点分别约 259\,km 和 273\,km。其 10 月 12Z 剖面分别止于 25.97\,km 和 30.62\,km；既未观测到示例 60\,km 下降情景中约 33\,km 高度的速度峰值区域，更未覆盖 60--80\,km 的出舱区域。图~\ref{fig:sounding} 显示，即使选定高度处的密度差异仅为几个百分点，参考温度仍未能反映部分竖直结构。因此，大气比较仅检验了有观测的较低大气层，不能验证高空受热或整条轨迹。
+
+\begin{figure}[H]\centering
+\includegraphics[width=.82\linewidth]{figures/sounding_validation.png}
+\caption{2012 年 10 月 14 日 12Z 实测探空与 1976 年参考剖面。左图为温度，右图为观测密度相对于参考值的偏差。资料来源站点位于附近，并不在 Stratos 飞行路径上。}
+\label{fig:sounding}
+\end{figure}
+
+\section{190 kg 情景与条件性高度筛选}
+\subsection{下降过程与伞衣载荷}
+从 60\,km 出舱时，迁移后的自由落体阻力面积给出的峰值速度为 638.9\,m\,s$^{-1}$，出现在 33.26\,km 高度；峰值动压为 6.13\,kPa，$T_{\rm aw}$ 最大值为 415.7\,K，$T_0$ 最大值为 437.6\,K。最大马赫数约为 2.1，明显超过 10 月 Stratos 跳跃所覆盖的约 1.25 马赫范围\cite{guerster}。这些最大值出现在不同位置，不能当作同时发生的状态组合使用。在 2566.8\,m 主伞拉伞高度附近，模型自由落体速度为 70.3\,m\,s$^{-1}$。表~\ref{tab:canopy} 展示了假定充气时间如何改变总气动力固有加速度；两个情景的海平面着陆速度均接近 5.52\,m\,s$^{-1}$。所需降落伞系统及这一着陆速度都尚未被证明对 190\,kg 系统安全。
+
+\begin{table}[H]\centering\small
+\caption{从 60\,km 出舱、伞衣阻力面积为 100\,m$^2$ 的示例情景。峰值固有加速度以模型总气动力除以 $mg_0$ 表示，并非实测背带冲击。}
+\label{tab:canopy}
+\begin{tabular}{lrrr}\toprule
+充气时间 (s) & 开伞速度 (m\,s$^{-1}$) & 峰值固有载荷 ($g_0$) & 着陆速度 (m\,s$^{-1}$)\\\midrule
+4 & 70.28 & 6.48 & 5.52\\
+8 & 70.28 & 4.41 & 5.52\\\bottomrule
+\end{tabular}
+\end{table}
+
+在 8\,s 情景中，计算得到约需 243\,s 到达主伞拉伞高度，再经过 418\,s 到达假定的海平面着陆面，总计约 11.0\,min。供氧、压力调节、冷却与备份系统必须在整个时段内工作，并留有储备。190\,kg 的质量预算尚未分配到人体、压力服、气体供应、主伞、备份伞及伞绳等组成部分。
+
+\begin{figure}[H]\centering
+\includegraphics[width=.84\linewidth]{figures/speed_altitude.png}
+\caption{190\,kg 示例自由落体在不同释放高度下的速度与高度关系。各曲线采用相同的迁移后有效阻力面积。}
+\end{figure}
+
+\subsection{为何无法给出唯一的最大高度}
+对于指定设计，最大高度应为满足\emph{全部}约束的最大 $H$，例如
+\begin{equation}
+\begin{aligned}
+H_{\max}(\mathcal D)=\sup\{H:\;&
+q_{\max}(H)\le q_{\rm allow},\
+T_{\rm suit,max}(H)\le T_{\rm allow},\\
+&
+a_{\rm open,max}(H)\le a_{\rm allow},\
+\text{其他安全检查通过}\}.
+\end{aligned}
+\label{eq:bound}
+\end{equation}
+其中，$\mathcal D$ 表示装备与生理性能规范。题目未给出 $q_{\rm allow}$ 或压力服温度上限。更重要的是，式~\eqref{eq:heat} 并未计算 $T_{\rm suit,max}$。仅凭竖直速度也无法推断稳定性。公开报告讨论了失控平旋的危险及平流层跳跃中实际发生的旋转\cite{spin,stratos}；真实的高度界限需要角运动动力学与控制试验。压力服气压、供氧时长、减压及面罩完整性均需要单独规定。NASA 的人因系统标准表明，加速度耐受能力取决于方向、持续时间及约束方式，而非单一、普遍适用的 $g$ 数值\cite{nasahuman}。
+
+为具体展示敏感性，本文暂取 $q_{\rm allow}=6$\,kPa 与 $T_{\rm aw,allow}=400$\,K，作为\emph{假设的装备筛选值}。在拟合 $C_DA$ 下，动压上限对应的人体气动力固有载荷约为 2.62\,$g$，但 $q$ 本身并非人体损伤指标。这两个数值均不是经认证的压力服、头盔或降落伞额定值。在计算所得的 5\,km 网格上进行线性插值，动压阈值交点为 58.8\,km，恢复温度阈值交点为 57.7\,km；中心阻力面积拟合下，两者的较小值为 57.7\,km。若将同一 400\,K 标记改用于滞止温度近似指标 $T_0$，中心情景的交点变为 55.0\,km。这并未确定热失效温度，而是在衡量模型定义的敏感性。
+
+表~\ref{tab:screen} 将各次飞行的单次有效阻力面积迁移到 190\,kg 后，重复使用\emph{相同的假设阈值}。联合筛选高度为 42.7--57.8\,km。特别是，较小的面积会产生较高的动压，使假定动压阈值的交点明显下降。该范围既非概率区间，也非经过验证的可存活高度范围：三次拟合的数据稀疏，因使用相关装备而相互关联，并且外推远超其观测马赫数范围。
+
+\begin{table}[H]\centering\small
+\caption{示例高度筛选对有效阻力面积的敏感性。交点采用相同的假设标记：6\,kPa 动压与 400\,K 恢复温度；高度值均为释放高度，单位为 km。}
+\label{tab:screen}
+\begin{tabular}{lrrrr}\toprule
+阻力面积迁移情景 & $C_DA$ (m$^2$) & $q=6$\,kPa & $T_{\rm aw}=400$\,K & 联合筛选\\\midrule
+仅用 10 月 & 0.612 & 42.7 & 56.5 & 42.7\\
+3 月与 7 月中心拟合 & 0.814 & 58.8 & 57.7 & 57.7\\
+仅用 7 月 & 0.834 & 60.3 & 57.8 & 57.8\\\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]\centering
+\includegraphics[width=.88\linewidth]{figures/loads_sweep.png}
+\caption{三种迁移后的有效阻力面积下，峰值动压与恢复温度近似指标随出舱高度的变化。虚线表示假设的 6\,kPa 与 400\,K 筛选阈值；点线为中心情景的滞止温度近似指标。它们均非经认证的装备极限。}
+\end{figure}
+
+\section{风险、优点与后续测量}
+主要危险包括稀薄空气中的姿态不稳定与平旋；跨声速及超声速阻力的不确定性；气动加热及织物或面罩局部热点；生命保障或压力丧失；开伞冲击、伞绳扭转或伞衣失效；以及硬着陆或不适宜的着陆地点。竖直火箭释放避免了轨道再入速度，但若出舱时火箭存在明显的水平速度，就需要不同的轨迹模型，该速度也可能主导受热。在所建模的最高高度处，自由落体阶段会在极低密度空气中停留更久；即使竖直动力学仍可计算，更长的时间也会改变供氧和压力服需求。
+
+一个最低限度的姿态模型需要
+\begin{equation}
+I\dot\omega=qA\ell C_M(\alpha,M)-c_\omega\omega,
+\qquad
+a_{\rm head}\simeq \omega^2r_{\rm head},
+\label{eq:spin}
+\end{equation}
+其中，$I$ 为人体与装备的转动惯量，$\ell$ 为气动力矩力臂，$C_M$ 为力矩系数，$c_\omega$ 为旋转阻尼，$r_{\rm head}$ 为头部至旋转轴的距离。这些量及控制力矩能力，均无法由质量或竖直飞行汇总值确定。Stratos 报告记录了实际的平旋事件，但其持续时间与受力不能简单地按向下阻力加速度的积分进行缩放\cite{stratos}。在 60\,km 出舱高度，标准大气压力仅约 22\,Pa，进一步凸显了全程使用压力服与独立供氧系统的必要性。
+
+模型的优点是采用可追溯的公开观测，明确区分速度标定与留出检验，单独处理稳定伞工况，单位与数值输出可复现，并在最大高度结论中清楚呈现假设。其弱点影响更为显著：现有公开任务数据仅为稀疏汇总值；固定阻力面积不能表征人体运动和可压缩性；标准大气忽略实际天气；两个热指标均非材料温度；伞衣充气规律遗漏冲击峰值；且未拟合角运动动力学或医学耐受模型。42.7--57.8\,km 的跨度是假设阈值下的敏感性结果，并非安全区间。它与任何先前队伍的单一数值答案接近，都不能作为独立佐证。
+
+最有价值的验证数据是仪器化试验下降过程中带时间戳的高度、速度、姿态或旋转速率、压力服气压与温度、供氧状态及降落伞伞绳载荷记录。公开 Stratos 数据仅支持离散点上的竖直运动检验。要得到可用于实际飞行的结论，还需要经认证的压力服与降落伞使用包线，以及经过实测的旋转控制设计。
+
+\section{结论}
+仅给定 190\,kg 的总质量，无法唯一确定题目所要求的最大高度。在所述标准大气模型及示例 6\,kPa/400\,K 装备筛选阈值下，3 月与 7 月阻力面积拟合给出的高度约为 57.7\,km。改用其他 Stratos 飞行的单次有效阻力面积，同一计算得到 42.7--57.8\,km；采用滞止温度而非湍流恢复温度近似指标，中心情景的 400\,K 交点则从 57.7\,km 变为 55.0\,km。60\,km 情景的峰值速度为 639\,m\,s$^{-1}$、峰值动压为 6.13\,kPa，但这些输出以及模型着陆速度均不能证明能够存活。可信的最大高度需要完整满足 190\,kg 质量预算的装备设计、额定受热和展开限制、姿态控制与生命保障数据，以及仪器化飞行验证。
+
+\begin{thebibliography}{99}\small
+\bibitem{problem} 国际大学生物理竞赛，\emph{2023 年竞赛：问题 A，太空跳伞（Space Diving）}。\url{https://www.uphysicsc.com/2023contest.html}。
+\bibitem{rules} 国际大学生物理竞赛，\emph{竞赛规则（Contest Rules）}。\url{https://uphysicsc.com/contestrules.html}。
+\bibitem{tongji} 355 队，\emph{太空跳跃的最大安全高度（Maximum safe altitude for space jumps）}，2023 年。随附稿件；公开版本：\url{https://www.uphysicsc.com/2023-GM-A-355.pdf}。
+\bibitem{team131} 131 队，\emph{2023 年问题 A 解答}。\url{https://www.uphysicsc.com/2023-GM-A-131.pdf}。
+\bibitem{team227} 227 队，\emph{2023 年问题 A 解答}。\url{https://www.uphysicsc.com/2023-GM-A-227.pdf}。
+\bibitem{team244} 244 队，\emph{2023 年问题 A 解答}。\url{https://www.uphysicsc.com/2023-GM-A-244.pdf}。
+\bibitem{team447} 447 队，\emph{2023 年问题 A 解答}。\url{https://www.uphysicsc.com/2023-GM-A-447.pdf}。
+\bibitem{team464} 464 队，\emph{2023 年问题 A 解答}。\url{https://www.uphysicsc.com/2023-GM-A-464.pdf}。
+\bibitem{ussa} NOAA、NASA 与美国空军，\emph{1976 年美国标准大气（U.S. Standard Atmosphere, 1976）}。NASA 技术报告服务器，1977 年。\url{https://ntrs.nasa.gov/citations/19770009539}。
+\bibitem{stratos} Red Bull Stratos，\emph{Stratos 科学峰会报告（Stratos Scientific Summit Report）}，2013 年，第 7、10--11、46 页。\url{https://lru.praxis.dk/Lru/microsites/hvadermatematik/hem3download/kap3a_QR20_ekstra_Report_Final.pdf}。
+\bibitem{wyoming} 怀俄明大学大气科学系，\emph{高空探空档案（Upper Air Sounding Archive）}，72364 与 72365 站的 2012 年带日期剖面。\url{https://weather.arcc.uwyo.edu/wsgi/sounding}。
+\bibitem{guerster} M.~Guerster 与 U.~Walter，\emph{高度不规则物体在跨声速条件下的空气动力学——STRATOS 飞行数据分析（Aerodynamics of a highly irregular body at transonic speeds---Analysis of STRATOS flight data）}，PLOS ONE，2017 年。\url{https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187798}。
+\bibitem{fai} FAI，\emph{Alan Eustace 的高空跳伞纪录仍未被打破（Alan Eustace's High-Altitude Parachute Jump Records Still Stand）}，2024 年。\url{https://www.fai.org/news/yet-be-beaten-alan-eustaces-high-altitude-parachute-jump-records-still-stand-10-years}。
+\bibitem{nasaopen} D.~W.~Way，\emph{基于动量预测超声速降落伞开伞峰值载荷的指标（A Momentum-Based Indicator for Predicting the Peak Opening Load of Supersonic Parachutes）}，NASA 技术报告服务器，2018 年。\url{https://ntrs.nasa.gov/citations/20180006292}。
+\bibitem{nasahuman} NASA，\emph{人因集成设计手册：自然与诱发环境（Human Integration Design Handbook, Natural and Induced Environments）}。\url{https://www.nasa.gov/reference/6-0-natural-and-induced-environments-vol-2/}。
+\bibitem{spin} J.~M.~Pattarini 等，\emph{高空自由落体中的平旋与负 Gz：病理生理学、预防与治疗（Flat spin and negative Gz in high-altitude free fall: pathophysiology, prevention, and treatment）}，Aviation, Space, and Environmental Medicine，2013 年。\url{https://pubmed.ncbi.nlm.nih.gov/24024308/}。
+\end{thebibliography}
+\end{document}

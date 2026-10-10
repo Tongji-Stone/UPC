@@ -1,0 +1,110 @@
+{
+  "main_pdf_sha256": "0a41c7f6331213e462c9690fb2d5229cfa832a1f4e910696cd070cd4abf1c3fe",
+  "resources": [
+    {
+      "source": "main.tex",
+      "staged": "latex_project\\main.tex",
+      "sha256": "9db4bbebcfbd0e3df123323e7e3f33a1d49fb78f2c11ef1c8ebea23b5f5183fb"
+    },
+    {
+      "source": "generated\\area.tex",
+      "staged": "latex_project\\generated\\area.tex",
+      "sha256": "bc0dd1ac77186badc394143f528a7170f68075fa77fc4dd8b4ca72d4fba3ecaf"
+    },
+    {
+      "source": "generated\\atmosphere_check.tex",
+      "staged": "latex_project\\generated\\atmosphere_check.tex",
+      "sha256": "4435c8b256a06ddef390b6f5ecd07d5b01d52a43beb3a263cdc1dc7e1a2fadf8"
+    },
+    {
+      "source": "generated\\cases.tex",
+      "staged": "latex_project\\generated\\cases.tex",
+      "sha256": "2a29afa1650ca049fdb5e98ba3217fa1952f446d09cf3557174b354434fe89f0"
+    },
+    {
+      "source": "generated\\flights.tex",
+      "staged": "latex_project\\generated\\flights.tex",
+      "sha256": "77ce9203ded67d047cf34e5d4dd16e36d77eedbc9aff2a56c7c6f641037710e5"
+    },
+    {
+      "source": "generated\\layers.tex",
+      "staged": "latex_project\\generated\\layers.tex",
+      "sha256": "c1e51da9ff0eb091fc1540b8cc80d2239be1811b9a23d78fa06cc98cfab57dea"
+    },
+    {
+      "source": "generated\\numbers.tex",
+      "staged": "latex_project\\generated\\numbers.tex",
+      "sha256": "a16c39f0d4b93c1272c0b92576e6ce437bdc290ba550d6068573cd1f21d41326"
+    },
+    {
+      "source": "generated\\peaks.tex",
+      "staged": "latex_project\\generated\\peaks.tex",
+      "sha256": "8f6b2e69b858554aa11af5b885f7af1fb8ae4111a2c0c0c065f4e5903f16ebfc"
+    },
+    {
+      "source": "generated\\sensitivity.tex",
+      "staged": "latex_project\\generated\\sensitivity.tex",
+      "sha256": "288a65d43a552817b3a300078f153eb9379597ef70671538e06d76464bf89ead"
+    },
+    {
+      "source": "figures\\process_q1_attitude.pdf",
+      "staged": "latex_project\\figures\\process_q1_attitude.pdf",
+      "sha256": "6789a09fa120ed9dd014f38a45166cddda98494f9d8b5d5b93f8651796d2726b"
+    },
+    {
+      "source": "figures\\process_q1_drag.pdf",
+      "staged": "latex_project\\figures\\process_q1_drag.pdf",
+      "sha256": "b8a2cff34752da4f97aa8c8ae9bd4ecedd93bc4249764e39ed373d718d077413"
+    },
+    {
+      "source": "figures\\process_q1_heating.pdf",
+      "staged": "latex_project\\figures\\process_q1_heating.pdf",
+      "sha256": "e7e797f01a2229453ae0e72e28fa98647c700fbe610e17dbb7f3995632b4ed2f"
+    },
+    {
+      "source": "figures\\process_q1_opening.pdf",
+      "staged": "latex_project\\figures\\process_q1_opening.pdf",
+      "sha256": "e7968352cda8e7b90279e87d39bb9e3a91e70af1f234fd14d4381d553b77c1d0"
+    },
+    {
+      "source": "figures\\process_q1_trajectory.pdf",
+      "staged": "latex_project\\figures\\process_q1_trajectory.pdf",
+      "sha256": "2530cb531447530f22c75a849cfd633f87ce2401e09a8f727f2d471f4ec3da88"
+    },
+    {
+      "source": "figures\\raw_q1_atmosphere.pdf",
+      "staged": "latex_project\\figures\\raw_q1_atmosphere.pdf",
+      "sha256": "6f870da391e6071a5044dc5176ce8344997ee66d0f75434722034249446ed0bb"
+    },
+    {
+      "source": "figures\\raw_q1_flights.pdf",
+      "staged": "latex_project\\figures\\raw_q1_flights.pdf",
+      "sha256": "45bdaea516d4f7d393da9563912f372cc5ad6ba7c53df87f97aa365620e578eb"
+    },
+    {
+      "source": "figures\\raw_q1_october.pdf",
+      "staged": "latex_project\\figures\\raw_q1_october.pdf",
+      "sha256": "db8d9f51d48b609903663112d95532a346f7bd6919256e17b9a897c9eb4a8306"
+    },
+    {
+      "source": "figures\\result_q1_limits.pdf",
+      "staged": "latex_project\\figures\\result_q1_limits.pdf",
+      "sha256": "1136b25668a79b3fbd07f6e138aa4c2ab6083c6516aeec31133fbb02ec776d13"
+    },
+    {
+      "source": "figures\\result_q1_spin_sensitivity.pdf",
+      "staged": "latex_project\\figures\\result_q1_spin_sensitivity.pdf",
+      "sha256": "827858b70d51255821977b4b46d842f763389dec09bac64a454fcedb00e823fc"
+    },
+    {
+      "source": "figures\\result_q1_validation.pdf",
+      "staged": "latex_project\\figures\\result_q1_validation.pdf",
+      "sha256": "a24f7e5459f0cdcc1a64d0e00b729d840aaeef0620ee3e54fbddeddcf0be33c0"
+    },
+    {
+      "source": "figures\\result_q1_weather.pdf",
+      "staged": "latex_project\\figures\\result_q1_weather.pdf",
+      "sha256": "d424db40785b6380bdea168fad65e5a360d0c2c9811686dcd55727aa794fe2fc"
+    }
+  ]
+}

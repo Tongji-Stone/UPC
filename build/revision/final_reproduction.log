@@ -1,0 +1,510 @@
+{"n_points": 411, "height_range_m": [12968.66622537172, 38736.66091725402]}
+Area calibration 1.3569699349930187
+Height sweep 0 km
+Height sweep 15 km
+Height sweep 30 km
+Height sweep 45 km
+Height sweep 60 km
+Height sweep 75 km
+Maximum height km: 58.221436492549046 runtime 32.870810985565186
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_atmosphere.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_atmosphere.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_atmosphere.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_atmosphere_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_flights.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_flights.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_flights.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_flights_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_october.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_october.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_october.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_october_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_drag.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_drag.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_drag.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_drag_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_trajectory.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_trajectory.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_trajectory.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_trajectory_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_heating.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_heating.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_heating.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_heating_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_attitude.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_attitude.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_attitude.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_attitude_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_opening.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_opening.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_opening.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_opening_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_validation.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_validation.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_validation.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_validation_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_limits.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_limits.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_limits.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_limits_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_spin_sensitivity.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_spin_sensitivity.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_spin_sensitivity.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_spin_sensitivity_grayscale.png (grayscale preview)
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_weather.pdf
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_weather.svg
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_weather.png
+[scipilot-figure-skill] wrote D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_weather_grayscale.png (grayscale preview)
+Generated 12 logical figures
+Generated paper numbers and 8 tables
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_attitude.png ---
+  category: raster  ext: png  size: 160264 B
+  pixels: 2032x1014  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_drag.png ---
+  category: raster  ext: png  size: 66208 B
+  pixels: 2034x851  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_heating.png ---
+  category: raster  ext: png  size: 154289 B
+  pixels: 2035x982  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_opening.png ---
+  category: raster  ext: png  size: 130016 B
+  pixels: 2037x982  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_trajectory.png ---
+  category: raster  ext: png  size: 210808 B
+  pixels: 2035x1141  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_atmosphere.png ---
+  category: raster  ext: png  size: 157750 B
+  pixels: 2038x1174  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_flights.png ---
+  category: raster  ext: png  size: 78865 B
+  pixels: 2036x949  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_october.png ---
+  category: raster  ext: png  size: 100351 B
+  pixels: 2036x1012  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_limits.png ---
+  category: raster  ext: png  size: 119827 B
+  pixels: 2034x1108  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_spin_sensitivity.png ---
+  category: raster  ext: png  size: 90712 B
+  pixels: 1951x980  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_validation.png ---
+  category: raster  ext: png  size: 156970 B
+  pixels: 2037x1047  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_weather.png ---
+  category: raster  ext: png  size: 89157 B
+  pixels: 2037x983  dpi: (319.9892, 319.9892)
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_attitude.svg ---
+  category: vector  ext: svg  size: 41896 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_drag.svg ---
+  category: vector  ext: svg  size: 14987 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_heating.svg ---
+  category: vector  ext: svg  size: 31964 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_opening.svg ---
+  category: vector  ext: svg  size: 26045 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_trajectory.svg ---
+  category: vector  ext: svg  size: 39142 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_atmosphere.svg ---
+  category: vector  ext: svg  size: 47642 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_flights.svg ---
+  category: vector  ext: svg  size: 17414 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_october.svg ---
+  category: vector  ext: svg  size: 32474 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_limits.svg ---
+  category: vector  ext: svg  size: 29213 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_spin_sensitivity.svg ---
+  category: vector  ext: svg  size: 64743 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_validation.svg ---
+  category: vector  ext: svg  size: 32287 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_weather.svg ---
+  category: vector  ext: svg  size: 17791 B
+  [PASS] 无问题。
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_attitude.pdf ---
+  category: vector  ext: pdf  size: 25622 B
+  [WARN] PDF 中以下字体可能未嵌入: /XEIJJV+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_drag.pdf ---
+  category: vector  ext: pdf  size: 16451 B
+  [WARN] PDF 中以下字体可能未嵌入: /HBTJPH+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_heating.pdf ---
+  category: vector  ext: pdf  size: 23056 B
+  [WARN] PDF 中以下字体可能未嵌入: /EAXGOC+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_opening.pdf ---
+  category: vector  ext: pdf  size: 19532 B
+  [WARN] PDF 中以下字体可能未嵌入: /GSCPEE+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\process_q1_trajectory.pdf ---
+  category: vector  ext: pdf  size: 22238 B
+  [WARN] PDF 中以下字体可能未嵌入: /ETHRUW+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_atmosphere.pdf ---
+  category: vector  ext: pdf  size: 20489 B
+  [WARN] PDF 中以下字体可能未嵌入: /HEIHTJ+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_flights.pdf ---
+  category: vector  ext: pdf  size: 18211 B
+  [WARN] PDF 中以下字体可能未嵌入: /YHIDHH+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\raw_q1_october.pdf ---
+  category: vector  ext: pdf  size: 23149 B
+  [WARN] PDF 中以下字体可能未嵌入: /ZBVNBM+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_limits.pdf ---
+  category: vector  ext: pdf  size: 26256 B
+  [WARN] PDF 中以下字体可能未嵌入: /CFEHUP+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_spin_sensitivity.pdf ---
+  category: vector  ext: pdf  size: 28370 B
+  [WARN] PDF 中以下字体可能未嵌入: /GMWKTP+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_validation.pdf ---
+  category: vector  ext: pdf  size: 25521 B
+  [WARN] PDF 中以下字体可能未嵌入: /CRAYSM+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+--- D:\LYT\大二上\国际大学生物理竞赛\UPCchinese\figures\result_q1_weather.pdf ---
+  category: vector  ext: pdf  size: 20624 B
+  [WARN] PDF 中以下字体可能未嵌入: /PXMHMI+MicrosoftYaHei. 导致他人电脑打开变成替代字体。
+  >>> verdict: WARN
+
+{
+  "ok": true,
+  "directory": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\figures",
+  "questions": [
+    "q1"
+  ],
+  "files": {
+    "process_q1_attitude.png": {
+      "width_px": 2032,
+      "height_px": 1014,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.350214319733292,
+      "height_in": 3.168856948922026
+    },
+    "process_q1_attitude.svg": {
+      "text_count": 36,
+      "embedded_raster": false
+    },
+    "process_q1_drag.png": {
+      "width_px": 2034,
+      "height_px": 851,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.35646453067791,
+      "height_in": 2.6594647569355465
+    },
+    "process_q1_drag.svg": {
+      "text_count": 17,
+      "embedded_raster": false
+    },
+    "process_q1_heating.png": {
+      "width_px": 2035,
+      "height_px": 982,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.35958963615022,
+      "height_in": 3.0688535738081164
+    },
+    "process_q1_heating.svg": {
+      "text_count": 35,
+      "embedded_raster": false
+    },
+    "process_q1_opening.png": {
+      "width_px": 2037,
+      "height_px": 982,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36583984709484,
+      "height_in": 3.0688535738081164
+    },
+    "process_q1_opening.svg": {
+      "text_count": 29,
+      "embedded_raster": false
+    },
+    "process_q1_trajectory.png": {
+      "width_px": 2035,
+      "height_px": 1141,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.35958963615022,
+      "height_in": 3.565745343905357
+    },
+    "process_q1_trajectory.svg": {
+      "text_count": 40,
+      "embedded_raster": false
+    },
+    "raw_q1_atmosphere.png": {
+      "width_px": 2038,
+      "height_px": 1174,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36896495256715,
+      "height_in": 3.668873824491577
+    },
+    "raw_q1_atmosphere.svg": {
+      "text_count": 26,
+      "embedded_raster": false
+    },
+    "raw_q1_flights.png": {
+      "width_px": 2036,
+      "height_px": 949,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36271474162253,
+      "height_in": 2.9657250932218964
+    },
+    "raw_q1_flights.svg": {
+      "text_count": 26,
+      "embedded_raster": false
+    },
+    "raw_q1_october.png": {
+      "width_px": 2036,
+      "height_px": 1012,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36271474162253,
+      "height_in": 3.162606737977407
+    },
+    "raw_q1_october.svg": {
+      "text_count": 17,
+      "embedded_raster": false
+    },
+    "result_q1_limits.png": {
+      "width_px": 2034,
+      "height_px": 1108,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.35646453067791,
+      "height_in": 3.462616863319137
+    },
+    "result_q1_limits.svg": {
+      "text_count": 24,
+      "embedded_raster": false
+    },
+    "result_q1_spin_sensitivity.png": {
+      "width_px": 1951,
+      "height_px": 980,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.097080776476206,
+      "height_in": 3.0626033628634968
+    },
+    "result_q1_spin_sensitivity.svg": {
+      "text_count": 27,
+      "embedded_raster": false
+    },
+    "result_q1_validation.png": {
+      "width_px": 2037,
+      "height_px": 1047,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36583984709484,
+      "height_in": 3.2719854295082462
+    },
+    "result_q1_validation.svg": {
+      "text_count": 27,
+      "embedded_raster": false
+    },
+    "result_q1_weather.png": {
+      "width_px": 2037,
+      "height_px": 983,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36583984709484,
+      "height_in": 3.071978679280426
+    },
+    "result_q1_weather.svg": {
+      "text_count": 27,
+      "embedded_raster": false
+    }
+  },
+  "issues": []
+}
+{
+  "main_tex": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\main.tex",
+  "project_root": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project",
+  "pdf_path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\build\\main.pdf",
+  "build_manifest": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\build\\main.build.json",
+  "published_pdf": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\main.pdf",
+  "published_manifest": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\main.build.json",
+  "log_path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\build\\main.log",
+  "engine": "xelatex",
+  "warnings": [],
+  "allowed_warnings": [],
+  "issues": [],
+  "passed": true
+}
+{
+  "main_tex": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\main.tex",
+  "project_root": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project",
+  "pdf_path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\main.pdf",
+  "source_sha256": "4ebd31da53e09451a3b86db0efce8ebd0798f2e2886f679a7aadcbf581eae7f6",
+  "rendered_pages": 19,
+  "body_pages": null,
+  "page_limit_scope": "total",
+  "pdf_audit": {
+    "pages": 19,
+    "blank_pages": [],
+    "page_sizes_pt": [
+      [
+        595.3,
+        841.9
+      ]
+    ],
+    "unembedded_fonts": [],
+    "raster_images": 0,
+    "min_image_dpi": null,
+    "issues": []
+  },
+  "build_manifest": {
+    "schema_version": 1,
+    "created_at": "2026-10-10T00:12:40.752650+00:00",
+    "passed": true,
+    "main_tex": "main.tex",
+    "project_root": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project",
+    "source_sha256": "4ebd31da53e09451a3b86db0efce8ebd0798f2e2886f679a7aadcbf581eae7f6",
+    "compiled_source_sha256": "4ebd31da53e09451a3b86db0efce8ebd0798f2e2886f679a7aadcbf581eae7f6",
+    "post_build_source_sha256": "4ebd31da53e09451a3b86db0efce8ebd0798f2e2886f679a7aadcbf581eae7f6",
+    "pdf_sha256": "e77c79a3086fcfa122f775ae741bcd16dc9b6d8a452fdbc02255ecdbc9d3e899",
+    "project_manifest_sha256": null,
+    "engine": "xelatex",
+    "tools": {
+      "latexmk": {
+        "path": "C:\\texlive\\2025\\bin\\windows\\latexmk.EXE",
+        "version": "perl: warning: Setting locale failed."
+      },
+      "xelatex": {
+        "path": "C:\\texlive\\2025\\bin\\windows\\xelatex.EXE",
+        "version": "XeTeX 3.141592653-2.6-0.999997 (TeX Live 2025)"
+      }
+    },
+    "commands": [
+      {
+        "command": [
+          "C:\\texlive\\2025\\bin\\windows\\latexmk.EXE",
+          "-norc",
+          "-gg",
+          "-xelatex",
+          "-e",
+          "$xelatex = 'xelatex -no-shell-escape %O %S'",
+          "-interaction=nonstopmode",
+          "-halt-on-error",
+          "-file-line-error",
+          "-outdir=build",
+          "main.tex"
+        ],
+        "cwd": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project",
+        "returncode": 0,
+        "duration_seconds": 4.937
+      }
+    ],
+    "warnings": [],
+    "allowed_warnings": [],
+    "warning_override": {
+      "patterns": [],
+      "reason": null
+    },
+    "issues": [],
+    "reproduce": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\.venv\\Scripts\\python.exe C:\\Users\\HUAWEI\\.codex\\skills\\math-modeling\\tools\\latex\\scripts\\latex_paper.py build D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\latex_project\\main.tex --engine xelatex --timeout 180 --publish D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\main.pdf --overwrite"
+  },
+  "thresholds": {
+    "min_content_units": 0,
+    "min_pages": 0,
+    "min_equations": 0,
+    "min_figures": 8,
+    "min_tables": 0
+  },
+  "threshold_overrides": [],
+  "metrics": {
+    "content_units": 11047,
+    "equations": 28,
+    "figures": 11,
+    "tables": 9,
+    "citations": 8,
+    "source_files": 9,
+    "question_figure_coverage": {
+      "q1": true
+    }
+  },
+  "issues": [],
+  "passed": true
+}
+
+{
+  "status": "PASS",
+  "pages": 19,
+  "sections": [
+    "����",
+    "ģ�ͼ���",
+    "����˵��",
+    "ģ�ͽ���",
+    "ģ����������",
+    "Σ���Է���",
+    "����",
+    "ģ������"
+  ],
+  "figures": 11,
+  "tables": 9,
+  "equation_environments": 28,
+  "pdf_sha256": "e77c79a3086fcfa122f775ae741bcd16dc9b6d8a452fdbc02255ecdbc9d3e899"
+}

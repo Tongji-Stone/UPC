@@ -1,0 +1,48 @@
+{
+  "label_preserved": true,
+  "cite_preserved": true,
+  "bibitem_preserved": true,
+  "includegraphics_preserved": true,
+  "equation_count": [
+    6,
+    6
+  ],
+  "align_count": [
+    1,
+    1
+  ],
+  "aligned_count": [
+    2,
+    2
+  ],
+  "figure_count": [
+    4,
+    4
+  ],
+  "table_count": [
+    7,
+    7
+  ],
+  "displayed_equations_preserved": true,
+  "source_model_identical": true,
+  "source_results_identical": true,
+  "pdf_pages": 10,
+  "page_text_lengths": [
+    793,
+    642,
+    1458,
+    1219,
+    1278,
+    1311,
+    784,
+    1137,
+    1298,
+    2288
+  ],
+  "latex_issues": [],
+  "sha256": {
+    "main.tex": "5269011756a09d92ef15059b3b6c709352f028a70956b28f8751d849cc367d86",
+    "main.pdf": "03ffbbeb39511fd6d1ff9a9ea5c0c6baed1fb2fdcad761026f9a1139125b3e04"
+  },
+  "passed": true
+}

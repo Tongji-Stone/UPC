@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-10-10T00:15:50.167761+00:00",
+  "random_seed": 2023,
+  "input_files": [
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\config.json",
+      "sha256": "d57f06248881b65c8ec7d66155b7ea23c340da74ef0c1d750b5af73f912957dc",
+      "bytes": 590
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\data\\stratos_summary.csv",
+      "sha256": "0318d19ff4f51d33e18bb44580b1d45a63c46c66aedb014087ac4c037ba6c656",
+      "bytes": 277
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\data\\stratos_fig1_source.png",
+      "sha256": "ce98ba2d28b0bef3db3a15eed9085366ab80fe2d1aac67acd44d8fbc03c3a716",
+      "bytes": 183960
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\data\\wyoming_soundings_selected.csv",
+      "sha256": "4b3b02d1adb66c5639311b37eb1effd1f8d7cf3e81b854dcf5b7b7fa372b01d3",
+      "bytes": 100721
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\data\\source_registry.json",
+      "sha256": "45f9008558ba663ea30e52c010fdabdb24a47246cc9a5e91318ddff67469ae35",
+      "bytes": 3323
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\19770009539.pdf",
+      "sha256": "23eb6b68346d4abc6071fc598872d51c40cf8c613d1a5d1006c6261bcd09dcea",
+      "bytes": 18101069
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\file.pdf",
+      "sha256": "576aaf573fa5398a7ef16fe1083b425bd43b6cec6624e502fc7fab1f0e80b5f3",
+      "bytes": 13787741
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\kap3a_QR20_ekstra_Report_Final.pdf",
+      "sha256": "dd2074359a0de348849b72b569438eecba44fbfc34849b15520ccc0c3f987dc1",
+      "bytes": 821482
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\build_paper.py",
+      "sha256": "967d7dc513a10e81c55d8359c448a4a8c00ad7c0bdd61bd7be7c7fcbbc5918c3",
+      "bytes": 2065
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\generate_paper_data.py",
+      "sha256": "1339ac4e0e91b8668b2139fdd6cceee153b652cafcfa72295873f902e906ac34",
+      "bytes": 4224
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\make_chinese_figures.py",
+      "sha256": "9876149cc090258ef2efd18cddac1d7bb082635f2312e5882c41593d9fd8a44b",
+      "bytes": 10194
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\model.py",
+      "sha256": "5db21f08fc7dcd6235adf27f0920d3bfd84b82a8d97296291944c1951126472b",
+      "bytes": 11716
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\render_paper.py",
+      "sha256": "91daec51e26e59607ca91daa626d18bc2d1614493a4232265c8c32a258b47c7c",
+      "bytes": 960
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\reproduce.py",
+      "sha256": "0f1a080b82b1670ef415b2d79908f0b0c698414c2651267cf5c5cd9f1c42d584",
+      "bytes": 1950
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\run_analysis.py",
+      "sha256": "c6304b0f5c455a2282658bc440c6c7248b8acbacb9119701e934051d7ce58d7a",
+      "bytes": 11798
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\test_model.py",
+      "sha256": "88b8bd444a81ca598a3eb1165a393b5ece559a3482dd173e1710f7b3bbd36e3b",
+      "bytes": 3844
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\verify_translation.py",
+      "sha256": "3ebb43efe4016650a8b66904aa6ae61533e67dd88a0031305ac27f8886d86e46",
+      "bytes": 1880
+    },
+    {
+      "path": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\data\\digitize_stratos.py",
+      "sha256": "187c0fae2de5b9d63672bd33866ef11b605019e68982adacb8e73d20555fdc0e",
+      "bytes": 4106
+    }
+  ],
+  "runtime": {
+    "name": "python",
+    "version": "3.12.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependencies": {
+      "numpy": "2.5.3",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2",
+      "pandas": "3.0.6",
+      "Pillow": "12.3.0",
+      "PyMuPDF": "1.28.2",
+      "pypdf": "6.20.0",
+      "requests": "2.34.2"
+    }
+  },
+  "key_parameters": {
+    "mass_kg": 190.0,
+    "reference_mass_kg": 121.2,
+    "opening_height_m": 2566.8,
+    "inflation_s": 8.0,
+    "landing_design_speed_mps": 5.5,
+    "canopy_cd": 1.5,
+    "limits": {
+      "free_g": 5.0,
+      "opening_g": 5.0,
+      "recovery_k": 400.0,
+      "spin_g": 2.0,
+      "landing_mps": 6.0
+    },
+    "attitude": {
+      "length_m": 1.9,
+      "width_m": 0.6,
+      "head_radius_m": 0.5,
+      "pitch_stiffness": 0.05,
+      "damping": 0.5,
+      "yaw_bias": 0.002,
+      "theta0_deg": 0.0,
+      "pitch_rate0": 0.0,
+      "yaw_rate0": 0.05
+    },
+    "parameter_status": "Geometry, moment coefficients and screening limits are declared design assumptions, not measurements. See paper and source registry.",
+    "seed": 2023
+  },
+  "reproduce_command": ".\\.venv\\Scripts\\python.exe reproduce.py",
+  "calculation_runtime_s": 32.870810985565186
+}

@@ -1,0 +1,154 @@
+{
+  "ok": true,
+  "directory": "D:\\LYT\\大二上\\国际大学生物理竞赛\\UPCchinese\\figures",
+  "questions": [
+    "q1"
+  ],
+  "files": {
+    "process_q1_attitude.png": {
+      "width_px": 2032,
+      "height_px": 1014,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.350214319733292,
+      "height_in": 3.168856948922026
+    },
+    "process_q1_attitude.svg": {
+      "text_count": 36,
+      "embedded_raster": false
+    },
+    "process_q1_drag.png": {
+      "width_px": 2034,
+      "height_px": 851,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.35646453067791,
+      "height_in": 2.6594647569355465
+    },
+    "process_q1_drag.svg": {
+      "text_count": 17,
+      "embedded_raster": false
+    },
+    "process_q1_heating.png": {
+      "width_px": 2035,
+      "height_px": 982,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.35958963615022,
+      "height_in": 3.0688535738081164
+    },
+    "process_q1_heating.svg": {
+      "text_count": 35,
+      "embedded_raster": false
+    },
+    "process_q1_opening.png": {
+      "width_px": 2037,
+      "height_px": 982,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36583984709484,
+      "height_in": 3.0688535738081164
+    },
+    "process_q1_opening.svg": {
+      "text_count": 29,
+      "embedded_raster": false
+    },
+    "process_q1_trajectory.png": {
+      "width_px": 2035,
+      "height_px": 1141,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.35958963615022,
+      "height_in": 3.565745343905357
+    },
+    "process_q1_trajectory.svg": {
+      "text_count": 40,
+      "embedded_raster": false
+    },
+    "raw_q1_atmosphere.png": {
+      "width_px": 2038,
+      "height_px": 1174,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36896495256715,
+      "height_in": 3.668873824491577
+    },
+    "raw_q1_atmosphere.svg": {
+      "text_count": 26,
+      "embedded_raster": false
+    },
+    "raw_q1_flights.png": {
+      "width_px": 2036,
+      "height_px": 949,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36271474162253,
+      "height_in": 2.9657250932218964
+    },
+    "raw_q1_flights.svg": {
+      "text_count": 26,
+      "embedded_raster": false
+    },
+    "raw_q1_october.png": {
+      "width_px": 2036,
+      "height_px": 1012,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36271474162253,
+      "height_in": 3.162606737977407
+    },
+    "raw_q1_october.svg": {
+      "text_count": 17,
+      "embedded_raster": false
+    },
+    "result_q1_limits.png": {
+      "width_px": 2034,
+      "height_px": 1108,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.35646453067791,
+      "height_in": 3.462616863319137
+    },
+    "result_q1_limits.svg": {
+      "text_count": 24,
+      "embedded_raster": false
+    },
+    "result_q1_spin_sensitivity.png": {
+      "width_px": 1951,
+      "height_px": 980,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.097080776476206,
+      "height_in": 3.0626033628634968
+    },
+    "result_q1_spin_sensitivity.svg": {
+      "text_count": 27,
+      "embedded_raster": false
+    },
+    "result_q1_validation.png": {
+      "width_px": 2037,
+      "height_px": 1047,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36583984709484,
+      "height_in": 3.2719854295082462
+    },
+    "result_q1_validation.svg": {
+      "text_count": 27,
+      "embedded_raster": false
+    },
+    "result_q1_weather.png": {
+      "width_px": 2037,
+      "height_px": 983,
+      "dpi_x": 319.9892,
+      "dpi_y": 319.9892,
+      "width_in": 6.36583984709484,
+      "height_in": 3.071978679280426
+    },
+    "result_q1_weather.svg": {
+      "text_count": 27,
+      "embedded_raster": false
+    }
+  },
+  "issues": []
+}

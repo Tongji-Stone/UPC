@@ -1,0 +1,16 @@
+﻿parameter,value,max_height_m,upper_censored
+free_g,4,58221.436492549044,False
+free_g,5,58221.436492549044,False
+free_g,6,58221.436492549044,False
+opening_g,4,2993.36233049436,False
+opening_g,5,58221.436492549044,False
+opening_g,6,58221.436492549044,False
+recovery_k,380,55206.61309953406,False
+recovery_k,400,58221.436492549044,False
+recovery_k,420,61176.37838823343,False
+spin_g,1,58221.436492549044,False
+spin_g,2,58221.436492549044,False
+spin_g,3,58221.436492549044,False
+landing_mps,5.5,,False
+landing_mps,6,58221.436492549044,False
+landing_mps,6.5,58221.436492549044,False

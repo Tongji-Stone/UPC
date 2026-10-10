@@ -1,0 +1,68 @@
+{
+  "calibration": {
+    "area_m2": 1.3569699349930187,
+    "single_areas_m2": {
+      "2012-03-15": 1.3354546055365653,
+      "2012-07-25": 1.3893126455614868
+    },
+    "relative_sse": 8.267342955958697e-05,
+    "training_flights": [
+      "2012-03-15",
+      "2012-07-25"
+    ],
+    "calibration_cd": 0.6,
+    "reference_mass_kg": 121.2
+  },
+  "october": {
+    "speed_mps_peak": 340.6533423167697,
+    "speed_mps_peak_time_s": 47.10906024348162,
+    "speed_mps_peak_height_m": 29306.443344769454,
+    "mach_peak": 1.1310092559180855,
+    "mach_peak_time_s": 47.6110836984676,
+    "mach_peak_height_m": 29135.438062276276,
+    "drag_g_peak": 1.4894420206082548,
+    "drag_g_peak_time_s": 65.78436460529544,
+    "drag_g_peak_height_m": 23402.289377234258,
+    "recovery_k_peak": 277.7187352238343,
+    "recovery_k_peak_time_s": 44.86716613067651,
+    "recovery_k_peak_height_m": 30069.20881178652,
+    "stagnation_k_peak": 283.9085132172276,
+    "stagnation_k_peak_time_s": 45.11351748489686,
+    "stagnation_k_peak_height_m": 29985.56579512782,
+    "spin_g_peak": 0.0,
+    "spin_g_peak_time_s": 0.2501971137127042,
+    "spin_g_peak_height_m": 38969.09678822299,
+    "sonic_times_s": [
+      35.01637120233216,
+      61.33810995798723
+    ],
+    "low_g_s": 22.279506482147976,
+    "duration_s": 266.4666545502265
+  },
+  "case_60km": {
+    "height_m": 60000,
+    "free_g": 2.6258018575990563,
+    "recovery_k": 411.9932231893852,
+    "stagnation_k": 432.813298607461,
+    "spin_g": 0.07465542644716401,
+    "opening_g": 4.418108236241356,
+    "landing_mps": 5.500406217732785,
+    "speed_mps": 628.2284966057186,
+    "mach": 2.059248124662524,
+    "total_time_s": 666.5451136072281
+  },
+  "canopy": {
+    "opening_speed_mps": 70.27721564235574,
+    "opening_g_peak": 4.418108236241356,
+    "peak_time_after_open_s": 1.2272506429481784,
+    "landing_mps": 5.500406217732785,
+    "duration_s": 419.63748612543304,
+    "canopy_drag_area_m2": 99.74987794427732,
+    "canopy_reference_area_m2": 66.4999186295182,
+    "opening_over_5g": {
+      "total_s": 0.0,
+      "longest_s": 0.0
+    },
+    "inflation_s": 8.0
+  }
+}

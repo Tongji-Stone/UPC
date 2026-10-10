@@ -1,33 +1,60 @@
-# Space Diving（UPC 2023 Problem A）论文草稿
+# UPC 2023 A：中文修订稿
 
-本目录以随附的同济 Team 355 论文为版式参考，提供一份重新建模、重新写作的英文 LaTeX 稿。请先阅读论文中“条件性高度筛选”的定义：**57.7 km 不是已证实的人体安全高度**。题目给定的 190 kg 不能单独决定最高可跳高度。
+全部权威代码、论文源码、输入副本和新结果均在本目录。根目录参考文献、UPC 和备份目录保持原样。
 
-## 文件
+## 查看与复现
 
-- main.tex：可编辑论文；main.pdf：9 页 A4 编译稿。
-- model.py：标准大气、自由落体、开伞情景、标定、数值扫描与制图。
-- data/stratos_summary.csv：Stratos 科学报告公布的三次跳跃**汇总观测值**，并非原始遥测。
-- results.json：运行模型生成的计算结果。
-- figures 文件夹：论文图。
+- `main.pdf`：最终中文论文；`main.tex`：可编辑主稿。
+- `model.py`：七层大气、变马赫数阻力、显式面积、平移/姿态及有限充气求解器。
+- `config.json`：质量、伞和典型设计条件；`run_analysis.py`：全部标定、检验和敏感性计算。
+- `results.json` 和 `results/*.csv`：数值、逐时轨迹、误差、边界；`generated/*.tex`：从结果自动生成的正文数值及表格。
+- `figures`：12 幅逻辑图，每幅含 PDF、SVG、320 DPI PNG；灰度预览在 `build/grayscale`。
+- `data/source_registry.json`、`data/wyoming_soundings_provenance.json`：文献与探空来源；图线数字化说明见 `data/stratos_october_digitization.json`。
 
-## 复现
+从本目录运行唯一计算入口：
 
-在本目录运行：
+```powershell
+.\.venv\Scripts\python.exe reproduce.py
+```
 
-    python model.py
-    pdflatex -interaction=nonstopmode -halt-on-error main.tex
-    pdflatex -interaction=nonstopmode -halt-on-error main.tex
+完整重算、重新制图、编译和论文一致性检查：
 
-Python 需要 numpy、scipy 和 matplotlib。MiKTeX 的 latexmk 在当前电脑缺少 Perl，因此使用两遍 pdflatex；已经实际编译成功。
+```powershell
+.\build.ps1
+```
 
-## 数据和验证边界
+只重新编译已更新的正文：` .\build.ps1 -SkipCalculations`。环境已含项目虚拟环境；新环境可用 Python 3.13 和 requirements.txt 安装依赖。计算无需联网，探空采用已保存的原始输入；`data/build_wyoming_soundings.py` 仅用于显式更新远端探空，不在日常复现中重新下载历史输入。
 
-1. 三次 Stratos 跳跃的高度、峰速、低于 0.1 g 的时长与开伞冲击来自 [Stratos Scientific Summit Report](https://lru.praxis.dk/Lru/microsites/hvadermatematik/hem3download/kap3a_QR20_ekstra_Report_Final.pdf)，主要是报告印刷页 7、10–11、46。3 月与 7 月峰速用于拟合；10 月事件留出检验。报告并未公开本稿所需的逐秒 CSV。
-2. [Guerster 与 Walter 的 PLOS ONE 论文](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187798)给出 Felix 连装备质量 121.2 kg 和姿态/阻力分析，但与任务报告同源，**不能算独立验证集**。
-3. [FAI 的 Alan Eustace 记录](https://www.fai.org/news/yet-be-beaten-alan-eustaces-high-altitude-parachute-jump-records-still-stand-10-years)来自另一场飞行，质量接近 190 kg；该跳从头使用稳定伞，所以论文另拟合它的有效阻力，仅检查时间量，不把它当成裸跳模型的盲测。
-4. 大气用 [1976 U.S. Standard Atmosphere](https://ntrs.nasa.gov/citations/19770009539)，这是参考剖面，不是某天的探空气球观测。热指标为绝热壁恢复温度近似值，不是衣料、皮肤或人体实测温度。
-5. 个人主伞开启高度采用 2566.8 m MSL（约当地地面以上 5000 ft）。Stratos 报告叙述中的 5000 ft MSL 与任务记录存在基准面混用的迹象；本稿采用可与记录高度差相符的 MSL 值。载人舱回收伞不属于跳伞者个人主伞。
+复现脚本调用已安装的 math-modeling skill 图表审计和清单工具，默认位置为用户目录 `.codex/skills/math-modeling`；编译需要本机 XeLaTeX、latexmk、pdfimages、pdftoppm。首次迁移计算环境时请同时保留这些只读工具或安装同一 skill。绘图辅助函数副本位于 utils。
 
-## 提交前
+## 关键物理口径
 
-替换首页和页眉的队号占位符，并按当届 [UPC 规则](https://uphysicsc.com/contestrules.html)检查队伍身份、摘要字数、引用及 AI 使用披露。若需要把条件性筛选升格为装备安全结论，应补充宇航服热试验、开伞载荷测试、稳定控制参数和逐秒飞行测量。当前计算没有这些材料。
+联合面积约 1.35697 m²，3/7 月标定固定 Cd=0.6；10 月只检验面积迁移。正式工况总质量 190 kg，Cd 采用 2017 式 26，M>1.25 延拓为 0.692。大气仅覆盖几何高度 0–86 km。
+
+约 58.22 km 的答案依赖恢复温度 400 K、自由与开伞气动过载 5g、径向载荷 2g、着陆速度 6m/s 和中心姿态系数，属于典型装备设计情景。温度指标描述近壁气流；旋转系数和耐受筛选值是明确假设。10 月峰速低估 9.66%，完整曲线 RMSE 22.68m/s，保留在正文中。
+
+## 构建与核对
+
+`build_paper.py` 将 main.tex、generated 和正式 PDF 图件逐文件复制至 latex_project，再调用 skill 的真实 XeLaTeX 构建和验证。这样编译副本不包含 Python 虚拟环境。`main.build.json` 是编译器工具生成的源码/PDF 绑定；`build/revision/paper_source_binding.json` 将权威源码、图件与编译副本对应。`verify_translation.py` 已改为八章结构、禁用措辞、结果、边界、收敛和 PDF 源码一致性检查。
+
+`results/复现清单.json` 保存输入 SHA-256、版本、参数、种子及唯一运行命令。旧稿和旧图只在 build/revision 归档，退出正式计算链。审计记录位于 build/revision；字体审计对 Type0 顶层 FontDescriptor 的“可能未嵌入”提示由 pdffonts 和递归字体检查复核，实际嵌入为 yes。
+
+
+
+## 本次完成检查（2026-10-10）
+
+最终PDF为19页：摘要第1页、目录第2页，正文从第3页开始；共11幅正式图、9张表、29个编号公式、8项参考文献。12幅候选图全部重新生成，另有灰度预览。最终PDF SHA-256：`0a41c7f6331213e462c9690fb2d5229cfa832a1f4e910696cd070cd4abf1c3fe`。
+
+实际使用并读取了 math-modeling、建模手、编程手、论文手，以及 LaTeX、PDF、科研可视化、双引擎论文搜索入口。按用户要求保留既有中文LaTeX版式，仅交付PDF与源码。独立检查 M1、P1、P2、W1、W2 均通过；最终W2修正了2017论文卷期和一处图注说明，无遗留阻塞。
+
+关键命令均已执行且退出码为0：
+
+- `python test_model.py`：7项物理与数值测试。
+- `python reproduce.py`：独立完整复算、12图和7张数据表；另两张正文表为参数与符号表。
+- `build.ps1`：最终完整复现与编译；随后只对两处文字勘误执行 `build.ps1 -SkipCalculations`。
+- `latex_paper.py doctor/build/validate`：XeLaTeX环境、真实构建、源码/PDF绑定和排版检查。
+- `check_figure.py`、`figure_audit.py --questions q1 --strict`：导出及覆盖检查；Type0字体提示经所有图的pdffonts结果确认属于检查器误报。
+- `python verify_translation.py`：八章结构、禁用措辞、数值、收敛及文件一致性。
+- `python render_paper.py`：Poppler逐页渲染全部19页，并完成彩色/灰度图及页面视觉检查。
+
+最终编译警告、未解析引用、未嵌入字体、空白页均为零。所有数值结论与本次结果一致；10月数据偏差、热条件与姿态假设已在正文中说明。
