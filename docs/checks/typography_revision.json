@@ -7,9 +7,10 @@
   "header_and_table_caption_nominal_pt": 11,
   "header_and_table_caption_pdf_pt": 10.91,
   "figure_text_base_pt": 11,
-  "subtitle": "作业小组：骆欣畅 魏贤东 刘奕韬",
-  "header_left": "Problem A: Space Diving",
+  "subtitle": "Historical revision removed from current anonymous PDF",
+  "header_left": "Team number placeholder; Problem A: Space Diving",
   "header_right": "Page X of X",
   "equations_unchanged": true,
-  "pdf_sha256": "9dd07dea887c10420a743729b02a794023e04a339f7db72bc495ece3306c3fcb"
+  "pdf_sha256": "9dd07dea887c10420a743729b02a794023e04a339f7db72bc495ece3306c3fcb",
+  "revision_note": "Historical 31-page typography audit. The current 32-page coursework PDF restores the author subtitle and uses a Problem A header; see acceptance.json for current PDF checks."
 }

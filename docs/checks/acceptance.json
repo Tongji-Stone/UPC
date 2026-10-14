@@ -1,8 +1,8 @@
 {
   "status": "PASS",
-  "abstract_lexical_words": 294,
-  "abstract_whitespace_tokens": 306,
-  "abstract_policy": "Preserve the user-supplied text; numeric and unit tokens are reported separately",
+  "abstract_lexical_words": 210,
+  "abstract_whitespace_tokens": 223,
+  "abstract_policy": "UPC first-page summary of at most 300 words, including numeric tokens",
   "pages": 32,
   "section_count": 8,
   "data_figures": 14,
@@ -88,5 +88,5 @@
   "independent_core_command": "python -I -S appendices/solve.py",
   "references_all_used": true,
   "equation_and_figure_references_valid": true,
-  "pdf_sha256": "a761a0a6fe854a50ee61c188279aaeee3f99dcda1023c921b06b42c8826efd8b"
+  "pdf_sha256": "506a499aa001807dd34f3a9884fe161d42e7a83ec9525becb500b20ad8a485ec"
 }

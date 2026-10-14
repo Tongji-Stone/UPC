@@ -2,6 +2,8 @@
 
 This is the complete English edition of the current manuscript. The model, parameters, input measurements, and numerical methods are unchanged by translation. All paper figures are regenerated in English. Figure 12 spans geometric altitudes from 0 to 20 km; actual free-fall trajectories end at parachute deployment.
 
+This coursework edition shows the three student names on the title page and records their romanized names in the PDF metadata. Its first-page Summary is 223 whitespace-delimited tokens, including numbers and units. The model's 56.36 km result remains conditional on the declared equipment-screen assumptions.
+
 ## Read the paper
 
 - `main.pdf`: compiled English paper.
@@ -38,7 +40,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe reproduce.py --compile
 ```
 
-Install local XeLaTeX, latexmk, Poppler (`pdftoppm`), Times New Roman (regular, italic, bold, bold italic), Latin Modern Mono, and SimSun (for the requested Chinese team subtitle). The paper uses `newtxmath` for Times-style body mathematics. Data figures and TikZ labels use actual Times New Roman. The appendix retains Latin Modern Mono at the same 12 pt nominal size as the body.
+Install local XeLaTeX, Poppler (`pdftoppm`), Times New Roman (regular, italic, bold, bold italic), SimSun, and Latin Modern Mono. The build runs XeLaTeX three times and does not require Perl or latexmk. The paper uses `newtxmath` for Times-style body mathematics. Data figures and TikZ labels use actual Times New Roman. The appendix retains Latin Modern Mono at the same 12 pt nominal size as the body.
 
 For a quick rebuild from the supplied results:
 

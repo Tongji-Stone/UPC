@@ -1,22 +1,22 @@
 {
-  "builder": "local latexmk + XeLaTeX",
+  "builder": "local XeLaTeX, three passes",
   "command": [
-    "latexmk",
-    "-xelatex",
+    "xelatex",
     "-interaction=nonstopmode",
     "-halt-on-error",
     "-file-line-error",
     "-no-shell-escape",
-    "-outdir=build/latex",
+    "-output-directory=build/latex",
     "main.tex"
   ],
+  "passes": 3,
   "pdf_file": "main.pdf",
-  "main_pdf_sha256": "faa7c3f775834400efb8e062efada22093c846a8cacefcdd8d92d999ca5c16b1",
+  "main_pdf_sha256": "506a499aa001807dd34f3a9884fe161d42e7a83ec9525becb500b20ad8a485ec",
   "resources": [
     {
       "source": "main.tex",
       "staged": "build\\source_bundle\\main.tex",
-      "sha256": "d5adb3ab5602c0d74ebe3228457d5a2e9c8d9bba69f3a814f37947d51dd7a0b7"
+      "sha256": "cb87a3bae203cf8a888e775476c93c3676211f09f44d618e118a81a504818d1a"
     },
     {
       "source": "config.json",
@@ -64,9 +64,14 @@
       "sha256": "2774ecf6fc531114c681727b459d7fa0be5e03aeaecc7903e38e13905b7bcfd5"
     },
     {
-      "source": "figures\\terminal_convergence.pdf",
-      "staged": "build\\source_bundle\\figures\\terminal_convergence.pdf",
-      "sha256": "806630f1bdbb9c5e458817ec05a0a31dce7bbf10689494ba71b6695a1f0381ad"
+      "source": "figures\\atmosphere_density.pdf",
+      "staged": "build\\source_bundle\\figures\\atmosphere_density.pdf",
+      "sha256": "06316e0d7a989731dddee8bfdea4568e3a347072f613d48c6d8d74131c1d5682"
+    },
+    {
+      "source": "figures\\atmosphere_temperature.pdf",
+      "staged": "build\\source_bundle\\figures\\atmosphere_temperature.pdf",
+      "sha256": "03b80353b0e5592544ff4e4300d2c6df4678254a6e674382bfb4a413abe1c3e3"
     },
     {
       "source": "figures\\family_force.pdf",
@@ -74,39 +79,14 @@
       "sha256": "61721aea6107ae77ada01dba5420cc06d3073260da8d164c4e3c25291ad369af"
     },
     {
-      "source": "figures\\family_velocity.pdf",
-      "staged": "build\\source_bundle\\figures\\family_velocity.pdf",
-      "sha256": "1ea416ce2b642db68f7e21a93640b802f832e19bbf9a2c08afa49712dde49dab"
-    },
-    {
-      "source": "figures\\raw_q1_atmosphere.pdf",
-      "staged": "build\\source_bundle\\figures\\raw_q1_atmosphere.pdf",
-      "sha256": "8ab1f2a04597aed8152721583f68c16e59fe3448323d6a2bf563c87abfe15b1a"
-    },
-    {
       "source": "figures\\family_temperature.pdf",
       "staged": "build\\source_bundle\\figures\\family_temperature.pdf",
       "sha256": "259addcdf903fe2f7fca25f589d0eefc8c8ed87f39c8f7c9d7cce62a16aab7c4"
     },
     {
-      "source": "figures\\atmosphere_density.pdf",
-      "staged": "build\\source_bundle\\figures\\atmosphere_density.pdf",
-      "sha256": "06316e0d7a989731dddee8bfdea4568e3a347072f613d48c6d8d74131c1d5682"
-    },
-    {
-      "source": "figures\\risk_free.pdf",
-      "staged": "build\\source_bundle\\figures\\risk_free.pdf",
-      "sha256": "53b15a85e87328ec9728cb94f8da7ddb1c547271d105e28d504a02aaa0f0503a"
-    },
-    {
-      "source": "figures\\result_q1_validation.pdf",
-      "staged": "build\\source_bundle\\figures\\result_q1_validation.pdf",
-      "sha256": "55ae3a4251c9116c177da5e970cd95f51eb8d38c67bbba88f7f52e4681f2efad"
-    },
-    {
-      "source": "figures\\risk_spin.pdf",
-      "staged": "build\\source_bundle\\figures\\risk_spin.pdf",
-      "sha256": "b31bf2b00656b0837166d3f241144e0112b371170472f7250c806bd073bc6e33"
+      "source": "figures\\family_velocity.pdf",
+      "staged": "build\\source_bundle\\figures\\family_velocity.pdf",
+      "sha256": "1ea416ce2b642db68f7e21a93640b802f832e19bbf9a2c08afa49712dde49dab"
     },
     {
       "source": "figures\\process_q1_drag.pdf",
@@ -119,19 +99,39 @@
       "sha256": "e071fe5adab1b5291151dcda29df0c4267479e616fef8dd0cb27028f1938afd1"
     },
     {
-      "source": "figures\\risk_heat.pdf",
-      "staged": "build\\source_bundle\\figures\\risk_heat.pdf",
-      "sha256": "b6d297ea4b452a7ec6847c0142f98fce45fa8c9ec9e506e5be3628818a4cfef1"
-    },
-    {
-      "source": "figures\\atmosphere_temperature.pdf",
-      "staged": "build\\source_bundle\\figures\\atmosphere_temperature.pdf",
-      "sha256": "03b80353b0e5592544ff4e4300d2c6df4678254a6e674382bfb4a413abe1c3e3"
+      "source": "figures\\raw_q1_atmosphere.pdf",
+      "staged": "build\\source_bundle\\figures\\raw_q1_atmosphere.pdf",
+      "sha256": "8ab1f2a04597aed8152721583f68c16e59fe3448323d6a2bf563c87abfe15b1a"
     },
     {
       "source": "figures\\raw_q1_flights.pdf",
       "staged": "build\\source_bundle\\figures\\raw_q1_flights.pdf",
       "sha256": "b3b21305b4b0921ce8921738412cd4aa85da1f40e27a8017d265f34b0b0b07e7"
+    },
+    {
+      "source": "figures\\result_q1_validation.pdf",
+      "staged": "build\\source_bundle\\figures\\result_q1_validation.pdf",
+      "sha256": "55ae3a4251c9116c177da5e970cd95f51eb8d38c67bbba88f7f52e4681f2efad"
+    },
+    {
+      "source": "figures\\risk_free.pdf",
+      "staged": "build\\source_bundle\\figures\\risk_free.pdf",
+      "sha256": "53b15a85e87328ec9728cb94f8da7ddb1c547271d105e28d504a02aaa0f0503a"
+    },
+    {
+      "source": "figures\\risk_heat.pdf",
+      "staged": "build\\source_bundle\\figures\\risk_heat.pdf",
+      "sha256": "b6d297ea4b452a7ec6847c0142f98fce45fa8c9ec9e506e5be3628818a4cfef1"
+    },
+    {
+      "source": "figures\\risk_spin.pdf",
+      "staged": "build\\source_bundle\\figures\\risk_spin.pdf",
+      "sha256": "b31bf2b00656b0837166d3f241144e0112b371170472f7250c806bd073bc6e33"
+    },
+    {
+      "source": "figures\\terminal_convergence.pdf",
+      "staged": "build\\source_bundle\\figures\\terminal_convergence.pdf",
+      "sha256": "806630f1bdbb9c5e458817ec05a0a31dce7bbf10689494ba71b6695a1f0381ad"
     }
   ],
   "warnings": []

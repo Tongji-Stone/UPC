@@ -60,23 +60,23 @@
 \input{generated/numbers.tex}
 \newfontfamily\figurefont{Times New Roman}
 \newcommand{\figvar}[1]{{\itshape #1}}
-\renewenvironment{abstract}{\par\begin{center}\large\bfseries Abstract\end{center}\normalsize\noindent\hspace*{\parindent}\ignorespaces}{\par}
+\renewenvironment{abstract}{\par\begin{center}\large\bfseries Summary\end{center}\normalsize\noindent\hspace*{\parindent}\ignorespaces}{\par}
 \begin{document}
 \thispagestyle{empty}
 \begin{center}
+{\normalsize Problem A: Space Diving}\\[12pt]
 {\Large\bfseries An Aerodynamic and Thermodynamic Analysis\\[3pt] of the Maximum Release Altitude for Space Diving}\\[10pt]
 {\groupfont 作业小组：骆欣畅\quad 魏贤东\quad 刘奕韬}\\[12pt]
 \end{center}
 
 \begin{abstract}
-For the 190\,kg space-diving system consisting of the diver, pressure suit, and parachute, this work develops an integrated descent model within a layered atmospheric and vertical-motion framework to investigate the release altitude. The descent process is divided into three stages: free fall, finite-time parachute inflation, and fully deployed canopy descent and landing. During free fall, gravitational and aerodynamic forces are modeled using an altitude-dependent atmospheric model and an empirical Mach-dependent drag coefficient. Aerodynamic heating is evaluated through the recovery-temperature formulation, and a local flat-spin response model is introduced to analyze short-time rotational hazards. During parachute deployment and subsequent descent, the finite-time inflation process, opening loads, and landing dynamics are established.
+The total mass of a space diver, pressure suit, and parachute does not by itself determine a survivable release altitude. We model vertical release near rocket apogee using a layered atmosphere, Mach-dependent drag, aerodynamic heating, a local flat-spin response, and finite-time parachute inflation followed by canopy descent. The three 2012 Red Bull Stratos peak speeds calibrate an effective frontal area. A digitized October speed--altitude curve checks trajectory shape, although that flight's peak also enters calibration. Nearby radiosonde records check the reference atmosphere only below about 30\,km.
 
-The model is calibrated using the measured maximum-speed data from the 2012 Red Bull Stratos space-diving missions. The effective frontal area of the system is jointly determined from the peak velocities of these missions. The simulated speed--altitude trajectory is then compared with the measured trajectory of the main mission in October 2012 to validate the model.
+For an illustrative equipment design, we impose a recovery-temperature limit of \HeatLimit\,K, limits of $\FreeLimit\,g_0$ on free-fall aerodynamic proper acceleration and $\SpinLimit\,g_0$ on head radial acceleration, a modeled parachute-opening limit of $\OpenLimit\,g_0$, and a landing-speed limit of \LandingLimit\,m/s. The joint screening altitude is \MaxHeight\,km, governed by the thermal condition; peak downward speed there is \PeakV\,m/s. The free-fall load condition alone crosses at \LoadHeight\,km only after extending the atmospheric model beyond its nominal 86\,km range. The assumed spin response crosses at \SpinHeight\,km.
 
-The results reveal three important characteristics: transonic drag rise dominates the aerodynamic load increase during high-speed descent; low-altitude terminal-speed convergence determines the final descent state after parachute deployment; and aerodynamic heating provides the primary limitation on the maximum release altitude. Under the constraints that the recovery temperature does not exceed \HeatLimit\,K, the free-fall aerodynamic load and head radial acceleration remain below $\FreeLimit\,g_0$ and $\SpinLimit\,g_0$, respectively, the parachute-opening load remains below $\OpenLimit\,g_0$, and the landing velocity remains below \LandingLimit\,m/s, the maximum allowable release altitude is \MaxHeight\,km. At this altitude, the peak velocity reaches \PeakV\,m/s, with aerodynamic heating as the governing constraint. As a comparison, considering only the thermal constraint and the free-fall aerodynamic-load constraint, the corresponding maximum release altitudes are \MaxHeight\,km and \LoadHeight\,km, respectively.
+These are model-design screens, not certified human or equipment tolerances. Suit material heating, true parachute opening shocks, and spin-control coefficients remain unmeasured for the proposed 190\,kg assembly. Thus \MaxHeight\,km is a conditional result under the declared assumptions, not a universal safe maximum.
 \end{abstract}
 
-\textbf{Keywords:} space diving; joint calibration; transonic drag; recovery temperature; attitude dynamics; finite-time inflation
 \newpage
 {\normalsize\setlength{\parskip}{0pt}\setstretch{1.2}\tableofcontents}
 \newpage
@@ -571,7 +571,7 @@ For the 190\,kg system, the model shows that transonic drag rise, low-altitude s
 \caption{Individual altitude boundaries and the combined result.}\label{tab:boundaries}
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{24mm}>{\raggedright\arraybackslash}p{31mm}Y>{\raggedright\arraybackslash}p{28mm}>{\raggedright\arraybackslash}p{17mm}}\toprule
 Constraint & Criterion & Basis & Maximum altitude (km) & Governing\\\midrule
-\input generated/boundaries.tex 
+\input generated/boundaries.tex
 Combined & Intersection of five feasible sets & Selected design scenario & \MaxHeight & Thermal\\
 \bottomrule\end{tabularx}
 \end{table}

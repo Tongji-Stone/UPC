@@ -9,7 +9,10 @@ ROOT=Path(__file__).resolve().parent
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  text=(ROOT/'main.tex').read_text(encoding='utf-8')
- assert ''.join(re.findall('[\u4e00-\u9fff]',text))=='作业小组骆欣畅魏贤东刘奕韬'
+ assert all(name in text for name in ('骆欣畅','魏贤东','刘奕韬'))
+ assert 'pdfauthor={Luo Xinchang, Wei Xiandong, Liu Yitao}' in text
+ assert 'Team number:' not in text and 'Problem A' in text
+ assert 'Keywords:' not in text
  sections=re.findall(r'\\section\{([^}]+)\}',text)
  assert sections==['Introduction','Assumptions','Notation','Physical Models','Model Calibration and Results','Hazard Assessment','Conclusions','Model Evaluation','Solution Code']
  assert text.count(r'\VerbatimInput')==1 and 'fontsize=\\normalsize' in text
@@ -79,19 +82,25 @@ def main():
  assert sha(ROOT/'main.pdf')==binding['main_pdf_sha256']
  for item in binding['resources']:assert sha(ROOT/item['source'])==item['sha256']
  pdf=fitz.open(ROOT/'main.pdf');joined='\n'.join(p.get_text() for p in pdf)
- assert ''.join(re.findall('[\u4e00-\u9fff]',joined))=='作业小组骆欣畅魏贤东刘奕韬'
+ assert all(name in joined for name in ('骆欣畅','魏贤东','刘奕韬'))
  assert '\ufffd' not in joined
  assert '??' not in joined
- abstract=joined.split('Abstract',1)[1].split('Keywords:',1)[0]
+ first_page=pdf[0].get_text()
+ assert 'Team number:' not in first_page and 'Problem A' in first_page
+ assert all(name in first_page for name in ('骆欣畅','魏贤东','刘奕韬'))
+ assert 'Summary' in first_page and 'Keywords:' not in first_page
+ assert 'Contents' not in first_page
+ assert pdf.metadata.get('author')=='Luo Xinchang, Wei Xiandong, Liu Yitao'
+ abstract=first_page.split('Summary',1)[1]
  abstract_words=re.findall(r"[A-Za-z]+(?:[-'][A-Za-z]+)*",abstract)
- assert len(abstract_words)<300
- # The exact user-supplied abstract takes precedence over the earlier 300-token limit.
+ assert len(abstract_words)<=300
  abstract_space_tokens=len(abstract.split())
- assert abstract.count('For the 190')==1
+ assert abstract_space_tokens<=300
+ assert abstract.count('The total mass of a space diver')==1
  assert text.count(r'\begin{abstract}')==1 and text.count(r'\end{abstract}')==1
  assert 'UPC 2023' not in joined
  assert 'Problem A:' in joined and 'Page 2 of' in pdf[1].get_text()
- assert '作业小组' in joined and 'Problem A: Space Diving' in joined
+ assert 'Team number:' not in pdf[1].get_text()
  toc=[sp for b in pdf[1].get_text('dict')['blocks'] if 'lines' in b for l in b['lines'] for sp in l['spans'] if 'Introduction' in sp['text']]
  assert toc and all(abs(sp['size']-11.96)<.02 for sp in toc)
  spans=[sp for p in pdf for b in p.get_text('dict')['blocks'] if 'lines' in b for line in b['lines'] for sp in line['spans']]
@@ -105,7 +114,7 @@ def main():
  assert all(sp['bbox'][0]>=0 and sp['bbox'][2]<=pdf[0].rect.width+.1 for sp in spans)
  log=(ROOT/'build/latex/main.log').read_text(encoding='utf-8',errors='replace')
  assert not any(x in log for x in ['Warning:','Missing character:','Overfull'])
- report={'status':'PASS','abstract_lexical_words':len(abstract_words),'abstract_whitespace_tokens':abstract_space_tokens,'abstract_policy':'Preserve the user-supplied text; numeric and unit tokens are reported separately','pages':len(pdf),'section_count':8,'data_figures':14,'tikz_diagrams':3,'figure_fonts':fonts,'nominal_body_and_code_size_pt':12,'pdf_body_and_code_size_pt':11.96,'figure12_speed_spread_20km_mps':float(np.ptp(speeds20)),'figure12_speed_spread_10km_mps':float(np.ptp(speeds10)),'core_stdout':execution.stdout,'three_core_results_km':values,'paper_heights_km':actual,'core_minus_research_m':[(a-b)*1000 for a,b in zip(values,actual)],'independent_core_command':'python -I -S appendices/solve.py','references_all_used':True,'equation_and_figure_references_valid':True,'pdf_sha256':sha(ROOT/'main.pdf')}
+ report={'status':'PASS','abstract_lexical_words':len(abstract_words),'abstract_whitespace_tokens':abstract_space_tokens,'abstract_policy':'UPC first-page summary of at most 300 words, including numeric tokens','pages':len(pdf),'section_count':8,'data_figures':14,'tikz_diagrams':3,'figure_fonts':fonts,'nominal_body_and_code_size_pt':12,'pdf_body_and_code_size_pt':11.96,'figure12_speed_spread_20km_mps':float(np.ptp(speeds20)),'figure12_speed_spread_10km_mps':float(np.ptp(speeds10)),'core_stdout':execution.stdout,'three_core_results_km':values,'paper_heights_km':actual,'core_minus_research_m':[(a-b)*1000 for a,b in zip(values,actual)],'independent_core_command':'python -I -S appendices/solve.py','references_all_used':True,'equation_and_figure_references_valid':True,'pdf_sha256':sha(ROOT/'main.pdf')}
  (ROOT/'build/revision/acceptance.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
  print(json.dumps({k:v for k,v in report.items() if k!='figure_fonts'},indent=2))
 if __name__=='__main__':main()

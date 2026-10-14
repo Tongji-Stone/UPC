@@ -2,7 +2,7 @@
 from pathlib import Path
 import zipfile,hashlib,json
 ROOT=Path(__file__).resolve().parent
-EXCLUDE={'.git','.venv','__pycache__','delivery','build','.pytest_cache'}
+EXCLUDE={'.git','.venv','__pycache__','delivery','build','tmp','.pytest_cache'}
 def main():
  out=ROOT/'delivery';out.mkdir(exist_ok=True)
  files=[p for p in ROOT.rglob('*') if p.is_file() and not any(part in EXCLUDE for part in p.relative_to(ROOT).parts) and p.suffix not in {'.pyc','.aux','.log','.xdv','.toc','.out','.fls','.fdb_latexmk'}]
