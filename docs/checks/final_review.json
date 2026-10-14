@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "physical_tests": 14,
+  "spin_tests": 7,
+  "full_reproduction_completed_in_final_project": true,
+  "all_28_chinese_pages_visually_reviewed": true,
+  "tikz_greek_italic_times": {
+    "\u03b8": true,
+    "\u03c8": true
+  },
+  "svg_glyph_outlines_all_times": true,
+  "contents_font_matches_body": true,
+  "all_31_english_pages_visually_reviewed": true
+}

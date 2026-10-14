@@ -1,0 +1,3 @@
+# Preserve exact bytes: reproduction and PDF/source checks use SHA-256 hashes.
+# Automatic line-ending conversion would invalidate those recorded hashes.
+* -text

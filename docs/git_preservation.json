@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "git_files_checked": 241,
+  "all_bytes_unchanged": true,
+  "head_sha256": "b8206302a4a4d9a239e9fe7220af0525916eaf50ecfacfda27b037f378b5291d",
+  "config_sha256": "f4857cd009078d2e4cd2947d128bb9b5f38ac1472f0b907b83fc282109d220c4",
+  "index_sha256": "158dee53fdc49fda07efefc2c136b0fd7357be5440d5add0960544a6fb4b7956",
+  "no_commit_or_history_rewrite": true
+}

@@ -1,0 +1,6 @@
+﻿metric,limit,maximum_height_m,upper_censored,active
+free_g,5.0,86000.0,True,False
+opening_g,5.0,86000.0,True,False
+recovery_k,390.0,56355.86494264044,False,True
+spin_g,5.0,66280.22965933722,False,False
+landing_mps,6.0,86000.0,True,False

@@ -1,0 +1,2 @@
+﻿exit_height_m,onset_time_s,onset_height_m,onset_speed_mps,onset_density_kg_m3,response_s,omega0_rad_s,omega_response_rad_s,radial_g,reduced_rate,frozen_density_change_fraction,frozen_speed_change_fraction
+66280.22965933722,98.71361849570944,24022.102156721772,523.3029531675631,0.04677393071221841,1.0,0.0,9.902853276889871,5.000000154161129,0.017977560715261243,0.08477385019989092,-0.03683791815167303

@@ -1,0 +1,103 @@
+{
+  "mass_kg": {
+    "value": 190,
+    "status": "given",
+    "source": "UPC 2023 A"
+  },
+  "reference_mass_kg": {
+    "value": 121.2,
+    "status": "source with transfer assumption",
+    "source": "Guerster & Walter 2017 Eq.17; same mass assumed for all three calibration flights"
+  },
+  "area_m2": {
+    "status": "fitted",
+    "source": "Three 2012 peak speeds; same Cd(M); results.json calibration",
+    "interpretation": "Constant fitted effective area throughout translation; attitude does not change this area."
+  },
+  "cylinder": {
+    "length_m": 1.9,
+    "radius_m": 0.3,
+    "head_radius_m": 0.5,
+    "status": "geometry design assumptions, not anthropometric measurements",
+    "reference_pose": "Belly-down, horizontal longitudinal cylinder axis perpendicular to vertical z; Guerster & Walter 2017 flight attitude section."
+  },
+  "moment_coefficients": {
+    "Cn": 0.05,
+    "Cnomega": 1.0,
+    "normalized_rate": "omega*L/(2*v)",
+    "status": "aircraft magnitude analogy; not human measurements",
+    "bias_source": "NASA CR-186030 printed p6, Figs12-13: amplitudes .040/.063/.078",
+    "damping_source": "NASA TP1538 Table III printed p81: Cnr=-1.02 at alpha=40 deg; Cnomega=-Cnr"
+  },
+  "opening_height_m": {
+    "value": 2566.8,
+    "status": "source transferred to sea-level landing scenario",
+    "source": "Stratos published altitude"
+  },
+  "inflation_s": {
+    "value": 8,
+    "status": "design choice",
+    "source": "T-11 approximately 6 seconds provides scale, not an 8-second measurement"
+  },
+  "canopy_cd": {
+    "value": 1.5,
+    "status": "design factorization; solver uses Bc=Cd_c*Ac"
+  },
+  "landing_target_mps": {
+    "value": 5.5,
+    "status": "design target",
+    "source": "T-11 <18ft/s=5.4864m/s at 181.4kg; resize drag area for 190kg"
+  },
+  "free_g_limit": {
+    "value": 5,
+    "status": "design screen, not NASA-certified human limit",
+    "source": "NASA-STD-3001 Vol 2 Rev C sec 6.5.1 fig 4 p58: deconditioned positive Gx, 30/90/150 s: 78.5/49.0/39.2 m/s2 (~8/5/4 g). Non-deconditioned positive Gx 5/300 s: 157/73.5 m/s2. Restraints and counterpressure garment assumed; reference scale only, not a skydiving limit."
+  },
+  "opening_g_limit": {
+    "value": 5,
+    "status": "design screen, not NASA-certified human limit"
+  },
+  "spin_g_limit": {
+    "value": 5,
+    "status": "chosen local 1-second radial acceleration design screen; not a medical limit and not inferred from translational NASA limits"
+  },
+  "recovery_k_limit": {
+    "value": 390,
+    "status": "design screening assumption, not a NASA aerodynamic recovery-temperature rating",
+    "source": "NASA Spacewalk Spacesuit Basics: approximately -250 to +250 F, or 116.48 to 394.26 K environmental range; select 390 K near the high end as a conditional proxy",
+    "sensitivity_k": [
+      370,
+      390,
+      410
+    ]
+  },
+  "landing_mps_limit": {
+    "value": 6,
+    "status": "design margin over 5.5m/s target, not universal injury threshold"
+  },
+  "Pr": {
+    "value": 0.71,
+    "status": "constant air-property approximation"
+  },
+  "recovery_factor": {
+    "value": 0.8921121404456347,
+    "source": "NASA-CR-138747 Eq.71 turbulent recovery-factor relation"
+  },
+  "inflation_function": {
+    "form": "3u^2-2u^3 on 0<u<1",
+    "status": "lowest-degree polynomial satisfying S(0)=0, S(1)=1, S_prime(0)=S_prime(1)=0; design interpolation, not manufacturer measurement"
+  },
+  "load_atmosphere_extension": {
+    "purpose": "chapter 6.1 only",
+    "standard_top_m": 86000,
+    "extended_top_m": 110000,
+    "method": "Continue final lapse-rate segment, hydrostatic pressure and ideal-gas density; use existing geopotential conversion",
+    "status": "mathematical extrapolation, not validated upper-atmosphere data; excluded from all other analyses"
+  },
+  "spin_response": {
+    "response_s": 1,
+    "omega0_rad_s": 0,
+    "status": "timely detection and completed posture adjustment assumed within 1s from bias onset; frozen rho and v; independent local onset response at each trajectory point",
+    "pitch": "conditionally neglected for stable reference pose and small initial pitch perturbations"
+  }
+}

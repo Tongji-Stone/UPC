@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "paragraph_start_x_pt": {
+    "For the 190": 94.7760009765625,
+    "The model is calibrated": 94.7760009765625,
+    "The results reveal": 94.7760009765625
+  },
+  "nominal_text_left_x_pt": 70.86614173228347,
+  "first_line_indent_pt": 23.909859244279033,
+  "pdf_sha256": "faa7c3f775834400efb8e062efada22093c846a8cacefcdd8d92d999ca5c16b1",
+  "pages": 32
+}

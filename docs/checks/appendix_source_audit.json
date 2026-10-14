@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "method": "Standalone solver; numerical equivalence checked by verify_appendix.py",
+  "files": {
+    "appendices/solve.py": "f36d46ea36a8a84fab0fc817c6b91093caf6919135c4e78a69a690b63fea9eb1"
+  }
+}

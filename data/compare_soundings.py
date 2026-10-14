@@ -1,6 +1,0 @@
-"""Recompute measured atmosphere comparison using the revised model."""
-import sys
-from pathlib import Path
-sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
-from run_analysis import atmosphere_check
-if __name__=='__main__': atmosphere_check()

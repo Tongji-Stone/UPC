@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-15",
+  "style": "IEEE numbered references",
+  "scope": "Formal publications only; no web pages or promotional sheets in bibliography",
+  "remaining": [
+    {
+      "key": "summit",
+      "number": 1,
+      "body_citation_count": 3,
+      "publication_type": "Scientific summit technical summary",
+      "verification_source": "https://lru.praxis.dk/Lru/microsites/hvadermatematik/hem3download/kap3a_QR20_ekstra_Report_Final.pdf",
+      "evidence": "Original cover: full title, California Science Center, Los Angeles, summit Jan. 23, 2013. Report foreword dated Feb. 2013; bibliography retains year only. Also cited as reference 9 in the PLoS article."
+    },
+    {
+      "key": "guerster",
+      "number": 2,
+      "body_citation_count": 5,
+      "publication_type": "Peer-reviewed journal article",
+      "verification_source": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187798",
+      "evidence": "Publisher: M. Guerster, U. Walter; PLoS ONE 12(12), e0187798; Dec. 7, 2017; DOI matches."
+    },
+    {
+      "key": "ussa",
+      "number": 3,
+      "body_citation_count": 1,
+      "publication_type": "Official standard-atmosphere technical report",
+      "verification_source": "https://ntrs.nasa.gov/api/citations/19770009539",
+      "evidence": "NASA record: NASA-TM-X-74335 / NOAA-S/T-76-1562, Oct. 1976. Local original cover confirms NOAA, NASA, USAF and Washington, DC."
+    },
+    {
+      "key": "thermal",
+      "number": 4,
+      "body_citation_count": 1,
+      "publication_type": "NASA contractor report / university progress report",
+      "verification_source": "https://ntrs.nasa.gov/api/citations/19740019690/downloads/19740019690.pdf",
+      "evidence": "Original title page lists Syung Chung and Forrest L. Staffanson; Staffanson is also principal investigator. NTRS metadata lists only Chung. Title-page authors take precedence. Univ. Utah, Jul. 1973; NASA-CR-138747, UTEC MR 73-136."
+    },
+    {
+      "key": "nguyen",
+      "number": 5,
+      "body_citation_count": 2,
+      "publication_type": "NASA technical paper",
+      "verification_source": "https://ntrs.nasa.gov/citations/19800005879",
+      "evidence": "Record and cover confirm all six authors, NASA-TP-1538, Dec. 1979, NASA Langley Research Center."
+    },
+    {
+      "key": "cobleigh",
+      "number": 6,
+      "body_citation_count": 1,
+      "publication_type": "NASA contractor report",
+      "verification_source": "https://ntrs.nasa.gov/api/citations/19950004997/downloads/19950004997.pdf",
+      "evidence": "Original cover confirms Brent R. Cobleigh, NASA Contractor Report 186030, NASA Dryden Flight Research Center, Edwards, CA, 1994."
+    },
+    {
+      "key": "nasastd",
+      "number": 7,
+      "body_citation_count": 1,
+      "publication_type": "Official technical standard",
+      "verification_source": "https://www.nasa.gov/wp-content/uploads/2020/10/2022-04-08_nasa-std-3001_vol_2_rev_c_final.pdf",
+      "evidence": "Original title page confirms NASA-STD-3001 Volume 2 Revision C, complete title, approval Apr. 8, 2022."
+    }
+  ],
+  "removed": [
+    {
+      "key": "t11",
+      "reason": "Product promotional/specification sheet; excluded under formal-publications-only scope."
+    },
+    {
+      "key": "wyoming",
+      "reason": "Web data archive, not a formal publication."
+    },
+    {
+      "key": "suit",
+      "reason": "NASA public-information web article, not a formal publication."
+    }
+  ],
+  "numerical_model": "Unchanged. Removed items remain documented in data/source_registry.json; original data and design choices are retained."
+}

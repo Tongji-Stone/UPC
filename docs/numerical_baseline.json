@@ -1,0 +1,21 @@
+{
+  "source_hashes": {
+    "model.py": "0754f83338d1c0899b1d3338959fdced3f41a92b2a26aa2d7d0ac0ccd9f7ea43",
+    "spin_model.py": "12ccac70e74d7163b45e3c38bdcc77a4c98716fc8787993ff700cb860c18144a",
+    "run_analysis.py": "9c26bfe60ffa76f984eef8506c65c3e8547748d12cb3331719427a3afda57e1a",
+    "config.json": "42cf26dfff339aa5ccc0ea57c938d7becb4428488ee23aeb32aeb6e1848e2e2a",
+    "appendices/solve.py": "f36d46ea36a8a84fab0fc817c6b91093caf6919135c4e78a69a690b63fea9eb1"
+  },
+  "input_hashes": {
+    "data/stratos_summary.csv": "0318d19ff4f51d33e18bb44580b1d45a63c46c66aedb014087ac4c037ba6c656",
+    "data/stratos_october_digitized.csv": "4b4d582d4530b6acf335b6ec25887643a024116aace4d6485c5dc207bdf2ea1c",
+    "data/wyoming_soundings_selected.csv": "4b3b02d1adb66c5639311b37eb1effd1f8d7cf3e81b854dcf5b7b7fa372b01d3",
+    "data/stratos_fig1_source.png": "ce98ba2d28b0bef3db3a15eed9085366ab80fe2d1aac67acd44d8fbc03c3a716"
+  },
+  "area_m2": 1.2391716561412864,
+  "heights_km": [
+    105.57725234847179,
+    56.35586494264044,
+    66.28022965933721
+  ]
+}

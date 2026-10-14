@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "abstract_lexical_words": 294,
+  "abstract_whitespace_tokens": 306,
+  "abstract_policy": "Preserve the user-supplied text; numeric and unit tokens are reported separately",
+  "pages": 32,
+  "section_count": 8,
+  "data_figures": 14,
+  "tikz_diagrams": 3,
+  "figure_fonts": {
+    "atmosphere_temperature": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "atmosphere_density": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "process_q1_drag": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "raw_q1_atmosphere": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "raw_q1_flights": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "result_q1_validation": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "family_velocity": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "family_force": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "terminal_convergence": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "family_temperature": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "risk_free": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "risk_heat": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "risk_spin": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ],
+    "process_q1_opening": [
+      "TimesNewRomanPS-ItalicMT",
+      "TimesNewRomanPSMT"
+    ]
+  },
+  "nominal_body_and_code_size_pt": 12,
+  "pdf_body_and_code_size_pt": 11.96,
+  "figure12_speed_spread_20km_mps": 93.1218425610628,
+  "figure12_speed_spread_10km_mps": 0.03503559002560053,
+  "core_stdout": "105.57896\n56.35661\n66.28165\n",
+  "three_core_results_km": [
+    105.57896,
+    56.35661,
+    66.28165
+  ],
+  "paper_heights_km": [
+    105.57725234847179,
+    56.35586494264044,
+    66.28022965933721
+  ],
+  "core_minus_research_m": [
+    1.707651528207066,
+    0.7450573595662036,
+    1.420340662789954
+  ],
+  "independent_core_command": "python -I -S appendices/solve.py",
+  "references_all_used": true,
+  "equation_and_figure_references_valid": true,
+  "pdf_sha256": "a761a0a6fe854a50ee61c188279aaeee3f99dcda1023c921b06b42c8826efd8b"
+}

@@ -1,36 +1,35 @@
 {
   "ussa": {
-    "file": "../../19770009539.pdf",
     "title": "U.S. Standard Atmosphere, 1976",
     "url": "https://ntrs.nasa.gov/citations/19770009539",
     "pages": "printed 3 Table 4; 6 hydrostatic equation",
     "verified": "local PDF visually read"
   },
   "guerster": {
-    "file": "../../file.pdf",
     "doi": "10.1371/journal.pone.0187798",
     "year": 2017,
     "pages": "Fig.1 p7; Eqs16,17; Eq26 p14",
     "verified": "local PDF; publisher",
-    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187798"
+    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0187798",
+    "posture": "Section III: Flight attitude data and wetted area; Fig.2 defines alpha=0 as regular belly-down reference, with actual deviations reconstructed from video."
   },
   "stratos": {
-    "file": "../../kap3a_QR20_ekstra_Report_Final.pdf",
     "year": 2013,
-    "pages": "10–13,26–28,46–47,66–67",
+    "pages": "10\u201313,26\u201328,46\u201347,66\u201367",
     "url": "https://lru.praxis.dk/Lru/microsites/hvadermatematik/hem3download/kap3a_QR20_ekstra_Report_Final.pdf",
     "verified": "local full report"
   },
   "nasa_acceleration": {
-    "title": "Human Integration Design Handbook, revision 1, section 6.5",
-    "url": "https://www.nasa.gov/wp-content/uploads/2023/03/human-integration-design-handbook-revision-1.pdf",
-    "use": "Axis, duration and restraint dependence; no universal skydiver 5g rating claimed."
+    "title": "NASA-STD-3001 Volume 2 Revision C (2022), section 6.5.1",
+    "url": "https://www.nasa.gov/wp-content/uploads/2020/10/2022-04-08_nasa-std-3001_vol_2_rev_c_final.pdf",
+    "verified": "2026-10-13, original standard sections 6.5.1 and 6.5.2 inspected",
+    "use": "Sec 6.5.1 Fig 4 printed p58: positive Gx, deconditioned 30/90/150s ->78.5/49.0/39.2 m/s2 (~8/5/4g); non-deconditioned 5/300s ->157/73.5 m/s2. Restraints and counterpressure garment assumed. Magnitude reference, not skydiving certification."
   },
   "t11": {
     "title": "Airborne Systems T-11 product sheet, 2017",
     "url": "https://airborne-sys.com/wp-content/uploads/2025/04/ASG-T-11-20170202-Spanish.pdf",
     "verified": "manufacturer PDF opened; 18ft/s converted to 5.4864m/s because metric column label contains a typographical unit error",
-    "use": "reference scale for landing design and approximately six-second inflation; not a specification for this 190kg suit design"
+    "use": "Reference descent speed below 18 ft/s at 181.4 kg and inflation around six seconds. Not certification of a 190 kg system, its opening altitude, or our smooth eight-second inflation law."
   },
   "nomex": {
     "title": "DuPont Nomex Fiber Technical Guide p9",
@@ -47,10 +46,9 @@
     "use": "qualitative context; quantitative history taken from local Stratos primary report"
   },
   "research_audit": {
-    "OpenAlex": "HTTP429 during both attempted hybrid queries",
-    "AnySearch": "returned core DOI but parsed year2012 incorrectly; manually corrected to2017 from publisher/local PDF. Other irrelevant hits discarded.",
-    "cross_validated": false,
-    "policy": "Use original publication and local primary sources; no fabricated metadata."
+    "date": "2026-10-13",
+    "method": "Original NASA and manufacturer pages; local original Stratos report; publisher paper",
+    "thermal_threshold": "390 K selected near NASA environmental high-end 394.26 K as an authorized design screening assumption. Environment is not equivalent to aerodynamic recovery temperature. Sensitivity 370/390/410 K."
   },
   "thermal": {
     "author": "Chung, S.",
@@ -61,5 +59,23 @@
     "pages": "printed 58 Eq71",
     "verified": "NASA original PDF read: turbulent recovery factor Pr^(1/3)",
     "use": "continuous-flow recovery temperature proxy, not human temperature"
+  },
+  "suit": {
+    "title": "NASA Spacewalk Spacesuit Basics",
+    "url": "https://www.nasa.gov/centers-and-facilities/johnson/spacewalk-spacesuit-basics/",
+    "verified": "2026-10-13, NASA source read",
+    "use": "NASA approximately -250 to +250 F, converted to 116.48-394.26 K; high-end magnitude informs assumed 390 K screening. No claim that this is a certified Taw limit."
+  },
+  "nguyen": {
+    "title": "NASA TP-1538, Nguyen et al., 1979",
+    "url": "https://ntrs.nasa.gov/citations/19800005879",
+    "pages": "Appendix B printed39 coefficient expansion; Table III printed81 Cnr(alpha)",
+    "verified": "official PDF inspected; Cnr=-1.02000 at 40deg; coefficient magnitude analogy only"
+  },
+  "cobleigh": {
+    "title": "NASA CR-186030, Cobleigh, 1994",
+    "url": "https://ntrs.nasa.gov/citations/19950004997",
+    "pages": "printed6, Figs12-13",
+    "verified": "official PDF: Cn0=-.063 baseline, -.078 transition strips, -.040 strakes; aircraft data, not human calibration"
   }
 }

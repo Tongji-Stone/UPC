@@ -1,11 +1,12 @@
 """Render every final PDF page with Poppler and make inspection contact sheets."""
 from pathlib import Path
-import subprocess
+import subprocess,json
 from PIL import Image,ImageDraw
 ROOT=Path(__file__).resolve().parent;OUT=ROOT/'build'/'pages';OUT.mkdir(exist_ok=True)
-subprocess.run(['pdftoppm','-r','110','-png',str(ROOT/'main.pdf'),str(OUT/'page')],check=True)
+pdf=ROOT/json.loads((ROOT/'main.build.json').read_text(encoding='utf-8'))['pdf_file']
+subprocess.run(['pdftoppm','-r','110','-png',str(pdf),str(OUT/'page')],check=True)
 from pypdf import PdfReader
-count=len(PdfReader(ROOT/'main.pdf').pages)
+count=len(PdfReader(pdf).pages)
 pages=[p for p in sorted(OUT.glob('page-*.png')) if int(p.stem.split('-')[-1])<=count]
 for start in range(0,len(pages),6):
     group=pages[start:start+6];sheet=Image.new('RGB',(1200,1160),'#dddddd');draw=ImageDraw.Draw(sheet)

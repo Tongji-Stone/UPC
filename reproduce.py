@@ -1,28 +1,17 @@
-"""Single offline entry point: python reproduce.py [--compile]."""
+"""Offline reproduction entry point; all dependencies are ordinary local packages."""
 from pathlib import Path
-import subprocess,sys,json,importlib.util,time,hashlib
+import subprocess,sys,json,hashlib,platform,importlib.metadata
 ROOT=Path(__file__).resolve().parent
-SKILL=Path.home()/'.codex'/'skills'/'math-modeling'
-def run(*args):
-    subprocess.run([sys.executable,'-X','utf8',*map(str,args)],cwd=ROOT,check=True)
+def run(name,*args):subprocess.run([sys.executable,'-X','utf8',str(ROOT/name),*args],cwd=ROOT,check=True)
 def manifest():
-    source=SKILL/'references'/'roles'/'编程手'/'scripts'/'repro_manifest.py'
-    spec=importlib.util.spec_from_file_location('skill_manifest',source);mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
-    inputs=[ROOT/'config.json',ROOT/'data'/'stratos_summary.csv',ROOT/'data'/'stratos_fig1_source.png',ROOT/'data'/'wyoming_soundings_selected.csv',ROOT/'data'/'source_registry.json']
-    inputs += [ROOT.parent/n for n in ['19770009539.pdf','file.pdf','kap3a_QR20_ekstra_Report_Final.pdf']]
-    inputs += list(ROOT.glob('*.py'))+[ROOT/'data'/'digitize_stratos.py']
-    config=json.loads((ROOT/'config.json').read_text(encoding='utf-8'))
-    obj=mod.build_manifest(inputs,2023,config,'.\\.venv\\Scripts\\python.exe reproduce.py',['numpy','scipy','matplotlib','pandas','Pillow','PyMuPDF','pypdf','requests'])
-    obj['calculation_runtime_s']=json.loads((ROOT/'results.json').read_text(encoding='utf-8'))['runtime_s']
-    (ROOT/'results'/'复现清单.json').write_text(json.dumps(obj,ensure_ascii=False,indent=2),encoding='utf-8')
+ files=[ROOT/'config.json',ROOT/'requirements.txt',ROOT/'build.ps1',*sorted((ROOT/'data').glob('*.py')),*sorted((ROOT/'data').glob('*.csv')),*sorted((ROOT/'data').glob('*.json')),ROOT/'data'/'stratos_fig1_source.png',*sorted(ROOT.glob('*.py')),ROOT/'main.tex',*sorted((ROOT/'appendices').glob('*.py'))]
+ obj={'seed':2023,'command':'.\\.venv\\Scripts\\python.exe reproduce.py --compile','python':platform.python_version(),
+ 'dependencies':{n:importlib.metadata.version(n) for n in ['numpy','scipy','matplotlib','pandas','Pillow','PyMuPDF','pypdf']},
+ 'inputs':{str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in files},
+ 'config':json.loads((ROOT/'config.json').read_text(encoding='utf-8')),
+ 'calculation_runtime_s':json.loads((ROOT/'results.json').read_text(encoding='utf-8'))['runtime_s']}
+ (ROOT/'results'/'reproduction_manifest.json').write_text(json.dumps(obj,ensure_ascii=False,indent=2),encoding='utf-8')
 if __name__=='__main__':
-    run(ROOT/'data'/'digitize_stratos.py')
-    run(ROOT/'test_model.py')
-    run(ROOT/'run_analysis.py')
-    run(ROOT/'make_chinese_figures.py')
-    run(ROOT/'generate_paper_data.py')
-    run(SKILL/'tools'/'figure'/'scripts'/'check_figure.py',ROOT/'figures'/'*.png',ROOT/'figures'/'*.svg',ROOT/'figures'/'*.pdf','--strict')
-    run(SKILL/'references'/'roles'/'编程手'/'scripts'/'figure_audit.py',ROOT/'figures','--questions','q1','--strict')
-    manifest()
-    if '--compile' in sys.argv:run(ROOT/'build_paper.py')
-
+ run('data/digitize_stratos.py');run('test_model.py');run('test_spin_model.py');run('run_analysis.py');run('make_figures.py');run('generate_paper_data.py');run('generate_appendix.py');run('verify_appendix.py')
+ manifest()
+ if '--compile' in sys.argv:run('build_paper.py');run('verify_project.py');run('render_paper.py')

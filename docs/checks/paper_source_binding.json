@@ -1,0 +1,138 @@
+{
+  "builder": "local latexmk + XeLaTeX",
+  "command": [
+    "latexmk",
+    "-xelatex",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "-file-line-error",
+    "-no-shell-escape",
+    "-outdir=build/latex",
+    "main.tex"
+  ],
+  "pdf_file": "main.pdf",
+  "main_pdf_sha256": "9dd07dea887c10420a743729b02a794023e04a339f7db72bc495ece3306c3fcb",
+  "resources": [
+    {
+      "source": "main.tex",
+      "staged": "build\\source_bundle\\main.tex",
+      "sha256": "36484b7a67112203be5b44556011b2ef9fa0be081b54f64937188dc3c64f10ad"
+    },
+    {
+      "source": "config.json",
+      "staged": "build\\source_bundle\\config.json",
+      "sha256": "42cf26dfff339aa5ccc0ea57c938d7becb4428488ee23aeb32aeb6e1848e2e2a"
+    },
+    {
+      "source": "appendices\\solve.py",
+      "staged": "build\\source_bundle\\appendices\\solve.py",
+      "sha256": "f36d46ea36a8a84fab0fc817c6b91093caf6919135c4e78a69a690b63fea9eb1"
+    },
+    {
+      "source": "generated\\atmosphere_check.tex",
+      "staged": "build\\source_bundle\\generated\\atmosphere_check.tex",
+      "sha256": "4435c8b256a06ddef390b6f5ecd07d5b01d52a43beb3a263cdc1dc7e1a2fadf8"
+    },
+    {
+      "source": "generated\\boundaries.tex",
+      "staged": "build\\source_bundle\\generated\\boundaries.tex",
+      "sha256": "0f737075e3fff1dae697de73313aeca0cee564e6840876dc6d04cd506aeeb8d2"
+    },
+    {
+      "source": "generated\\cases.tex",
+      "staged": "build\\source_bundle\\generated\\cases.tex",
+      "sha256": "c72f1a8e8d1d760d716ad85b5ed69b9d825ad9581522372f96a773286009c98b"
+    },
+    {
+      "source": "generated\\flights.tex",
+      "staged": "build\\source_bundle\\generated\\flights.tex",
+      "sha256": "ab35b6dd052448db3915e8f8e05bb67b73a7e36d3cdc16944779547177bdaf2d"
+    },
+    {
+      "source": "generated\\numbers.tex",
+      "staged": "build\\source_bundle\\generated\\numbers.tex",
+      "sha256": "2c6d407eac31c377e75d6c816a085aacffac702dc03db97f3f528c0d0ca93ac3"
+    },
+    {
+      "source": "generated\\peaks.tex",
+      "staged": "build\\source_bundle\\generated\\peaks.tex",
+      "sha256": "42575fd01c3d49c47deeb09176ca394198506689c96fbe216bb1a6436a455e8c"
+    },
+    {
+      "source": "generated\\sensitivity.tex",
+      "staged": "build\\source_bundle\\generated\\sensitivity.tex",
+      "sha256": "2774ecf6fc531114c681727b459d7fa0be5e03aeaecc7903e38e13905b7bcfd5"
+    },
+    {
+      "source": "figures\\family_velocity.pdf",
+      "staged": "build\\source_bundle\\figures\\family_velocity.pdf",
+      "sha256": "1ea416ce2b642db68f7e21a93640b802f832e19bbf9a2c08afa49712dde49dab"
+    },
+    {
+      "source": "figures\\risk_spin.pdf",
+      "staged": "build\\source_bundle\\figures\\risk_spin.pdf",
+      "sha256": "b31bf2b00656b0837166d3f241144e0112b371170472f7250c806bd073bc6e33"
+    },
+    {
+      "source": "figures\\raw_q1_flights.pdf",
+      "staged": "build\\source_bundle\\figures\\raw_q1_flights.pdf",
+      "sha256": "b3b21305b4b0921ce8921738412cd4aa85da1f40e27a8017d265f34b0b0b07e7"
+    },
+    {
+      "source": "figures\\atmosphere_temperature.pdf",
+      "staged": "build\\source_bundle\\figures\\atmosphere_temperature.pdf",
+      "sha256": "03b80353b0e5592544ff4e4300d2c6df4678254a6e674382bfb4a413abe1c3e3"
+    },
+    {
+      "source": "figures\\family_temperature.pdf",
+      "staged": "build\\source_bundle\\figures\\family_temperature.pdf",
+      "sha256": "259addcdf903fe2f7fca25f589d0eefc8c8ed87f39c8f7c9d7cce62a16aab7c4"
+    },
+    {
+      "source": "figures\\raw_q1_atmosphere.pdf",
+      "staged": "build\\source_bundle\\figures\\raw_q1_atmosphere.pdf",
+      "sha256": "8ab1f2a04597aed8152721583f68c16e59fe3448323d6a2bf563c87abfe15b1a"
+    },
+    {
+      "source": "figures\\family_force.pdf",
+      "staged": "build\\source_bundle\\figures\\family_force.pdf",
+      "sha256": "61721aea6107ae77ada01dba5420cc06d3073260da8d164c4e3c25291ad369af"
+    },
+    {
+      "source": "figures\\atmosphere_density.pdf",
+      "staged": "build\\source_bundle\\figures\\atmosphere_density.pdf",
+      "sha256": "06316e0d7a989731dddee8bfdea4568e3a347072f613d48c6d8d74131c1d5682"
+    },
+    {
+      "source": "figures\\process_q1_drag.pdf",
+      "staged": "build\\source_bundle\\figures\\process_q1_drag.pdf",
+      "sha256": "54aa5ada3df58a733368ac57e584245b0e4605b83027d6489aaa34c6902b89de"
+    },
+    {
+      "source": "figures\\risk_free.pdf",
+      "staged": "build\\source_bundle\\figures\\risk_free.pdf",
+      "sha256": "53b15a85e87328ec9728cb94f8da7ddb1c547271d105e28d504a02aaa0f0503a"
+    },
+    {
+      "source": "figures\\terminal_convergence.pdf",
+      "staged": "build\\source_bundle\\figures\\terminal_convergence.pdf",
+      "sha256": "806630f1bdbb9c5e458817ec05a0a31dce7bbf10689494ba71b6695a1f0381ad"
+    },
+    {
+      "source": "figures\\risk_heat.pdf",
+      "staged": "build\\source_bundle\\figures\\risk_heat.pdf",
+      "sha256": "b6d297ea4b452a7ec6847c0142f98fce45fa8c9ec9e506e5be3628818a4cfef1"
+    },
+    {
+      "source": "figures\\process_q1_opening.pdf",
+      "staged": "build\\source_bundle\\figures\\process_q1_opening.pdf",
+      "sha256": "e071fe5adab1b5291151dcda29df0c4267479e616fef8dd0cb27028f1938afd1"
+    },
+    {
+      "source": "figures\\result_q1_validation.pdf",
+      "staged": "build\\source_bundle\\figures\\result_q1_validation.pdf",
+      "sha256": "55ae3a4251c9116c177da5e970cd95f51eb8d38c67bbba88f7f52e4681f2efad"
+    }
+  ],
+  "warnings": []
+}

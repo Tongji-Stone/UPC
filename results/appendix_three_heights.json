@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "source_sha256": "f36d46ea36a8a84fab0fc817c6b91093caf6919135c4e78a69a690b63fea9eb1",
+  "area_m2": 1.239399908071612,
+  "stdout": "105.57896\n56.35661\n66.28165\n",
+  "heights_m": [
+    105578.95999999999,
+    56356.61,
+    66281.65
+  ],
+  "height_difference_m": [
+    1.7076515282096807,
+    0.7450573595633614,
+    1.4203406627784716
+  ],
+  "boundary_residuals": [
+    9.353724905736271e-09,
+    1.557509563099302e-05,
+    2.4879379711961747e-07
+  ],
+  "standalone": true,
+  "three_outputs_only": true,
+  "imports": [
+    "math",
+    "bisect"
+  ],
+  "internal_adaptive_rk4_verified": true,
+  "canopy_reference_differences": {
+    "opening_load_g": 3.5501647843716455e-08,
+    "landing_speed_mps": 1.4211329890656543e-07
+  },
+  "canopy": {
+    "drag_area_m2": 99.82041996043016,
+    "canopy_area_m2": 66.54694664028678,
+    "opening_speed_mps": 73.63109957473512,
+    "opening_load_g": 4.659186084913058,
+    "landing_speed_mps": 5.500405969100785,
+    "inflation_completed": true,
+    "full_inflation_height_m": 2394.8567963482337
+  },
+  "total_time_s": 653.3069258984319,
+  "opening_handoff_and_ground_event_verified": true
+}

@@ -48,14 +48,11 @@ class PhysicalTests(unittest.TestCase):
         times=np.linspace(0,actual.t[-1],100)
         self.assertLess(np.max(abs(actual.sol(times)[1]-vt*np.tanh(m.G0*times/vt))),1e-5)
 
-    def test_rotation_zero_torque_and_damping(self):
-        att=replace(m.DEFAULT_ATTITUDE,yaw_bias=0,damping=0,pitch_stiffness=0,yaw_rate0=.2,pitch_rate0=.1)
-        sol=m.freefall(20000,190,1.3,stop_height=5000,attitude=att)
-        self.assertLess(np.max(abs(sol.y[3]-.1)),1e-12)
-        self.assertLess(np.max(abs(sol.y[5]-.2)),1e-12)
-        att=replace(att,damping=.5)
-        dwp,dwz=m.angular_rhs(.1,100,1.3,190,0,.1,.2,att)
-        self.assertLess(dwp,0);self.assertLess(dwz,0)
+    def test_local_spin_torques_and_damping(self):
+        f=m.FrozenSpin(.1,100,1.3,1.9,m.transverse_inertia(190,m.DEFAULT_SPIN),1.,0.)
+        self.assertLess(f.acceleration(.2),0)
+        self.assertGreater(f.acceleration(-.2),0)
+        self.assertEqual(f.solution(1.),0.)
 
     def test_chute_equilibrium_and_exposure(self):
         out=m.chute(2566.8,70,190,1.357)
@@ -66,9 +63,88 @@ class PhysicalTests(unittest.TestCase):
         self.assertAlmostEqual(ex['longest_s'],1.)
 
     def test_numerical_convergence(self):
-        a=m.summarize(m.freefall(60000,190,1.357,stop_height=2566.8,attitude=m.DEFAULT_ATTITUDE))
-        b=m.summarize(m.freefall(60000,190,1.357,stop_height=2566.8,attitude=m.DEFAULT_ATTITUDE,max_step=.1,rtol=1e-10))
+        a=m.summarize(m.freefall(60000,190,1.357,stop_height=2566.8,spin_response=m.DEFAULT_SPIN))
+        b=m.summarize(m.freefall(60000,190,1.357,stop_height=2566.8,spin_response=m.DEFAULT_SPIN,max_step=.1,rtol=1e-10))
         for k in ['speed_mps_peak','drag_g_peak','recovery_k_peak','spin_g_peak']:
             self.assertLess(abs(a[k]/b[k]-1),.001,k)
+
+class RevisionTests(unittest.TestCase):
+    def test_load_extrapolation_isolated_and_continuous(self):
+        np.testing.assert_allclose(m._load_extrapolation_atmosphere(86000),m.atmosphere(86000),rtol=0,atol=0)
+        a=np.array(m._load_extrapolation_atmosphere(86000-.001));b=np.array(m._load_extrapolation_atmosphere(86000+.001))
+        self.assertLess(np.max(abs(a/b-1)),1e-6)
+        for h in [90000,100000,110000]:
+            t,p,rho,c=m._load_extrapolation_atmosphere(h)
+            self.assertGreater(min(t,p,rho,c),0)
+            z=m.R_E*h/(m.R_E+h)
+            self.assertAlmostEqual(t,m.TB[6]+m.L[6]*(z-m.HB[6]))
+            if h<110000:
+                dp=(m._load_extrapolation_atmosphere(h+.1)[1]-m._load_extrapolation_atmosphere(h-.1)[1])/.2
+                self.assertLess(abs(dp/(-rho*m.gravity(h))-1),1e-6)
+            with self.assertRaises(ValueError):m.atmosphere(h)
+            with self.assertRaises(ValueError):m.freefall(h,190,1.24)
+            with self.assertRaises(ValueError):m.descent(h,1.24)
+        with self.assertRaises(ValueError):m.freefall_load_extrapolated(111000,190,1.24)
+
+    def test_load_extrapolation_matches_standard_and_brackets_limit(self):
+        a=1.2391716561412864
+        standard=m.summarize(m.freefall(86000,190,a,stop_height=2566.8))['drag_g_peak']
+        extrap=m.freefall_load_extrapolated(86000,190,a)
+        self.assertAlmostEqual(extrap['free_g'],standard,places=7)
+        self.assertFalse(extrap['uses_extrapolation'])
+        self.assertLess(m.freefall_load_extrapolated(100000,190,a)['free_g'],5)
+        self.assertGreater(m.freefall_load_extrapolated(110000,190,a)['free_g'],5)
+        self.assertFalse(any('recovery' in k or 'spin' in k or 'landing' in k for k in extrap))
+
+    def test_fixed_calibrated_area_decouples_translation(self):
+        plain=m.freefall(40000,190,1.24,stop_height=2566.8)
+        perturbed=m.freefall(40000,190,1.24,stop_height=2566.8,
+                            spin_response=replace(m.DEFAULT_SPIN,c_n=.1,c_nomega=2))
+        tr=m.trajectory(perturbed)
+        np.testing.assert_array_equal(tr['area_m2'],np.full(len(tr['area_m2']),1.24))
+        times=np.linspace(0,min(plain.t[-1],perturbed.t[-1]),200)
+        np.testing.assert_allclose(plain.sol(times)[:2],perturbed.sol(times)[:2],rtol=1e-5,atol=.001)
+
+    def test_cylinder_inertia_and_torque(self):
+        expected=190*(1.9**2+3*.3**2)/12
+        self.assertAlmostEqual(m.transverse_inertia(190,m.DEFAULT_SPIN),expected)
+        f=m.FrozenSpin(.1,100,1.2,1.9,expected,1.,.05)
+        self.assertAlmostEqual(f.acceleration(0),.5*.1*100**2*1.2*1.9*.05/expected)
+        self.assertAlmostEqual(f.damping_nms,.25*.1*100*1.2*1.9**2)
+
+    def test_three_flight_joint_calibration(self):
+        cal=m.calibrate()
+        self.assertEqual(cal['training_flights'],['2012-03-15','2012-07-25','2012-10-14'])
+        self.assertEqual(cal['drag_law'],'mach')
+        import csv
+        rows=list(csv.DictReader((m.ROOT/'data'/'stratos_summary.csv').read_text(encoding='utf-8').splitlines()))
+        def loss(area):
+            return sum((m.summarize(m.freefall(float(x['exit_m']),121.2,area,stop_height=2566.8))['speed_mps_peak']/float(x['peak_mps'])-1)**2 for x in rows)
+        center=loss(cal['area_m2'])
+        self.assertAlmostEqual(center,cal['relative_sse'],places=7)
+        self.assertLess(center,loss(cal['area_m2']-.02));self.assertLess(center,loss(cal['area_m2']+.02))
+
+    def test_boundary_states(self):
+        from run_analysis import feasible_intervals
+        grid=np.arange(0.,11.)
+        b=feasible_intervals(grid,'x',0,lambda h:{'x':h-5})
+        self.assertEqual(b['feasible_intervals_m'],[[0.,5.]])
+        self.assertFalse(b['upper_censored'])
+        self.assertEqual(feasible_intervals(grid,'x',0,lambda h:{'x':1})['feasible_intervals_m'],[])
+        self.assertTrue(feasible_intervals(grid,'x',0,lambda h:{'x':-1})['upper_censored'])
+        b=feasible_intervals(grid,'x',0,lambda h:{'x':-(h-3)*(h-7)})
+        self.assertEqual(b['feasible_intervals_m'],[[0.,3.],[7.,10.]])
+
+    def test_force_units_and_opening_handoff(self):
+        pre,post,sm,metrics=m.descent(40000,1.24)
+        self.assertAlmostEqual(pre.y[0,-1],post['height_m'][0],places=6)
+        self.assertAlmostEqual(pre.y[1,-1],post['speed_mps'][0],places=6)
+        self.assertEqual(post['canopy_force_n'][0],0.)
+        self.assertTrue(post['summary']['inflation_completed'])
+        self.assertGreater(post['summary']['height_at_full_inflation_m'],0)
+        tr=m.trajectory(pre)
+        np.testing.assert_allclose(tr['drag_force_n'],tr['drag_g']*190*m.G0)
+        np.testing.assert_allclose(post['drag_force_n'],post['body_force_n']+post['canopy_force_n'])
+        self.assertNotIn('low_g_s',sm)
 
 if __name__=='__main__':unittest.main(verbosity=2)

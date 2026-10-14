@@ -1,7 +1,6 @@
 """Rebuild calculation tables and every simulation consumed by the paper."""
 from pathlib import Path
 from functools import lru_cache
-from dataclasses import replace
 from collections import defaultdict
 import json,csv,time
 import numpy as np
@@ -61,13 +60,20 @@ def weather_check(area):
 
 def feasible_intervals(grid,metric,limit,fun):
     vals=[fun(float(h))[metric]-limit for h in grid]
-    roots=[]
+    roots=[float(h) for h,value in zip(grid,vals) if value==0.]
     for i in range(len(grid)-1):
         if vals[i]*vals[i+1]<0:
             roots.append(float(brentq(lambda h:fun(h)[metric]-limit,grid[i],grid[i+1],xtol=.05)))
-    edges=[float(grid[0])]+roots+[float(grid[-1])];intervals=[]
+    roots=sorted(set(roots))
+    edges=sorted(set([float(grid[0]),*roots,float(grid[-1])]))
+    intervals=[]
     for lo,hi in zip(edges[:-1],edges[1:]):
-        if fun((lo+hi)/2)[metric]<=limit:intervals.append([lo,hi])
+        if fun((lo+hi)/2)[metric]<=limit:
+            if intervals and intervals[-1][1]==lo:intervals[-1][1]=hi
+            else:intervals.append([lo,hi])
+    for root in roots:
+        if not any(lo<=root<=hi for lo,hi in intervals):intervals.append([root,root])
+    intervals.sort()
     return {'metric':metric,'limit':limit,'crossings_m':roots,'feasible_intervals_m':intervals,
             'upper_censored':bool(intervals and intervals[-1][1]==float(grid[-1]))}
 
@@ -76,13 +82,12 @@ def main():
     cal=m.calibrate();area=cal['area_m2'];print('Area calibration',area,flush=True)
     validation=[]
     for row in read_csv(ROOT/'data'/'stratos_summary.csv'):
-        october=row['flight']=='2012-10-14';law='mach' if october else 'constant'
+        october=row['flight']=='2012-10-14';law='mach'
         sol=m.freefall(float(row['exit_m']),121.2,area,stop_height=2566.8,law=law)
         sm=m.summarize(sol);m.save_trajectory(OUT/('flight_'+row['flight']+'.csv'),m.trajectory(sol))
         validation.append(dict(flight=row['flight'],law=law,height_m=float(row['exit_m']),
             observed_speed_mps=float(row['peak_mps']),predicted_speed_mps=sm['speed_mps_peak'],
-            error_pct=100*(sm['speed_mps_peak']/float(row['peak_mps'])-1),observed_low_g_s=float(row['low_g_s']),
-            predicted_low_g_s=sm['low_g_s'],predicted_peak_time_s=sm['speed_mps_peak_time_s'],
+            error_pct=100*(sm['speed_mps_peak']/float(row['peak_mps'])-1),predicted_peak_time_s=sm['speed_mps_peak_time_s'],
             predicted_peak_height_m=sm['speed_mps_peak_height_m']))
         if october:octsol=sol;octsummary=sm
     m.write_csv(OUT/'flight_validation.csv',validation)
@@ -94,8 +99,7 @@ def main():
                            reading_halfwidth_mps=float(r['speed_reading_halfwidth_mps'])))
     m.write_csv(OUT/'october_curve_comparison.csv',errors)
     resid=np.array([r['residual_mps'] for r in errors])
-    curve={'n':len(errors),'rmse_mps':float(np.sqrt(np.mean(resid**2))),'mae_mps':float(np.mean(abs(resid))),
-           'max_abs_error_mps':float(max(abs(resid))),'bias_mps':float(np.mean(resid))}
+    curve={'n':len(errors),'rmse_mps':float(np.sqrt(np.mean(resid**2)))}
     # Plot-derived readings are correlated; sample count is not independent n.
     atmosphere_check();weather=weather_check(area)
     @lru_cache(maxsize=2000)
@@ -107,26 +111,42 @@ def main():
         if k%15==0:print('Height sweep',int(h/1000),'km',flush=True)
     m.write_csv(OUT/'height_sweep.csv',scan)
     limits=m.CONFIG['limits']
+    # Isolated chapter 6.1 calculation: never feed this atmosphere into evaluate/joint.
+    load_scan=[m.freefall_load_extrapolated(h,190,area) for h in np.arange(86000.,110001.,1000.)]
+    load_fun=lambda h:m.freefall_load_extrapolated(h,190,area)['free_g']-limits['free_g']
+    load_root=brentq(load_fun,86000.,110000.,xtol=.05)
+    load_peak=m.freefall_load_extrapolated(load_root,190,area)
+    refined_load=lambda h:m.freefall_load_extrapolated(h,190,area,max_step=.1,rtol=1e-10)['free_g']-limits['free_g']
+    refined_load_root=brentq(refined_load,load_root-100,load_root+100,xtol=.01)
+    load_extension={'purpose':'chapter_6_1_freefall_load_only','standard_top_m':86000.,'extrapolation_top_m':110000.,
+        'maximum_height_m':float(load_root),'limit_g':limits['free_g'],'boundary':load_peak,
+        'below_boundary_g':load_fun(load_root-10)+limits['free_g'],
+        'above_boundary_g':load_fun(load_root+10)+limits['free_g'],
+        'height_convergence_m':float(abs(refined_load_root-load_root))}
+    assert load_extension['below_boundary_g']<limits['free_g']<load_extension['above_boundary_g']
+    assert load_extension['height_convergence_m']<1
+    m.write_csv(OUT/'free_g_extrapolation_sweep.csv',load_scan)
+    m.write_csv(OUT/'free_g_extrapolation_boundary.csv',[load_peak])
     bounds={key:feasible_intervals(grid,key,val,evaluate) for key,val in limits.items()}
     def joint(h):return max(evaluate(float(h))[key]/val-1 for key,val in limits.items())
     def jfun(h):return {'joint':joint(h)}
     joint_bound=feasible_intervals(grid,'joint',0.,jfun)
     if not joint_bound['feasible_intervals_m']:raise RuntimeError('No feasible height; inspect design')
     hmax=joint_bound['feasible_intervals_m'][-1][1]
-    if joint_bound['upper_censored']:raise RuntimeError('Feasible domain reaches 86km: high-atmosphere decision required')
+    # A domain edge is reported as censored, never as a physical maximum.
     cases={};case_summaries={}
     for label,h in [('40km',40000),('50km',50000),('60km',60000),('70km',70000),('80km',80000),('limit',hmax)]:
         pre,post,fs,metrics=m.descent(h,area)
         tr=m.trajectory(pre);m.save_trajectory(OUT/f'trajectory_{label}.csv',tr);m.save_trajectory(OUT/f'canopy_{label}.csv',post)
-        ex={key:m.exceedance(tr['time_s'],tr[key],val) for key,val in [('drag_g',5.),('recovery_k',400.),('spin_g',2.)]}
+        ex={key:m.exceedance(tr['time_s'],tr[key],val) for key,val in [('drag_g',limits['free_g']),('recovery_k',limits['recovery_k'])]}
         cases[label]=metrics;case_summaries[label]={'free':fs,'canopy':post['summary'],'exposures':ex}
     other=m.chute(2566.8,case_summaries['limit']['canopy']['opening_speed_mps'],190,area,inflation_s=4.)
     m.save_trajectory(OUT/'canopy_limit_4s.csv',other)
     # Select minimum inflation time satisfying the explicit 5g design screen.
     vo=case_summaries['limit']['canopy']['opening_speed_mps']
-    inflation_needed=brentq(lambda tau:m.chute(2566.8,vo,190,area,inflation_s=tau)['summary']['opening_g_peak']-5,4,12,xtol=1e-4)
+    inflation_needed=brentq(lambda tau:m.chute(2566.8,vo,190,area,inflation_s=tau)['summary']['opening_g_peak']-limits['opening_g'],4,12,xtol=1e-4)
     sensitivity=[]
-    for key,values in [('free_g',[4,5,6]),('opening_g',[4,5,6]),('recovery_k',[380,400,420]),('spin_g',[1,2,3]),('landing_mps',[5.5,6,6.5])]:
+    for key,values in [('free_g',[4,5,6]),('opening_g',[4,5,6]),('recovery_k',[limits['recovery_k']-20,limits['recovery_k'],limits['recovery_k']+20]),('spin_g',[4,5,6]),('landing_mps',[5.5,6,6.5])]:
         for val in values:
             changed=dict(limits);changed[key]=val
             jf=lambda h:{'joint':max(evaluate(float(h))[a]/b-1 for a,b in changed.items())}
@@ -134,41 +154,69 @@ def main():
             sensitivity.append(dict(parameter=key,value=val,max_height_m=b['feasible_intervals_m'][-1][1] if b['feasible_intervals_m'] else None,
                                     upper_censored=b['upper_censored']))
     m.write_csv(OUT/'threshold_sensitivity.csv',sensitivity)
-    # Thermal limit by two calibration flights: equipment is re-sized consistently.
+    # Thermal sensitivity by three calibration flights: equipment is re-sized consistently.
     area_sensitivity=[]
-    for label,a in [('March',cal['single_areas_m2']['2012-03-15']),('joint',area),('July',cal['single_areas_m2']['2012-07-25'])]:
-        def heat(h):return m.summarize(m.freefall(h,190,a,stop_height=2566.8))['recovery_k_peak']-400
+    for label,a in [('March',cal['single_areas_m2']['2012-03-15']),('joint',area),('July',cal['single_areas_m2']['2012-07-25']),('October',cal['single_areas_m2']['2012-10-14'])]:
+        def heat(h):return m.summarize(m.freefall(h,190,a,stop_height=2566.8))['recovery_k_peak']-limits['recovery_k']
         root=brentq(heat,40000,80000,xtol=.05)
         metrics=m.descent(root,a)[3]
         area_sensitivity.append(dict(case=label,area_m2=a,thermal_height_m=root,**{k:metrics[k] for k in limits}))
     m.write_csv(OUT/'area_sensitivity.csv',area_sensitivity)
-    attitude=[]
-    for cn in [0.,.002,.01,.03]:
-        for damp in [.25,.5,1.]:
-            att=replace(m.DEFAULT_ATTITUDE,yaw_bias=cn,damping=damp)
-            sol=m.freefall(hmax,190,area,stop_height=2566.8,attitude=att);sm=m.summarize(sol)
-            attitude.append(dict(yaw_bias=cn,damping=damp,spin_g=sm['spin_g_peak'],
-                                max_rpm=np.sqrt(sm['spin_g_peak']*m.G0/.5)*60/(2*np.pi)))
-            if damp==.5:m.save_trajectory(OUT/f'attitude_cn_{cn:g}.csv',m.trajectory(sol))
-    m.write_csv(OUT/'attitude_sensitivity.csv',attitude)
-    pitch=[]
-    for theta in [5,15,30]:
-        sol=m.freefall(hmax,190,area,stop_height=2566.8,attitude=replace(m.DEFAULT_ATTITUDE,theta0_deg=theta))
-        sm=m.summarize(sol);m.save_trajectory(OUT/f'pitch_{theta}.csv',m.trajectory(sol))
-        pitch.append(dict(theta0_deg=theta,speed_mps=sm['speed_mps_peak'],recovery_k=sm['recovery_k_peak'],drag_g=sm['drag_g_peak']))
-    m.write_csv(OUT/'pitch_sensitivity.csv',pitch)
+    spin_root=bounds['spin_g']['feasible_intervals_m'][-1][1]
+    if bounds['spin_g']['upper_censored']:raise RuntimeError('Spin boundary not bracketed in standard atmosphere')
+    def spin_case(h,step=.5,rtol=1e-8,sample_step=.25):
+        sol=m.freefall(h,190,area,stop_height=2566.8,spin_response=m.DEFAULT_SPIN,max_step=step,rtol=rtol)
+        return sol,m.spin_peak_details(sol,sample_step)
+    spin_sol,spin_peak=spin_case(spin_root)
+    refined_spin_root=brentq(lambda h:spin_case(h,.1,1e-10)[1]['radial_g']-limits['spin_g'],spin_root-100,spin_root+100,xtol=.01)
+    spin_result={'interpretation':'maximum local response after 1 s from zero spin, not accumulated flight rotation',
+        'parameters':vars(m.DEFAULT_SPIN),'maximum_height_m':spin_root,'limit_g':limits['spin_g'],
+        'boundary':spin_peak,'below_boundary_g':spin_case(spin_root-10)[1]['radial_g'],
+        'above_boundary_g':spin_case(spin_root+10)[1]['radial_g'],
+        'height_convergence_m':abs(refined_spin_root-spin_root),
+        'peak_sampling_difference_g':abs(spin_case(spin_root,.5,1e-8,.05)[1]['radial_g']-spin_peak['radial_g'])}
+    assert spin_result['below_boundary_g']<limits['spin_g']<spin_result['above_boundary_g']
+    assert spin_result['height_convergence_m']<1 and spin_result['peak_sampling_difference_g']<1e-6
+    m.write_csv(OUT/'spin_boundary.csv',[spin_peak])
+    m.save_trajectory(OUT/'spin_envelope_boundary.csv',m.trajectory(spin_sol))
+    frozen=m.FrozenSpin(spin_peak['onset_density_kg_m3'],spin_peak['onset_speed_mps'],area,m.DEFAULT_SPIN.length_m,
+        m.transverse_inertia(190,m.DEFAULT_SPIN),m.DEFAULT_SPIN.c_nomega,m.DEFAULT_SPIN.c_n)
+    tau=np.linspace(0,m.DEFAULT_SPIN.response_s,201);omega=frozen.solution(tau)
+    m.save_trajectory(OUT/'spin_response_boundary.csv',{'elapsed_s':tau,'omega_rad_s':omega,'radial_g':m.DEFAULT_SPIN.head_radius_m*omega**2/m.G0})
     refined=m.descent(hmax,area,max_step=.05,rtol=1e-10)[3];central=cases['limit']
     convergence={key:float(abs(refined[key]/central[key]-1)) for key in limits}
-    refined_h=brentq(lambda h:m.summarize(m.freefall(h,190,area,stop_height=2566.8,max_step=.1,rtol=1e-10))['recovery_k_peak']-400,hmax-100,hmax+100,xtol=.01)
-    convergence['height_difference_m']=abs(refined_h-hmax)
+    if joint_bound['upper_censored']:
+        convergence['height_difference_m']=0.
+    else:
+        def refined_joint(h):
+            mm=m.descent(h,area,max_step=.1,rtol=1e-10)[3]
+            return max(mm[key]/val-1 for key,val in limits.items())
+        refined_h=brentq(refined_joint,max(100.,hmax-100),min(86000.,hmax+100),xtol=.01)
+        convergence['height_difference_m']=abs(refined_h-hmax)
     assert max(convergence[k] for k in limits)<.001 and convergence['height_difference_m']<50
+    boundary_rows=[]
+    for key,bound in bounds.items():
+        hi=bound['feasible_intervals_m'][-1][1] if bound['feasible_intervals_m'] else None
+        boundary_rows.append(dict(metric=key,limit=limits[key],maximum_height_m=hi,
+            upper_censored=bound['upper_censored'],active=bool(hi is not None and not bound['upper_censored'] and abs(hi-hmax)<1)))
+    m.write_csv(OUT/'constraint_boundaries.csv',boundary_rows)
+    terminal={str(h):m.terminal_speed(h,190,area) for h in [0.,2566.8,5000.]}
+    family_canopy=[case_summaries[k]['canopy'] for k in ['40km','50km','60km','70km','80km']]
+    low_altitude={
+        'exit_heights_m':[40000,50000,60000,70000,80000],
+        'opening_speed_spread_mps':float(np.ptp([x['opening_speed_mps'] for x in family_canopy])),
+        'opening_load_spread_g':float(np.ptp([x['opening_g_peak'] for x in family_canopy])),
+        'landing_speed_spread_mps':float(np.ptp([x['landing_mps'] for x in family_canopy])),
+        'opening_load_max_g':max(x['opening_g_peak'] for x in family_canopy),
+        'opening_load_margin_g':limits['opening_g']-max(x['opening_g_peak'] for x in family_canopy),
+        'landing_speed_margin_mps':limits['landing_mps']-max(x['landing_mps'] for x in family_canopy)}
+
     layer_rows=[dict(layer=i,z_base_m=m.HB[i],z_top_m=m.HB[i+1],temperature_k=m.TB[i],lapse_k_per_m=m.L[i],pressure_pa=m.PB[i],density_kg_m3=m.RHOB[i]) for i in range(7)]
     m.write_csv(OUT/'atmosphere_layers.csv',layer_rows)
-    out={'calibration':cal,'validation':validation,'october':octsummary,'october_curve_errors':curve,
-         'limits':limits,'individual_boundaries':bounds,'joint_boundary':joint_bound,'maximum_height_m':hmax,
+    out={'calibration':cal,'validation':validation,'october':octsummary,'october_curve_errors':curve,'free_g_extrapolation':load_extension,
+         'terminal_speeds_mps':terminal,'low_altitude_convergence':low_altitude,'boundary_table':boundary_rows,'maximum_height_status':'domain_limited' if joint_bound['upper_censored'] else 'finite','limits':limits,'individual_boundaries':bounds,'joint_boundary':joint_bound,'maximum_height_m':hmax,
          'cases':cases,'case_summaries':case_summaries,'canopy_4s':other['summary'],'minimum_inflation_s':inflation_needed,
-         'threshold_sensitivity':sensitivity,'area_sensitivity':area_sensitivity,'attitude_sensitivity':attitude,
-         'pitch_sensitivity':pitch,'weather_sensitivity':weather,'convergence':convergence,'runtime_s':time.time()-start}
+         'threshold_sensitivity':sensitivity,'area_sensitivity':area_sensitivity,'spin_response':spin_result,'weather_sensitivity':weather,'convergence':convergence,'runtime_s':time.time()-start}
     (ROOT/'results.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
     print('Maximum height km:',hmax/1000,'runtime',out['runtime_s'],flush=True)
     return out
